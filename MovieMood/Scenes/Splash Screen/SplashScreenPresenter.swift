@@ -6,3 +6,22 @@
 //
 
 import Foundation
+
+protocol SplashScreenPresenter: AnyObject {
+    func onAppear()
+}
+
+final class SplashScreenPresenterImpl {
+    
+    private weak var view: SplashScreenView?
+
+    init(view: SplashScreenView) {
+        self.view = view
+    }
+}
+
+extension SplashScreenPresenterImpl: SplashScreenPresenter {
+    func onAppear() {
+
+    }
+}

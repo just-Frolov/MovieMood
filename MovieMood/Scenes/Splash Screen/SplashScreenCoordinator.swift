@@ -5,4 +5,22 @@
 //  Created by Danil Frolov on 10.04.2023.
 //
 
-import Foundation
+import UIKit
+
+final class SplashScreenCoordinator: BaseCoordinator<Void> {
+    
+    // MARK: - Init
+    
+    private let navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    override func start() {
+        let controller = Storyboard.SplashScreen.initialScene.instantiate()
+        let presenter = SplashScreenPresenterImpl(view: controller)
+        controller.presenter = presenter
+        navigationController.setViewControllers([controller], animated: false)
+    }
+}
