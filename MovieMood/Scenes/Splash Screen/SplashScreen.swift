@@ -12,7 +12,7 @@ protocol SplashScreenView: AnyObject {
     func didLoadPlayer(playerLayer: AVPlayerLayer)
 }
 
-class SplashScreen: BaseViewController<SplashScreenPresenter> {
+final class SplashScreenViewController: BaseViewController<SplashScreenPresenter> {
 
     private var playerLayer: AVPlayerLayer?
    
@@ -23,7 +23,7 @@ class SplashScreen: BaseViewController<SplashScreenPresenter> {
 }
 
 // MARK: - SplashScreenView
-extension SplashScreen: SplashScreenView {
+extension SplashScreenViewController: SplashScreenView {
     func didLoadPlayer(playerLayer: AVPlayerLayer) {
         self.playerLayer = playerLayer
         view.layer.insertSublayer(playerLayer, at: 0)
