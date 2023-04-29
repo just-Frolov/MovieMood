@@ -1,0 +1,40 @@
+##   Every input/output paths in the rest of the config will then be expressed relative to these.
+output_dir: MovieMood/Generated/
+
+## Constants for Assets Catalogs.
+xcassets:
+  inputs:
+    - MovieMood/Resources/Colors.xcassets
+    - MovieMood/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: Images+Colors+Generated.swift
+      
+## Constants for Localized Stings.
+strings:
+    inputs: MovieMood/Resources/Localizable.strings
+    outputs:
+      - templateName: structured-swift5
+        output: Strings+Generated.swift
+        params:
+            enumName: Localized
+
+## Constants for interface builder files.
+ib:
+  inputs: MovieMood
+  outputs:
+    - templateName: scenes-swift5
+      output: Storyboard+Generated.swift
+      params:
+        enumName: Storyboard
+
+## Constants for Fonts.
+fonts:
+  inputs:
+    - MovieMood/Resources/Fonts
+  outputs:
+    - templateName: swift5
+      output: Fonts+Generated.swift
+      params:
+        enumName: Font
+
