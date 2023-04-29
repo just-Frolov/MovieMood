@@ -18,7 +18,7 @@ final class SplashScreenCoordinator: BaseCoordinator<Void> {
     }
     
     override func start() {
-        let controller = Storyboard.SplashScreen.initialScene.instantiate()
+        let controller = SplashScreenViewController()
         let presenter = SplashScreenPresenterImpl(view: controller)
         controller.presenter = presenter
         navigationController.setViewControllers([controller], animated: false)

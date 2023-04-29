@@ -5,3 +5,12 @@
   Created by Danil Frolov on 11.04.2023.
   
 */
+
+"accept_action" = "OK";
+"error_title" = "Error";
+
+"app_title" = "Movie Mood";
+"url_not_valid" = "Invalid URL";
+"data_corrupted" = "Failed to load image.\nData corrupted";
+"image_load_failed" = "Failed to load image";
+"invalid_request_params" = "Invalid data. Please try again later";
