@@ -1,0 +1,29 @@
+//
+//  SplashScreen.swift
+//  MovieMood
+//
+//  Created by Danil Frolov on 11.04.2023.
+//
+
+import UIKit
+
+protocol SplashScreenView {
+    
+}
+
+final class SplashScreenViewController: UIViewController, SplashScreenView {
+    
+    static func instantiate(with presenter: SplashScreenPresenter) -> SplashScreenViewController {
+        let vc: SplashScreenViewController = .instantiate(storyboard: .splashScreen)
+        vc.presenter = presenter
+        return vc
+    }
+  
+    //MARK: - Variables -
+    var presenter: SplashScreenPresenter?
+    
+    //MARK: - Life Cycle -
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}

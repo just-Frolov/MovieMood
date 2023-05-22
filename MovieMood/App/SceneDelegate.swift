@@ -10,7 +10,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    private var rootCoordinator: RootCoordinator!
     
     func scene(
         _ scene: UIScene,
@@ -18,10 +17,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         if let scene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: scene)
-            self.window = window
-            rootCoordinator = RootCoordinator(window: window)
-            rootCoordinator.start()
+            createWindowScene(scene)
         }
+    }
+}
+
+private extension SceneDelegate {
+    
+    func createWindowScene(_ windowScene: UIWindowScene) {
+        let window = UIWindow(windowScene: windowScene)
+        self.window = window
+        
+        let navigationController = UINavigationController()
+        let assemblyBuilder = AssemblerModuleBuilder()
+        let router = AppRouterImpl(
+            navigationController: navigationController,
+            assemblyBuilder: assemblyBuilder
+        )
+        router.start()
+
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
     }
 }
