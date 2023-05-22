@@ -10,7 +10,7 @@
 		B07AAEC02A1B73070034D0AE /* AssemblerBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */; };
 		B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */; };
 		B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */; };
-		B07AAEC72A1B7A850034D0AE /* UIViewController+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC62A1B7A850034D0AE /* UIViewController+Extra.swift */; };
+		B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */; };
 		B08842D129E4A54700D331BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08842D029E4A54700D331BF /* AppDelegate.swift */; };
 		B08842D329E4A54700D331BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08842D229E4A54700D331BF /* SceneDelegate.swift */; };
 		B08842D829E4A54700D331BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B08842D629E4A54700D331BF /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 		B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblerBuilderProtocol.swift; sourceTree = "<group>"; };
 		B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extra.swift"; sourceTree = "<group>"; };
-		B07AAEC62A1B7A850034D0AE /* UIViewController+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extra.swift"; sourceTree = "<group>"; };
+		B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Generated.swift"; sourceTree = "<group>"; };
 		B08842CD29E4A54700D331BF /* MovieMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B08842D029E4A54700D331BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B08842D229E4A54700D331BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */,
-				B07AAEC62A1B7A850034D0AE /* UIViewController+Extra.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -173,6 +172,7 @@
 		B08842F929E4B3C300D331BF /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */,
 				B08842FD29E4B6BE00D331BF /* Fonts+Generated.swift */,
 				B08842FE29E4B6BE00D331BF /* Images+Colors+Generated.swift */,
 				B08842FF29E4B6BE00D331BF /* Strings+Generated.swift */,
@@ -296,12 +296,12 @@
 				B07AAEC02A1B73070034D0AE /* AssemblerBuilderProtocol.swift in Sources */,
 				B0C4272B29FD5A4300AA00D7 /* Network.swift in Sources */,
 				B0C4273229FDC0B100AA00D7 /* SplashScreenInteractor.swift in Sources */,
-				B07AAEC72A1B7A850034D0AE /* UIViewController+Extra.swift in Sources */,
 				B0C4272D29FD5AD400AA00D7 /* Requestable.swift in Sources */,
 				B08842ED29E4AAEB00D331BF /* RootRouter.swift in Sources */,
 				B088430329E4B6BE00D331BF /* Strings+Generated.swift in Sources */,
 				B088430129E4B6BE00D331BF /* Fonts+Generated.swift in Sources */,
 				B088430529E4B6F700D331BF /* SplashScreenPresenter.swift in Sources */,
+				B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */,
 				B088430729E4B78400D331BF /* SplashScreenView.swift in Sources */,
 				B0C4273429FDC0CA00AA00D7 /* SplashScreenEntity.swift in Sources */,
 				B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */,

@@ -11,10 +11,10 @@ protocol SplashScreenView {
     
 }
 
-final class SplashScreenViewController: UIViewController, SplashScreenView {
+final class SplashScreenViewController: UIViewController {
     
     static func instantiate(with presenter: SplashScreenPresenter) -> SplashScreenViewController {
-        let vc: SplashScreenViewController = .instantiate(storyboard: .splashScreen)
+        let vc: SplashScreenViewController = Storyboard.SplashScreen.splashScreenViewController.instantiate()
         vc.presenter = presenter
         return vc
     }
@@ -26,4 +26,8 @@ final class SplashScreenViewController: UIViewController, SplashScreenView {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+}
+
+extension SplashScreenViewController: SplashScreenView {
+    
 }
