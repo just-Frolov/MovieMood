@@ -29,3 +29,11 @@ fonts:
       params:
         enumName: Font
 
+## Constants for interface builder files.
+ib:
+  inputs: MovieMood
+  outputs:
+    - templateName: scenes-swift5
+      output: Storyboard+Generated.swift
+      params:
+        enumName: Storyboard

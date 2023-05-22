@@ -7,21 +7,33 @@
 
 import Foundation
 
-protocol SplashScreenPresenter: AnyObject {
-    func onAppear()
+protocol SplashScreenPresenter {
+    func didFetchMovies(with: MovieResponce)
 }
 
 final class SplashScreenPresenterImpl {
-    
-    private weak var view: SplashScreenView?
 
-    init(view: SplashScreenView) {
+    //MARK: - Variables -
+    private weak var view: SplashScreenViewController?
+    private weak var interactor: SplashScreenInteractorImpl?
+    private var router: AppRouter?
+    
+    //MARK: - Life Cycle -
+    init(router: AppRouter) {
+        self.router = router
+    }
+    
+    func configure(
+        view: SplashScreenViewController,
+        interactor: SplashScreenInteractorImpl
+    ) {
         self.view = view
+        self.interactor = interactor
     }
 }
 
 extension SplashScreenPresenterImpl: SplashScreenPresenter {
-    func onAppear() {
-
+    func didFetchMovies(with: MovieResponce) {
+        //
     }
 }
