@@ -7,7 +7,7 @@
 
 import Alamofire
 
-final class MovieListRequest: Endpoint<[MovieList]> {
+final class MovieListRequest: Endpoint<MovieList> {
     enum SortType: String {
         case popularity = "popularity.desc"
     }

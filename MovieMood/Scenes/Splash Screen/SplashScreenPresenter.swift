@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SplashScreenPresenter {
-    func didFetchMovies(with result: Result<[MovieList], Error>)
+    func didFetchMovies(with result: Result<MovieList, Error>)
 }
 
 final class SplashScreenPresenterImpl {
@@ -37,7 +37,7 @@ final class SplashScreenPresenterImpl {
 }
 
 extension SplashScreenPresenterImpl: SplashScreenPresenter {
-    func didFetchMovies(with result: Result<[MovieList], Error>) {
+    func didFetchMovies(with result: Result<MovieList, Error>) {
         //
     }
 }
