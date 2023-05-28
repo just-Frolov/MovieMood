@@ -12,7 +12,7 @@ protocol Requestable {
     associatedtype Response: Decodable
     
     var path: ClNetwork.EndpointPath { get }
-    var parameters: [String: Any] { get }
+    var parameters: [String: Any] { get set }
     var method: HTTPMethod { get }
     var encoding: ParameterEncoding { get }
 }

@@ -8,14 +8,18 @@
 import Foundation
 
 protocol SplashScreenPresenter {
-    func didFetchMovies(with: MovieResponce)
+    func didFetchMovies(with result: Result<[MovieList], Error>)
 }
 
 final class SplashScreenPresenterImpl {
 
     //MARK: - Variables -
     private weak var view: SplashScreenViewController?
-    private weak var interactor: SplashScreenInteractorImpl?
+    private var interactor: SplashScreenInteractorImpl? {
+        didSet {
+            fetchMovies()
+        }
+    }
     private var router: AppRouter?
     
     //MARK: - Life Cycle -
@@ -33,7 +37,17 @@ final class SplashScreenPresenterImpl {
 }
 
 extension SplashScreenPresenterImpl: SplashScreenPresenter {
-    func didFetchMovies(with: MovieResponce) {
+    func didFetchMovies(with result: Result<[MovieList], Error>) {
         //
+    }
+}
+
+private extension SplashScreenPresenterImpl {
+    func fetchMovies() {
+        print(interactor)
+        Task {
+            print(interactor)
+            await interactor?.loadMovies()
+        }
     }
 }

@@ -71,6 +71,65 @@ extension UIView {
     }
 }
 
+extension UIView {
+    var width: CGFloat {
+        get {
+            return frame.size.width
+        }
+        set {
+            frame.size.width = newValue
+        }
+    }
+    
+    var height: CGFloat {
+        get {
+            return frame.size.height
+        }
+        set {
+            frame.size.height = newValue
+        }
+    }
+    
+    var size: CGSize {
+        get {
+            return frame.size
+        }
+        set {
+            width = newValue.width
+            height = newValue.height
+        }
+    }
+}
+
+extension UIView {
+    func pinEdges(to superView: UIView?,
+                  topSpace: CGFloat = .zero,
+                  leftSpace: CGFloat = .zero,
+                  rightSpace: CGFloat = .zero,
+                  bottomSpace: CGFloat = .zero) {
+        guard let view = superView else {return}
+        NSLayoutConstraint.activate([
+            self.topAnchor.constraint(equalTo: view.topAnchor, constant: topSpace),
+            self.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftSpace),
+            self.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -rightSpace),
+            self.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottomSpace)
+        ])
+        view.setNeedsLayout()
+    }
+    
+    func alignCentered(subview: UIView?,
+                       xOffset: CGFloat = .zero,
+                       yOffset: CGFloat = .zero) {
+        guard let subview = subview else {return}
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            subview.centerXAnchor.constraint(equalTo: centerXAnchor, constant: xOffset),
+            subview.centerYAnchor.constraint(equalTo: centerYAnchor, constant: yOffset)
+        ])
+        setNeedsLayout()
+    }
+}
+
 extension CACornerMask {
     static let all: CACornerMask = [
         .layerMaxXMaxYCorner,
