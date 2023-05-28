@@ -8,11 +8,11 @@
 import Foundation
 
 protocol SplashScreenInteractor {
-    func loadMovies()
+    func loadMovies() async throws -> MovieList
 }
 
 final class SplashScreenInteractorImpl {
-    private weak var presenter: SplashScreenPresenterImpl?
+    private weak var presenter: SplashScreenPresenter?
     private let network: Network
     
     //MARK: - Life Cycle -
@@ -25,19 +25,14 @@ final class SplashScreenInteractorImpl {
     }
 }
 
-extension SplashScreenInteractorImpl {
-    func loadMovies() async {
+extension SplashScreenInteractorImpl: SplashScreenInteractor {
+    func loadMovies() async throws -> MovieList {
         let request = MovieListRequest()
         do {
             let movieList = try await network.request(endpoint: request)
-           
-            await MainActor.run {
-                presenter?.didFetchMovies(with: .success(movieList))
-            }
+            return movieList
         } catch let error {
-            await MainActor.run {
-                presenter?.didFetchMovies(with: .failure(error))
-            }
+            throw error
         }
     }
 }

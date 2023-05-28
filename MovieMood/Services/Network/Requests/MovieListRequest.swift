@@ -19,7 +19,7 @@ final class MovieListRequest: Endpoint<MovieList> {
     ) {
         super.init(
             path: path,
-            parameters: MovieListRequest.toDictionary(
+            parameters: MovieListRequest.paramsToDictionary(
                 page: page,
                 sortType: sortType.rawValue
             ),
@@ -35,7 +35,7 @@ private extension MovieListRequest {
         static let kSortType = "sort_by"
     }
     
-    static private func toDictionary(page: Int, sortType: String) -> [String: Any] {
+    static private func paramsToDictionary(page: Int, sortType: String) -> [String: Any] {
         let params: [String: Any] = [
             Constants.kPage: page,
             Constants.kSortType: sortType,

@@ -8,8 +8,10 @@
 import UIKit
 import Lottie
 
-protocol SplashScreenView {
-    
+@MainActor
+protocol SplashScreenView: AnyObject {
+    func showLoadingAnimation() async
+    func showError(message: String)
 }
 
 final class SplashScreenViewController: UIViewController {
@@ -40,26 +42,36 @@ final class SplashScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAnimationView()
+        presenter?.viewDidLoad()
     }
 }
 
 extension SplashScreenViewController: SplashScreenView {
+    func showLoadingAnimation() async {
+        await withCheckedContinuation { continuation in
+            loadingAnimationView.play() { _ in
+                continuation.resume()
+            }
+        }
+    }
     
+    func showError(message: String) {
+        showAlert(
+            title: Localized.errorTitle,
+            message: message
+        )
+    }
 }
 
 private extension SplashScreenViewController {
     func setupAnimationView() {
-        self.view.addSubview(loadingAnimationView)
+        view.addSubview(loadingAnimationView)
         loadingAnimationView.pinEdges(
-            to: self.view,
+            to: view,
             topSpace: Constants.animationViewSpace,
             leftSpace: Constants.animationViewSpace,
             rightSpace: Constants.animationViewSpace,
             bottomSpace: Constants.animationViewSpace
         )
-        
-        loadingAnimationView.play() { _ in
-            print("animation did complete")
-        }
     }
 }

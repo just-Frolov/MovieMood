@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B072B2E72A23B2AB003A6228 /* UIViewController+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */; };
 		B07AAEC02A1B73070034D0AE /* AssemblerBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */; };
 		B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */; };
 		B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extra.swift"; sourceTree = "<group>"; };
 		B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblerBuilderProtocol.swift; sourceTree = "<group>"; };
 		B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extra.swift"; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */,
+				B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */,
 				B08842D129E4A54700D331BF /* AppDelegate.swift in Sources */,
 				B088430229E4B6BE00D331BF /* Images+Colors+Generated.swift in Sources */,
+				B072B2E72A23B2AB003A6228 /* UIViewController+Extra.swift in Sources */,
 				B07AAED12A1BF1710034D0AE /* Endpoint.swift in Sources */,
 				B08842D329E4A54700D331BF /* SceneDelegate.swift in Sources */,
 			);
