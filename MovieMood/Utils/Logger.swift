@@ -68,8 +68,6 @@ private extension Logger {
     }
     
     static func printMessage(_ message: String) {
-        #if DEBUG
-        print(message)
-        #endif
+        debugPrint(message)
     }
 }
