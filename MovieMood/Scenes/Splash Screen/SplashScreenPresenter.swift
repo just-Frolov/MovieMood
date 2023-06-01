@@ -17,7 +17,7 @@ final class SplashScreenPresenterImpl {
     private weak var view: SplashScreenView?
     private var interactor: SplashScreenInteractor?
     private var router: AppRouter?
-    
+        
     //MARK: - Life Cycle -
     init(router: AppRouter) {
         self.router = router
@@ -47,7 +47,7 @@ private extension SplashScreenPresenterImpl {
         
         await loadingAnimationTask.value
         if let fetchedMovies = await fetchMoviesTask.value {
-            await router?.showMovieList(with: fetchedMovies)
+            await router?.showHomeScreen(with: fetchedMovies)
         }
     }
     

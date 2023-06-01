@@ -34,6 +34,10 @@
 		B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4272F29FD5B2F00AA00D7 /* Logger.swift */; };
 		B0C4273229FDC0B100AA00D7 /* SplashScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4273129FDC0B100AA00D7 /* SplashScreenInteractor.swift */; };
 		B0C4273429FDC0CA00AA00D7 /* SplashScreenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4273329FDC0CA00AA00D7 /* SplashScreenEntity.swift */; };
+		B0ECEF872A2946F4004ADAC7 /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0ECEF862A2946F4004ADAC7 /* HomeScreen.storyboard */; };
+		B0ECEF892A294728004ADAC7 /* HomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECEF882A294728004ADAC7 /* HomeScreenPresenter.swift */; };
+		B0ECEF8B2A294755004ADAC7 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECEF8A2A294755004ADAC7 /* HomeScreenView.swift */; };
+		B0ECEF8E2A2949B0004ADAC7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECEF8D2A2949B0004ADAC7 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +67,10 @@
 		B0C4272F29FD5B2F00AA00D7 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B0C4273129FDC0B100AA00D7 /* SplashScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenInteractor.swift; sourceTree = "<group>"; };
 		B0C4273329FDC0CA00AA00D7 /* SplashScreenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenEntity.swift; sourceTree = "<group>"; };
+		B0ECEF862A2946F4004ADAC7 /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
+		B0ECEF882A294728004ADAC7 /* HomeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenPresenter.swift; sourceTree = "<group>"; };
+		B0ECEF8A2A294755004ADAC7 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
+		B0ECEF8D2A2949B0004ADAC7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				B08842EA29E4AA4D00D331BF /* App */,
+				B0ECEF8C2A294976004ADAC7 /* Base */,
 				B0C4272729FD59E000AA00D7 /* Services */,
 				B08842EB29E4AAC800D331BF /* Scenes */,
 				B08842F929E4B3C300D331BF /* Generated */,
@@ -139,6 +148,7 @@
 		B08842EB29E4AAC800D331BF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B0ECEF852A2946A9004ADAC7 /* Home Screen */,
 				B08842F129E4AC2200D331BF /* Splash Screen */,
 				B08842EC29E4AAEB00D331BF /* AppRouter.swift */,
 				B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */,
@@ -223,6 +233,24 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B0ECEF852A2946A9004ADAC7 /* Home Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B0ECEF8A2A294755004ADAC7 /* HomeScreenView.swift */,
+				B0ECEF882A294728004ADAC7 /* HomeScreenPresenter.swift */,
+				B0ECEF862A2946F4004ADAC7 /* HomeScreen.storyboard */,
+			);
+			path = "Home Screen";
+			sourceTree = "<group>";
+		};
+		B0ECEF8C2A294976004ADAC7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B0ECEF8D2A2949B0004ADAC7 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -294,6 +322,7 @@
 				B08842FB29E4B4C600D331BF /* Localizable.strings in Resources */,
 				B08842F629E4B1DB00D331BF /* Colors.xcassets in Resources */,
 				B08842DA29E4A54800D331BF /* Assets.xcassets in Resources */,
+				B0ECEF872A2946F4004ADAC7 /* HomeScreen.storyboard in Resources */,
 				B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */,
 				B08842D829E4A54700D331BF /* LaunchScreen.storyboard in Resources */,
 			);
@@ -318,11 +347,14 @@
 				B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */,
 				B088430729E4B78400D331BF /* SplashScreenView.swift in Sources */,
 				B0C4273429FDC0CA00AA00D7 /* SplashScreenEntity.swift in Sources */,
+				B0ECEF8B2A294755004ADAC7 /* HomeScreenView.swift in Sources */,
+				B0ECEF8E2A2949B0004ADAC7 /* BaseViewController.swift in Sources */,
 				B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */,
 				B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */,
 				B08842D129E4A54700D331BF /* AppDelegate.swift in Sources */,
 				B088430229E4B6BE00D331BF /* Images+Colors+Generated.swift in Sources */,
 				B072B2E72A23B2AB003A6228 /* UIViewController+Extra.swift in Sources */,
+				B0ECEF892A294728004ADAC7 /* HomeScreenPresenter.swift in Sources */,
 				B07AAED12A1BF1710034D0AE /* Endpoint.swift in Sources */,
 				B08842D329E4A54700D331BF /* SceneDelegate.swift in Sources */,
 			);

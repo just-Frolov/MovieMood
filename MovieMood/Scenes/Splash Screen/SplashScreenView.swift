@@ -14,7 +14,7 @@ protocol SplashScreenView: AnyObject {
     func showError(message: String)
 }
 
-final class SplashScreenViewController: UIViewController {
+final class SplashScreenViewController: BaseViewController<SplashScreenPresenter> {
     
     private enum Constants {
         static let animationViewSpace: CGFloat = 16
@@ -34,10 +34,7 @@ final class SplashScreenViewController: UIViewController {
         animationView.loopMode = .playOnce
         return animationView
     }()
-    
-    //MARK: - Variables -
-    var presenter: SplashScreenPresenter?
-    
+ 
     //MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()

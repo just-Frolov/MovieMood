@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AssemblerBuilderProtocol {
-    func createMovieListModule(router: AppRouter) -> UIViewController
+    func createHomeModule(movieList: MovieList, router: AppRouter) -> UIViewController
     func createLaunchScreenModule(router: AppRouter) -> UIViewController
 }
 
@@ -23,12 +23,13 @@ final class AssemblerModuleBuilder: AssemblerBuilderProtocol {
         return view
     }
     
-    func createMovieListModule(router: AppRouter) -> UIViewController {
-//        let view = MovieListViewController()
-//        let presenter = MovieListPresenter(view: view,
-//                                           router: router)
-//        view.presenter = presenter
-        return UIViewController()
+    func createHomeModule(movieList: MovieList, router: AppRouter) -> UIViewController {
+        let presenter = HomeScreenPresenterImpl(router: router)
+        let view = HomeScreenViewController.instantiate(with: presenter)
+        
+        presenter.inject(view: view)
+
+        return view
     }
 }
 
