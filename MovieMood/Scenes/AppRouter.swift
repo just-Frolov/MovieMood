@@ -12,8 +12,9 @@ protocol AppRouterMain {
     var assemblyBuilder: AssemblerBuilderProtocol? { get set }
 }
 
+@MainActor
 protocol AppRouter: AppRouterMain {
-    func showMovieList()
+    func showMovieList(with movies: MovieList)
     func popToRoot()
 }
 
@@ -35,7 +36,7 @@ final class AppRouterImpl: AppRouter {
         navigationController?.viewControllers = [viewController]
     }
     
-    func showMovieList() {
+    func showMovieList(with movies: MovieList) {
         guard let viewController = assemblyBuilder?.createMovieListModule(router: self) else { return }
         navigationController?.viewControllers = [viewController]
     }

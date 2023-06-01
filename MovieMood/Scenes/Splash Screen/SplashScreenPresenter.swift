@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol SplashScreenPresenter {
-    func didFetchMovies(with: MovieResponce)
+protocol SplashScreenPresenter: AnyObject {
+    func viewDidLoad()
 }
 
 final class SplashScreenPresenterImpl {
 
     //MARK: - Variables -
-    private weak var view: SplashScreenViewController?
-    private weak var interactor: SplashScreenInteractorImpl?
+    private weak var view: SplashScreenView?
+    private var interactor: SplashScreenInteractor?
     private var router: AppRouter?
     
     //MARK: - Life Cycle -
@@ -23,9 +23,9 @@ final class SplashScreenPresenterImpl {
         self.router = router
     }
     
-    func configure(
-        view: SplashScreenViewController,
-        interactor: SplashScreenInteractorImpl
+    func inject(
+        view: SplashScreenView,
+        interactor: SplashScreenInteractor
     ) {
         self.view = view
         self.interactor = interactor
@@ -33,7 +33,40 @@ final class SplashScreenPresenterImpl {
 }
 
 extension SplashScreenPresenterImpl: SplashScreenPresenter {
-    func didFetchMovies(with: MovieResponce) {
-        //
+    func viewDidLoad() {
+        Task {
+            await startInitialFlow()
+        }
+    }
+}
+
+private extension SplashScreenPresenterImpl {
+    func startInitialFlow() async {
+        let loadingAnimationTask = Task { await view?.showLoadingAnimation() }
+        let fetchMoviesTask = Task { await fetchMovies() }
+        
+        await loadingAnimationTask.value
+        if let fetchedMovies = await fetchMoviesTask.value {
+            await router?.showMovieList(with: fetchedMovies)
+        }
+    }
+    
+    func fetchMovies() async -> MovieList? {
+        do {
+            guard let movies = try await interactor?.loadMovies() else {
+                await showError(with: Localized.moviesLoadFailed)
+                return nil
+            }
+            return movies
+        } catch let error {
+            await showError(with: error.localizedDescription)
+            return nil
+        }
+    }
+    
+    func showError(with title: String) async {
+        await MainActor.run(body: {
+            view?.showError(message: title)
+        })
     }
 }

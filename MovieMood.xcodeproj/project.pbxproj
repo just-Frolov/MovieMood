@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B072B2E72A23B2AB003A6228 /* UIViewController+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */; };
 		B07AAEC02A1B73070034D0AE /* AssemblerBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */; };
 		B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */; };
 		B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */; };
 		B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */; };
+		B07AAECC2A1B9D7B0034D0AE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B07AAECB2A1B9D7B0034D0AE /* Lottie */; };
+		B07AAED12A1BF1710034D0AE /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAED02A1BF1710034D0AE /* Endpoint.swift */; };
+		B07AAED32A1BF1AF0034D0AE /* MovieListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAED22A1BF1AF0034D0AE /* MovieListRequest.swift */; };
 		B08842D129E4A54700D331BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08842D029E4A54700D331BF /* AppDelegate.swift */; };
 		B08842D329E4A54700D331BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08842D229E4A54700D331BF /* SceneDelegate.swift */; };
 		B08842D829E4A54700D331BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B08842D629E4A54700D331BF /* LaunchScreen.storyboard */; };
@@ -33,10 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extra.swift"; sourceTree = "<group>"; };
 		B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblerBuilderProtocol.swift; sourceTree = "<group>"; };
 		B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extra.swift"; sourceTree = "<group>"; };
 		B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Generated.swift"; sourceTree = "<group>"; };
+		B07AAED02A1BF1710034D0AE /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		B07AAED22A1BF1AF0034D0AE /* MovieListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRequest.swift; sourceTree = "<group>"; };
 		B08842CD29E4A54700D331BF /* MovieMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B08842D029E4A54700D331BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B08842D229E4A54700D331BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +72,7 @@
 			files = (
 				B08842E929E4AA0D00D331BF /* Kingfisher in Frameworks */,
 				B08842E629E4A9DE00D331BF /* Alamofire in Frameworks */,
+				B07AAECC2A1B9D7B0034D0AE /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,8 +83,18 @@
 			isa = PBXGroup;
 			children = (
 				B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */,
+				B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B07AAECF2A1BF1400034D0AE /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				B07AAED22A1BF1AF0034D0AE /* MovieListRequest.swift */,
+				B07AAED02A1BF1710034D0AE /* Endpoint.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		B08842C429E4A54700D331BF = {
@@ -102,7 +120,6 @@
 				B0C4272729FD59E000AA00D7 /* Services */,
 				B08842EB29E4AAC800D331BF /* Scenes */,
 				B08842F929E4B3C300D331BF /* Generated */,
-				B0C4272829FD59F200AA00D7 /* Models */,
 				B08842F429E4AEA200D331BF /* Resources */,
 				B07AAEC32A1B79DE0034D0AE /* Extensions */,
 				B0C4272E29FD5B0B00AA00D7 /* Utils */,
@@ -188,16 +205,10 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		B0C4272829FD59F200AA00D7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		B0C4272929FD5A2B00AA00D7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B07AAECF2A1BF1400034D0AE /* Requests */,
 				B0C4272A29FD5A4300AA00D7 /* Network.swift */,
 				B0C4272C29FD5AD400AA00D7 /* Requestable.swift */,
 			);
@@ -231,6 +242,7 @@
 			packageProductDependencies = (
 				B08842E529E4A9DE00D331BF /* Alamofire */,
 				B08842E829E4AA0D00D331BF /* Kingfisher */,
+				B07AAECB2A1B9D7B0034D0AE /* Lottie */,
 			);
 			productName = MovieMood;
 			productReference = B08842CD29E4A54700D331BF /* MovieMood.app */;
@@ -263,6 +275,7 @@
 			packageReferences = (
 				B08842E429E4A9DE00D331BF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B08842E729E4AA0D00D331BF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B07AAECA2A1B9D7B0034D0AE /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = B08842CE29E4A54700D331BF /* Products */;
 			projectDirPath = "";
@@ -299,6 +312,7 @@
 				B0C4272D29FD5AD400AA00D7 /* Requestable.swift in Sources */,
 				B08842ED29E4AAEB00D331BF /* AppRouter.swift in Sources */,
 				B088430329E4B6BE00D331BF /* Strings+Generated.swift in Sources */,
+				B07AAED32A1BF1AF0034D0AE /* MovieListRequest.swift in Sources */,
 				B088430129E4B6BE00D331BF /* Fonts+Generated.swift in Sources */,
 				B088430529E4B6F700D331BF /* SplashScreenPresenter.swift in Sources */,
 				B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */,
@@ -308,6 +322,8 @@
 				B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */,
 				B08842D129E4A54700D331BF /* AppDelegate.swift in Sources */,
 				B088430229E4B6BE00D331BF /* Images+Colors+Generated.swift in Sources */,
+				B072B2E72A23B2AB003A6228 /* UIViewController+Extra.swift in Sources */,
+				B07AAED12A1BF1710034D0AE /* Endpoint.swift in Sources */,
 				B08842D329E4A54700D331BF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +542,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B07AAECA2A1B9D7B0034D0AE /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		B08842E429E4A9DE00D331BF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -545,6 +569,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B07AAECB2A1B9D7B0034D0AE /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B07AAECA2A1B9D7B0034D0AE /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		B08842E529E4A9DE00D331BF /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B08842E429E4A9DE00D331BF /* XCRemoteSwiftPackageReference "Alamofire" */;

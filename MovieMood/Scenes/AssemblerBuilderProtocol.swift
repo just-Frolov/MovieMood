@@ -18,7 +18,7 @@ final class AssemblerModuleBuilder: AssemblerBuilderProtocol {
         let interactor = SplashScreenInteractorImpl(presenter: presenter)
         let view = SplashScreenViewController.instantiate(with: presenter)
         
-        presenter.configure(view: view, interactor: interactor)
+        presenter.inject(view: view, interactor: interactor)
         
         return view
     }
