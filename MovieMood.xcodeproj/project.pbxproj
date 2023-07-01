@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0225DF52A4FFC7F00FA9B13 /* MovieCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0225DF42A4FFC7F00FA9B13 /* MovieCardCollectionViewCell.xib */; };
+		B05D50182A4FFDB100BDC9CF /* MovieCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B05D50172A4FFDB100BDC9CF /* MovieCardTableViewCell.xib */; };
+		B05D501A2A4FFDB900BDC9CF /* MovieCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D50192A4FFDB900BDC9CF /* MovieCardTableViewCell.swift */; };
+		B05D501D2A4FFE6C00BDC9CF /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D501C2A4FFE6C00BDC9CF /* Reusable.swift */; };
+		B05D501F2A4FFE8900BDC9CF /* TableCellReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D501E2A4FFE8900BDC9CF /* TableCellReusable.swift */; };
+		B05D50212A4FFEA000BDC9CF /* TableRegistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D50202A4FFEA000BDC9CF /* TableRegistable.swift */; };
+		B05D50232A4FFEBF00BDC9CF /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D50222A4FFEBF00BDC9CF /* BaseTableViewCell.swift */; };
+		B05D50252A4FFED300BDC9CF /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D50242A4FFED300BDC9CF /* BaseCollectionViewCell.swift */; };
 		B072B2E72A23B2AB003A6228 /* UIViewController+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */; };
 		B07AAEC02A1B73070034D0AE /* AssemblerBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */; };
 		B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */; };
@@ -42,7 +48,31 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B0225DF42A4FFC7F00FA9B13 /* MovieCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		B05D50172A4FFDB100BDC9CF /* MovieCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCardTableViewCell.xib; sourceTree = "<group>"; };
+		B05D50192A4FFDB900BDC9CF /* MovieCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardTableViewCell.swift; sourceTree = "<group>"; };
+		B05D501C2A4FFE6C00BDC9CF /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		B05D501E2A4FFE8900BDC9CF /* TableCellReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellReusable.swift; sourceTree = "<group>"; };
+		B05D50202A4FFEA000BDC9CF /* TableRegistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRegistable.swift; sourceTree = "<group>"; };
+		B05D50222A4FFEBF00BDC9CF /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		B05D50242A4FFED300BDC9CF /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		B05D50262A5000F800BDC9CF /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		B05D50272A5000F800BDC9CF /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		B05D50282A5000F800BDC9CF /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
+		B05D50292A5000F800BDC9CF /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
+		B05D502A2A5000F800BDC9CF /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		B05D502B2A5000F800BDC9CF /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		B05D502C2A5000F800BDC9CF /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		B05D502D2A5000F800BDC9CF /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
+		B05D502E2A5000F800BDC9CF /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		B05D502F2A5000F800BDC9CF /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		B05D50302A5000F800BDC9CF /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		B05D50312A5000F800BDC9CF /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		B05D50322A5000F800BDC9CF /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
+		B05D50332A5000F900BDC9CF /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		B05D50342A5000F900BDC9CF /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
+		B05D50352A5000F900BDC9CF /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		B05D50362A5000F900BDC9CF /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		B05D50372A5000F900BDC9CF /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
 		B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extra.swift"; sourceTree = "<group>"; };
 		B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblerBuilderProtocol.swift; sourceTree = "<group>"; };
 		B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
@@ -89,9 +119,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0225DF62A4FFD8100FA9B13 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B05D50172A4FFDB100BDC9CF /* MovieCardTableViewCell.xib */,
+				B05D50192A4FFDB900BDC9CF /* MovieCardTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B05D501B2A4FFE5A00BDC9CF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B05D501C2A4FFE6C00BDC9CF /* Reusable.swift */,
+				B05D501E2A4FFE8900BDC9CF /* TableCellReusable.swift */,
+				B05D50202A4FFEA000BDC9CF /* TableRegistable.swift */,
+				B05D50222A4FFEBF00BDC9CF /* BaseTableViewCell.swift */,
+				B05D50242A4FFED300BDC9CF /* BaseCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B05D50382A5001EE00BDC9CF /* Montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				B05D50272A5000F800BDC9CF /* Montserrat-Black.ttf */,
+				B05D50342A5000F900BDC9CF /* Montserrat-BlackItalic.ttf */,
+				B05D502C2A5000F800BDC9CF /* Montserrat-Bold.ttf */,
+				B05D50282A5000F800BDC9CF /* Montserrat-BoldItalic.ttf */,
+				B05D50302A5000F800BDC9CF /* Montserrat-ExtraBold.ttf */,
+				B05D50332A5000F900BDC9CF /* Montserrat-ExtraBoldItalic.ttf */,
+				B05D50352A5000F900BDC9CF /* Montserrat-ExtraLight.ttf */,
+				B05D502F2A5000F800BDC9CF /* Montserrat-ExtraLightItalic.ttf */,
+				B05D502D2A5000F800BDC9CF /* Montserrat-Italic.ttf */,
+				B05D502B2A5000F800BDC9CF /* Montserrat-Light.ttf */,
+				B05D50292A5000F800BDC9CF /* Montserrat-LightItalic.ttf */,
+				B05D50262A5000F800BDC9CF /* Montserrat-Medium.ttf */,
+				B05D50322A5000F800BDC9CF /* Montserrat-MediumItalic.ttf */,
+				B05D50362A5000F900BDC9CF /* Montserrat-Regular.ttf */,
+				B05D502A2A5000F800BDC9CF /* Montserrat-SemiBold.ttf */,
+				B05D50312A5000F800BDC9CF /* Montserrat-SemiBoldItalic.ttf */,
+				B05D502E2A5000F800BDC9CF /* Montserrat-Thin.ttf */,
+				B05D50372A5000F900BDC9CF /* Montserrat-ThinItalic.ttf */,
+			);
+			path = Montserrat;
+			sourceTree = "<group>";
+		};
 		B07AAEC32A1B79DE0034D0AE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B05D501B2A4FFE5A00BDC9CF /* Cell */,
 				B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */,
 				B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */,
 			);
@@ -187,6 +264,7 @@
 		B08842F729E4B22D00D331BF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				B05D50382A5001EE00BDC9CF /* Montserrat */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -238,10 +316,10 @@
 		B0ECEF852A2946A9004ADAC7 /* Movie List */ = {
 			isa = PBXGroup;
 			children = (
+				B0225DF62A4FFD8100FA9B13 /* Cells */,
 				B0ECEF8A2A294755004ADAC7 /* MovieListController.swift */,
 				B0ECEF882A294728004ADAC7 /* MovieListPresenter.swift */,
 				B0ECEF862A2946F4004ADAC7 /* MovieList.storyboard */,
-				B0225DF42A4FFC7F00FA9B13 /* MovieCardCollectionViewCell.xib */,
 			);
 			path = "Movie List";
 			sourceTree = "<group>";
@@ -322,7 +400,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0225DF52A4FFC7F00FA9B13 /* MovieCardCollectionViewCell.xib in Resources */,
+				B05D50182A4FFDB100BDC9CF /* MovieCardTableViewCell.xib in Resources */,
 				B08842FB29E4B4C600D331BF /* Localizable.strings in Resources */,
 				B08842F629E4B1DB00D331BF /* Colors.xcassets in Resources */,
 				B08842DA29E4A54800D331BF /* Assets.xcassets in Resources */,
@@ -340,23 +418,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07AAEC02A1B73070034D0AE /* AssemblerBuilderProtocol.swift in Sources */,
+				B05D50252A4FFED300BDC9CF /* BaseCollectionViewCell.swift in Sources */,
 				B0C4272B29FD5A4300AA00D7 /* Network.swift in Sources */,
 				B0C4273229FDC0B100AA00D7 /* SplashScreenInteractor.swift in Sources */,
 				B0C4272D29FD5AD400AA00D7 /* Requestable.swift in Sources */,
+				B05D50232A4FFEBF00BDC9CF /* BaseTableViewCell.swift in Sources */,
 				B08842ED29E4AAEB00D331BF /* AppRouter.swift in Sources */,
 				B088430329E4B6BE00D331BF /* Strings+Generated.swift in Sources */,
 				B07AAED32A1BF1AF0034D0AE /* MovieListRequest.swift in Sources */,
 				B088430129E4B6BE00D331BF /* Fonts+Generated.swift in Sources */,
 				B088430529E4B6F700D331BF /* SplashScreenPresenter.swift in Sources */,
+				B05D501F2A4FFE8900BDC9CF /* TableCellReusable.swift in Sources */,
 				B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */,
 				B088430729E4B78400D331BF /* SplashScreenViewController.swift in Sources */,
 				B0C4273429FDC0CA00AA00D7 /* SplashScreenEntity.swift in Sources */,
+				B05D501D2A4FFE6C00BDC9CF /* Reusable.swift in Sources */,
 				B0ECEF8B2A294755004ADAC7 /* MovieListController.swift in Sources */,
 				B0ECEF8E2A2949B0004ADAC7 /* BaseViewController.swift in Sources */,
+				B05D50212A4FFEA000BDC9CF /* TableRegistable.swift in Sources */,
 				B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */,
 				B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */,
 				B08842D129E4A54700D331BF /* AppDelegate.swift in Sources */,
 				B088430229E4B6BE00D331BF /* Images+Colors+Generated.swift in Sources */,
+				B05D501A2A4FFDB900BDC9CF /* MovieCardTableViewCell.swift in Sources */,
 				B072B2E72A23B2AB003A6228 /* UIViewController+Extra.swift in Sources */,
 				B0ECEF892A294728004ADAC7 /* MovieListPresenter.swift in Sources */,
 				B07AAED12A1BF1710034D0AE /* Endpoint.swift in Sources */,

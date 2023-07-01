@@ -27,7 +27,7 @@ fonts:
     - templateName: swift5
       output: Fonts+Generated.swift
       params:
-        enumName: Font
+        enumName: FontFamily
 
 ## Constants for interface builder files.
 ib:
