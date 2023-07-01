@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0225DF52A4FFC7F00FA9B13 /* MovieCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0225DF42A4FFC7F00FA9B13 /* MovieCardCollectionViewCell.xib */; };
 		B072B2E72A23B2AB003A6228 /* UIViewController+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */; };
 		B07AAEC02A1B73070034D0AE /* AssemblerBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */; };
 		B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */; };
@@ -28,19 +29,20 @@
 		B088430229E4B6BE00D331BF /* Images+Colors+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08842FE29E4B6BE00D331BF /* Images+Colors+Generated.swift */; };
 		B088430329E4B6BE00D331BF /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08842FF29E4B6BE00D331BF /* Strings+Generated.swift */; };
 		B088430529E4B6F700D331BF /* SplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088430429E4B6F700D331BF /* SplashScreenPresenter.swift */; };
-		B088430729E4B78400D331BF /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088430629E4B78400D331BF /* SplashScreenView.swift */; };
+		B088430729E4B78400D331BF /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088430629E4B78400D331BF /* SplashScreenViewController.swift */; };
 		B0C4272B29FD5A4300AA00D7 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4272A29FD5A4300AA00D7 /* Network.swift */; };
 		B0C4272D29FD5AD400AA00D7 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4272C29FD5AD400AA00D7 /* Requestable.swift */; };
 		B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4272F29FD5B2F00AA00D7 /* Logger.swift */; };
 		B0C4273229FDC0B100AA00D7 /* SplashScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4273129FDC0B100AA00D7 /* SplashScreenInteractor.swift */; };
 		B0C4273429FDC0CA00AA00D7 /* SplashScreenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4273329FDC0CA00AA00D7 /* SplashScreenEntity.swift */; };
-		B0ECEF872A2946F4004ADAC7 /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0ECEF862A2946F4004ADAC7 /* HomeScreen.storyboard */; };
-		B0ECEF892A294728004ADAC7 /* HomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECEF882A294728004ADAC7 /* HomeScreenPresenter.swift */; };
-		B0ECEF8B2A294755004ADAC7 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECEF8A2A294755004ADAC7 /* HomeScreenView.swift */; };
+		B0ECEF872A2946F4004ADAC7 /* MovieList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0ECEF862A2946F4004ADAC7 /* MovieList.storyboard */; };
+		B0ECEF892A294728004ADAC7 /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECEF882A294728004ADAC7 /* MovieListPresenter.swift */; };
+		B0ECEF8B2A294755004ADAC7 /* MovieListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECEF8A2A294755004ADAC7 /* MovieListController.swift */; };
 		B0ECEF8E2A2949B0004ADAC7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECEF8D2A2949B0004ADAC7 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B0225DF42A4FFC7F00FA9B13 /* MovieCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extra.swift"; sourceTree = "<group>"; };
 		B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblerBuilderProtocol.swift; sourceTree = "<group>"; };
 		B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
@@ -61,15 +63,15 @@
 		B08842FE29E4B6BE00D331BF /* Images+Colors+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Images+Colors+Generated.swift"; sourceTree = "<group>"; };
 		B08842FF29E4B6BE00D331BF /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		B088430429E4B6F700D331BF /* SplashScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenPresenter.swift; sourceTree = "<group>"; };
-		B088430629E4B78400D331BF /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		B088430629E4B78400D331BF /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		B0C4272A29FD5A4300AA00D7 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B0C4272C29FD5AD400AA00D7 /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		B0C4272F29FD5B2F00AA00D7 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B0C4273129FDC0B100AA00D7 /* SplashScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenInteractor.swift; sourceTree = "<group>"; };
 		B0C4273329FDC0CA00AA00D7 /* SplashScreenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenEntity.swift; sourceTree = "<group>"; };
-		B0ECEF862A2946F4004ADAC7 /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
-		B0ECEF882A294728004ADAC7 /* HomeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenPresenter.swift; sourceTree = "<group>"; };
-		B0ECEF8A2A294755004ADAC7 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
+		B0ECEF862A2946F4004ADAC7 /* MovieList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieList.storyboard; sourceTree = "<group>"; };
+		B0ECEF882A294728004ADAC7 /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
+		B0ECEF8A2A294755004ADAC7 /* MovieListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListController.swift; sourceTree = "<group>"; };
 		B0ECEF8D2A2949B0004ADAC7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +150,7 @@
 		B08842EB29E4AAC800D331BF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				B0ECEF852A2946A9004ADAC7 /* Home Screen */,
+				B0ECEF852A2946A9004ADAC7 /* Movie List */,
 				B08842F129E4AC2200D331BF /* Splash Screen */,
 				B08842EC29E4AAEB00D331BF /* AppRouter.swift */,
 				B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */,
@@ -159,7 +161,7 @@
 		B08842F129E4AC2200D331BF /* Splash Screen */ = {
 			isa = PBXGroup;
 			children = (
-				B088430629E4B78400D331BF /* SplashScreenView.swift */,
+				B088430629E4B78400D331BF /* SplashScreenViewController.swift */,
 				B0C4273129FDC0B100AA00D7 /* SplashScreenInteractor.swift */,
 				B088430429E4B6F700D331BF /* SplashScreenPresenter.swift */,
 				B0C4273329FDC0CA00AA00D7 /* SplashScreenEntity.swift */,
@@ -233,14 +235,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		B0ECEF852A2946A9004ADAC7 /* Home Screen */ = {
+		B0ECEF852A2946A9004ADAC7 /* Movie List */ = {
 			isa = PBXGroup;
 			children = (
-				B0ECEF8A2A294755004ADAC7 /* HomeScreenView.swift */,
-				B0ECEF882A294728004ADAC7 /* HomeScreenPresenter.swift */,
-				B0ECEF862A2946F4004ADAC7 /* HomeScreen.storyboard */,
+				B0ECEF8A2A294755004ADAC7 /* MovieListController.swift */,
+				B0ECEF882A294728004ADAC7 /* MovieListPresenter.swift */,
+				B0ECEF862A2946F4004ADAC7 /* MovieList.storyboard */,
+				B0225DF42A4FFC7F00FA9B13 /* MovieCardCollectionViewCell.xib */,
 			);
-			path = "Home Screen";
+			path = "Movie List";
 			sourceTree = "<group>";
 		};
 		B0ECEF8C2A294976004ADAC7 /* Base */ = {
@@ -319,10 +322,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0225DF52A4FFC7F00FA9B13 /* MovieCardCollectionViewCell.xib in Resources */,
 				B08842FB29E4B4C600D331BF /* Localizable.strings in Resources */,
 				B08842F629E4B1DB00D331BF /* Colors.xcassets in Resources */,
 				B08842DA29E4A54800D331BF /* Assets.xcassets in Resources */,
-				B0ECEF872A2946F4004ADAC7 /* HomeScreen.storyboard in Resources */,
+				B0ECEF872A2946F4004ADAC7 /* MovieList.storyboard in Resources */,
 				B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */,
 				B08842D829E4A54700D331BF /* LaunchScreen.storyboard in Resources */,
 			);
@@ -345,16 +349,16 @@
 				B088430129E4B6BE00D331BF /* Fonts+Generated.swift in Sources */,
 				B088430529E4B6F700D331BF /* SplashScreenPresenter.swift in Sources */,
 				B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */,
-				B088430729E4B78400D331BF /* SplashScreenView.swift in Sources */,
+				B088430729E4B78400D331BF /* SplashScreenViewController.swift in Sources */,
 				B0C4273429FDC0CA00AA00D7 /* SplashScreenEntity.swift in Sources */,
-				B0ECEF8B2A294755004ADAC7 /* HomeScreenView.swift in Sources */,
+				B0ECEF8B2A294755004ADAC7 /* MovieListController.swift in Sources */,
 				B0ECEF8E2A2949B0004ADAC7 /* BaseViewController.swift in Sources */,
 				B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */,
 				B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */,
 				B08842D129E4A54700D331BF /* AppDelegate.swift in Sources */,
 				B088430229E4B6BE00D331BF /* Images+Colors+Generated.swift in Sources */,
 				B072B2E72A23B2AB003A6228 /* UIViewController+Extra.swift in Sources */,
-				B0ECEF892A294728004ADAC7 /* HomeScreenPresenter.swift in Sources */,
+				B0ECEF892A294728004ADAC7 /* MovieListPresenter.swift in Sources */,
 				B07AAED12A1BF1710034D0AE /* Endpoint.swift in Sources */,
 				B08842D329E4A54700D331BF /* SceneDelegate.swift in Sources */,
 			);

@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol HomeScreenPresenter: AnyObject {
+protocol MovieListPresenter: AnyObject {
     func viewDidLoad()
 }
 
-final class HomeScreenPresenterImpl {
+final class MovieListPresenterImpl {
 
     //MARK: - Variables -
-    private weak var view: HomeScreenView?
+    private weak var view: MovieListView?
     private var router: AppRouter?
     
     //MARK: - Life Cycle -
@@ -22,18 +22,18 @@ final class HomeScreenPresenterImpl {
         self.router = router
     }
     
-    func inject(view: HomeScreenView) {
+    func inject(view: MovieListView) {
         self.view = view
     }
 }
 
-extension HomeScreenPresenterImpl: HomeScreenPresenter {
+extension MovieListPresenterImpl: MovieListPresenter {
     func viewDidLoad() {
         //
     }
 }
 
-private extension HomeScreenPresenterImpl {
+private extension MovieListPresenterImpl {
 
 }
 

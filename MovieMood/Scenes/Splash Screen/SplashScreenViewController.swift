@@ -21,9 +21,9 @@ final class SplashScreenViewController: BaseViewController<SplashScreenPresenter
     }
     
     static func instantiate(with presenter: SplashScreenPresenter) -> SplashScreenViewController {
-        let vc: SplashScreenViewController = Storyboard.SplashScreen.splashScreenViewController.instantiate()
-        vc.presenter = presenter
-        return vc
+        let viewController: SplashScreenViewController = Storyboard.SplashScreen.splashScreenViewController.instantiate()
+        viewController.presenter = presenter
+        return viewController
     }
   
     //MARK: - UIElements -
