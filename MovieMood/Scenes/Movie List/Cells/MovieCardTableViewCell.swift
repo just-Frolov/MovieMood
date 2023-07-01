@@ -7,4 +7,6 @@
 
 import Foundation
 
-final class MovieCardTableViewCell: BaseTableViewCell
+final class MovieCardTableViewCell: BaseTableViewCell {
+    
+}

@@ -5,4 +5,8 @@
 //  Created by Danil Frolov on 01.07.2023.
 //
 
-import Foundation
+import UIKit
+
+class BaseCollectionViewCell: UICollectionViewCell,
+                              CollectionCellRegistable,
+                              CollectionCellDequeueReusable { }

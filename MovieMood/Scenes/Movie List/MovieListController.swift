@@ -23,7 +23,7 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
         viewController.presenter = presenter
         return viewController
     }
-  
+    
     //MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()

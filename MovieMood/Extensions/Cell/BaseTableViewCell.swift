@@ -5,4 +5,7 @@
 //  Created by Danil Frolov on 01.07.2023.
 //
 
-import Foundation
+import UIKit
+
+class BaseTableViewCell: UITableViewCell, TableRegistable, TableCellReusable {
+}
