@@ -6,36 +6,63 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="276" id="Ko2-A6-Emy">
-            <rect key="frame" x="0.0" y="0.0" width="461" height="276"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="278" id="Ko2-A6-Emy" customClass="MovieCardTableViewCell" customModule="MovieMood" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="472" height="278"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ko2-A6-Emy" id="1M3-Dv-v8h">
-                <rect key="frame" x="0.0" y="0.0" width="461" height="276"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ko2-A6-Emy" id="1M3-Dv-v8h">
+                <rect key="frame" x="0.0" y="0.0" width="472" height="278"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rtI-hK-ngF">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtI-hK-ngF">
                         <rect key="frame" x="0.0" y="0.0" width="461" height="276"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="rtI-hK-ngF" secondAttribute="height" multiplier="2:1" id="Ftf-Lh-mXb"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJ8-JN-JZA">
-                        <rect key="frame" x="20" y="210" width="42" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="x7p-xT-cG8">
+                        <rect key="frame" x="16" y="16" width="440" height="244"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ya-7o-C0E">
+                                <rect key="frame" x="0.0" y="0.0" width="440" height="214.66666666666666"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJ8-JN-JZA">
+                                <rect key="frame" x="0.0" y="214.66666666666666" width="440" height="29.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="x7p-xT-cG8" firstAttribute="leading" secondItem="1M3-Dv-v8h" secondAttribute="leading" constant="16" id="IWl-ML-V2a"/>
+                    <constraint firstAttribute="bottom" secondItem="x7p-xT-cG8" secondAttribute="bottom" constant="16" id="Kdh-AN-tLh"/>
                     <constraint firstItem="rtI-hK-ngF" firstAttribute="leading" secondItem="1M3-Dv-v8h" secondAttribute="leading" id="RJV-M0-UyS"/>
+                    <constraint firstAttribute="trailing" secondItem="x7p-xT-cG8" secondAttribute="trailing" constant="16" id="Ro1-cA-A3c"/>
                     <constraint firstItem="rtI-hK-ngF" firstAttribute="top" secondItem="1M3-Dv-v8h" secondAttribute="top" id="dtF-AP-3Ul"/>
+                    <constraint firstItem="x7p-xT-cG8" firstAttribute="top" secondItem="1M3-Dv-v8h" secondAttribute="top" constant="16" id="hDo-es-JHl"/>
                     <constraint firstAttribute="bottom" secondItem="rtI-hK-ngF" secondAttribute="bottom" id="v6q-V3-ScY"/>
                     <constraint firstAttribute="trailing" secondItem="rtI-hK-ngF" secondAttribute="trailing" id="xgc-q1-cN3"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="325.95419847328242" y="0.0"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="backgroundImageView" destination="rtI-hK-ngF" id="xZx-ng-MzP"/>
+                <outlet property="titleLabel" destination="LJ8-JN-JZA" id="nth-i7-1bM"/>
+            </connections>
+            <point key="canvasLocation" x="317.55725190839695" y="0.70422535211267612"/>
         </tableViewCell>
     </objects>
 </document>
