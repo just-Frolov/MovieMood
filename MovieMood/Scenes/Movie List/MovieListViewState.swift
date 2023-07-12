@@ -15,8 +15,8 @@ struct MovieListViewState {
     
     struct MovieViewState: Hashable {
         let id: Int
-        let posterImage:
         let title: String
+        let posterImagePath: URL?
         
         func hash(into hasher: inout Hasher) {
             hasher.combine(id)
@@ -40,10 +40,21 @@ extension MovieListViewState {
             rightButtonImage: UIImage()
         )
         
+        
         let movieViewModelList = movieList.map {
-            MovieViewState(
+            var posterImagePath: URL?
+            if let backdropPath = $0.backdropPath {
+                posterImagePath = ImageManager
+                    .shared
+                    .imageURL(
+                        withPath: backdropPath
+                    )
+            }
+            
+            return MovieViewState(
                 id: $0.id,
-                title: $0.title
+                title: $0.title,
+                posterImagePath: posterImagePath
             )
         }
         

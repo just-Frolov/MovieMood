@@ -17,26 +17,23 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="278" id="Ko2-A6-Emy" customClass="MovieCardTableViewCell" customModule="MovieMood" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="472" height="278"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ko2-A6-Emy" id="1M3-Dv-v8h">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ko2-A6-Emy" id="1M3-Dv-v8h">
                 <rect key="frame" x="0.0" y="0.0" width="472" height="278"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtI-hK-ngF">
-                        <rect key="frame" x="0.0" y="0.0" width="461" height="276"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rtI-hK-ngF">
+                        <rect key="frame" x="8" y="8" width="456" height="262"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="rtI-hK-ngF" secondAttribute="height" multiplier="2:1" id="Ftf-Lh-mXb"/>
-                        </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="x7p-xT-cG8">
-                        <rect key="frame" x="16" y="16" width="440" height="244"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="x7p-xT-cG8">
+                        <rect key="frame" x="16" y="16" width="440" height="246"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ya-7o-C0E">
-                                <rect key="frame" x="0.0" y="0.0" width="440" height="214.66666666666666"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ya-7o-C0E">
+                                <rect key="frame" x="0.0" y="0.0" width="440" height="218"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJ8-JN-JZA">
-                                <rect key="frame" x="0.0" y="214.66666666666666" width="440" height="29.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJ8-JN-JZA">
+                                <rect key="frame" x="0.0" y="218" width="440" height="28"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -49,12 +46,12 @@
                 <constraints>
                     <constraint firstItem="x7p-xT-cG8" firstAttribute="leading" secondItem="1M3-Dv-v8h" secondAttribute="leading" constant="16" id="IWl-ML-V2a"/>
                     <constraint firstAttribute="bottom" secondItem="x7p-xT-cG8" secondAttribute="bottom" constant="16" id="Kdh-AN-tLh"/>
-                    <constraint firstItem="rtI-hK-ngF" firstAttribute="leading" secondItem="1M3-Dv-v8h" secondAttribute="leading" id="RJV-M0-UyS"/>
+                    <constraint firstItem="rtI-hK-ngF" firstAttribute="leading" secondItem="1M3-Dv-v8h" secondAttribute="leading" constant="8" id="RJV-M0-UyS"/>
                     <constraint firstAttribute="trailing" secondItem="x7p-xT-cG8" secondAttribute="trailing" constant="16" id="Ro1-cA-A3c"/>
-                    <constraint firstItem="rtI-hK-ngF" firstAttribute="top" secondItem="1M3-Dv-v8h" secondAttribute="top" id="dtF-AP-3Ul"/>
+                    <constraint firstItem="rtI-hK-ngF" firstAttribute="top" secondItem="1M3-Dv-v8h" secondAttribute="top" constant="8" id="dtF-AP-3Ul"/>
                     <constraint firstItem="x7p-xT-cG8" firstAttribute="top" secondItem="1M3-Dv-v8h" secondAttribute="top" constant="16" id="hDo-es-JHl"/>
-                    <constraint firstAttribute="bottom" secondItem="rtI-hK-ngF" secondAttribute="bottom" id="v6q-V3-ScY"/>
-                    <constraint firstAttribute="trailing" secondItem="rtI-hK-ngF" secondAttribute="trailing" id="xgc-q1-cN3"/>
+                    <constraint firstAttribute="bottom" secondItem="rtI-hK-ngF" secondAttribute="bottom" constant="8" id="v6q-V3-ScY"/>
+                    <constraint firstAttribute="trailing" secondItem="rtI-hK-ngF" secondAttribute="trailing" constant="8" id="xgc-q1-cN3"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

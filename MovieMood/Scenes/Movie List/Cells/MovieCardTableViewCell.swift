@@ -24,7 +24,8 @@ final class MovieCardTableViewCell: BaseTableViewCell {
         backgroundImageView.image = nil
     }
     
-    func configure(with movieState: MovieListViewState.MovieViewState) {
-        titleLabel.text = movieState.title
+    func render(with movieViewState: MovieListViewState.MovieViewState) {
+        titleLabel.text = movieViewState.title
+        backgroundImageView.kf.setImage(with: movieViewState.posterImagePath)
     }
 }

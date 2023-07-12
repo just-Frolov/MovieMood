@@ -13,7 +13,7 @@ final class MovieListDataSource: UITableViewDiffableDataSource<Int, AnyHashable>
             if let movieState = item as? MovieListViewState.MovieViewState {
                 let cell = MovieCardTableViewCell
                     .dequeueingReusableCell(in: tableView, for: indexPath)
-                cell.configure(with: movieState)
+                cell.render(with: movieState)
                 return cell
             } else {
                 return UITableViewCell()
