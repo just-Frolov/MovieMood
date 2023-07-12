@@ -42,31 +42,56 @@ extension SplashScreenPresenterImpl: SplashScreenPresenter {
 
 private extension SplashScreenPresenterImpl {
     func startInitialFlow() async {
-        let loadingAnimationTask = Task { await view?.showLoadingAnimation() }
-        let fetchMoviesTask = Task { await fetchMovies() }
-        
-        await loadingAnimationTask.value
-        if let fetchedMovies = await fetchMoviesTask.value {
-            await router?.showHomeScreen(with: fetchedMovies)
+        enum LoadingResult {
+            case movieList([Movie])
+            case void
         }
+        
+        let movieList = await withThrowingTaskGroup(of: LoadingResult.self) { taskGroup -> [Movie] in
+            taskGroup.addTask {
+                await self.view?.showLoadingAnimation()
+                return .void
+            }
+            taskGroup.addTask {
+                let movieList = await self.fetchMovies()
+                return .movieList(movieList)
+            }
+
+            var movieList: [Movie] = []
+
+            do {
+                for try await value in taskGroup {
+                    switch value {
+                    case .movieList(let movies):
+                        movieList = movies
+                    default:
+                        continue
+                    }
+                }
+            } catch {
+                debugPrint("Fetch movies at least partially failed: \(error.localizedDescription)")
+            }
+            
+            return movieList
+        }
+        
+        await router?.showHomeScreen(with: movieList)
     }
     
-    func fetchMovies() async -> MovieList? {
+    func fetchMovies() async -> [Movie] {
         do {
-            guard let movies = try await interactor?.loadMovies() else {
+            guard let fetchedMovies = try await interactor?.loadMovies() else {
                 await showError(with: Localized.moviesLoadFailed)
-                return nil
+                return []
             }
-            return movies
+            return fetchedMovies.results
         } catch let error {
             await showError(with: error.localizedDescription)
-            return nil
+            return []
         }
     }
     
     func showError(with title: String) async {
-        await MainActor.run(body: {
-            view?.showError(message: title)
-        })
+        await view?.showError(message: title)
     }
 }
