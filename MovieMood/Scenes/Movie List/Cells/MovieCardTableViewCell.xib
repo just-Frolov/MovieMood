@@ -29,33 +29,40 @@
                                 <rect key="frame" x="0.0" y="0.0" width="472" height="278"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="x7p-xT-cG8">
-                                <rect key="frame" x="8" y="16" width="456" height="246"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="x7p-xT-cG8">
+                                <rect key="frame" x="0.0" y="0.0" width="472" height="278"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="7Ya-7o-C0E">
-                                        <rect key="frame" x="0.0" y="0.0" width="456" height="216.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="472" height="139"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJ8-JN-JZA">
-                                        <rect key="frame" x="0.0" y="216.66666666666666" width="456" height="29.333333333333343"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rS3-wQ-BCm">
+                                        <rect key="frame" x="0.0" y="139" width="472" height="139"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJ8-JN-JZA">
+                                <rect key="frame" x="16" y="232.66666666666666" width="440" height="29.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="rtI-hK-ngF" secondAttribute="trailing" id="1Em-yd-dfa"/>
-                            <constraint firstItem="x7p-xT-cG8" firstAttribute="leading" secondItem="82h-fZ-y3H" secondAttribute="leading" constant="8" id="3r6-qu-PxW"/>
+                            <constraint firstItem="x7p-xT-cG8" firstAttribute="leading" secondItem="rtI-hK-ngF" secondAttribute="leading" id="3r6-qu-PxW"/>
                             <constraint firstItem="rtI-hK-ngF" firstAttribute="top" secondItem="82h-fZ-y3H" secondAttribute="top" id="ABc-4e-ruR"/>
-                            <constraint firstAttribute="trailing" secondItem="x7p-xT-cG8" secondAttribute="trailing" constant="8" id="AZc-JP-hvJ"/>
-                            <constraint firstItem="x7p-xT-cG8" firstAttribute="top" secondItem="82h-fZ-y3H" secondAttribute="top" constant="16" id="AjY-Ag-eMp"/>
+                            <constraint firstItem="rtI-hK-ngF" firstAttribute="trailing" secondItem="x7p-xT-cG8" secondAttribute="trailing" id="AZc-JP-hvJ"/>
+                            <constraint firstItem="x7p-xT-cG8" firstAttribute="top" secondItem="rtI-hK-ngF" secondAttribute="top" id="AjY-Ag-eMp"/>
                             <constraint firstItem="rtI-hK-ngF" firstAttribute="leading" secondItem="82h-fZ-y3H" secondAttribute="leading" id="PXz-pQ-qS7"/>
+                            <constraint firstItem="x7p-xT-cG8" firstAttribute="trailing" secondItem="LJ8-JN-JZA" secondAttribute="trailing" constant="16" id="UFd-zS-UKR"/>
+                            <constraint firstItem="LJ8-JN-JZA" firstAttribute="leading" secondItem="x7p-xT-cG8" secondAttribute="leading" constant="16" id="ZXw-vg-SB2"/>
+                            <constraint firstItem="x7p-xT-cG8" firstAttribute="bottom" secondItem="LJ8-JN-JZA" secondAttribute="bottom" constant="16" id="jwL-qj-ad2"/>
                             <constraint firstAttribute="bottom" secondItem="rtI-hK-ngF" secondAttribute="bottom" id="rA9-3X-Vkg"/>
-                            <constraint firstAttribute="bottom" secondItem="x7p-xT-cG8" secondAttribute="bottom" constant="16" id="rTP-jj-cM2"/>
+                            <constraint firstItem="rtI-hK-ngF" firstAttribute="bottom" secondItem="x7p-xT-cG8" secondAttribute="bottom" id="rTP-jj-cM2"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -70,7 +77,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="backgroundContentView" destination="82h-fZ-y3H" id="r08-e3-C2y"/>
-                <outlet property="backgroundImageView" destination="rtI-hK-ngF" id="xZx-ng-MzP"/>
+                <outlet property="bottomGradientView" destination="rS3-wQ-BCm" id="813-4S-qx3"/>
+                <outlet property="posterImageView" destination="rtI-hK-ngF" id="OC1-Q3-Ez2"/>
                 <outlet property="titleLabel" destination="LJ8-JN-JZA" id="nth-i7-1bM"/>
             </connections>
             <point key="canvasLocation" x="317.55725190839695" y="0.70422535211267612"/>

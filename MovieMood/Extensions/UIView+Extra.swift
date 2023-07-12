@@ -122,6 +122,19 @@ extension UIView {
     }
 }
 
+extension UIView {
+    func addShadow(with color: CGColor) {
+        self.layer.shadowColor = color
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowOpacity = 0.7
+        self.layer.shadowRadius = 5
+        self.layer.shadowPath = UIBezierPath(
+            roundedRect: self.bounds,
+            cornerRadius: 16
+        ).cgPath
+    }
+}
+    
 extension CACornerMask {
     static let all: CACornerMask = [
         .layerMaxXMaxYCorner,

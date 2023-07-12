@@ -17,7 +17,8 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
     
     private enum Constants {
         static let movieCardCellAspectRatio: CGFloat = 16.0 / 9.0
-        static let movieCardCellContentInsets = UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 8)
+        static let movieCardCellContentInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        static let tableViewContentInsets = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
     }
     
     static func instantiate(with presenter: MovieListPresenter) -> MovieListViewController {
@@ -30,6 +31,7 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             MovieCardTableViewCell.xibRegister(in: tableView)
+            tableView.contentInset = Constants.tableViewContentInsets
             tableView.backgroundColor = .clear
             tableView.dataSource = dataSource
             tableView.delegate = self

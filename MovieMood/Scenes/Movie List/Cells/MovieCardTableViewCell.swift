@@ -12,35 +12,49 @@ final class MovieCardTableViewCell: BaseTableViewCell {
     
     private enum Constants {
         static let cornerRadius: CGFloat = 8
+        static let gradientColor = UIColor(white: 0, alpha: 0.4).cgColor
+        static let gradientClearColor = UIColor(white: 0, alpha: 0).cgColor
     }
     
     @IBOutlet private weak var backgroundContentView: UIView! {
         didSet {
-            backgroundContentView.clipsToBounds = true
+            backgroundContentView.cornerRadius = Constants.cornerRadius
         }
     }
-    @IBOutlet private weak var backgroundImageView: UIImageView!
+    @IBOutlet private weak var posterImageView: UIImageView! {
+        didSet {
+            posterImageView.cornerRadius = Constants.cornerRadius
+        }
+    }
     @IBOutlet private weak var titleLabel: UILabel! {
         didSet {
             titleLabel.textColor = .white
-            titleLabel.font = FontFamily.Montserrat.semiBold.font(size: 18)
+            titleLabel.font = FontFamily.Montserrat.bold.font(size: 20)
+        }
+    }
+    @IBOutlet private weak var bottomGradientView: UIView! {
+        didSet {
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = [Constants.gradientClearColor, Constants.gradientColor]
+            gradientLayer.locations = [0.0, 1.0]
+            gradientLayer.frame = CGRect(
+                origin: .zero,
+                size: CGSize(width: bottomGradientView.bounds.width, height: bottomGradientView.bounds.height)
+            )
+            bottomGradientView.layer.addSublayer(gradientLayer)
+            bottomGradientView.backgroundColor = .clear
         }
     }
     
-    @IBOutlet private weak var contentLeadingInset: NSLayoutConstraint!
-    @IBOutlet private weak var contentTrailingInset: NSLayoutConstraint!
-    @IBOutlet private weak var contentTopInset: NSLayoutConstraint!
-    @IBOutlet private weak var contentBottomInset: NSLayoutConstraint!
-    
     override func layoutSubviews() {
         super.layoutSubviews()
-        backgroundContentView.cornerRadius = Constants.cornerRadius
+        backgroundContentView.addShadow(with: UIColor.white.cgColor)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        backgroundImageView.kf.cancelDownloadTask()
-        backgroundImageView.image = nil
+        posterImageView.kf.cancelDownloadTask()
+        posterImageView.image = nil
     }
     
     func render(
@@ -55,6 +69,6 @@ final class MovieCardTableViewCell: BaseTableViewCell {
             bottomSpace: cellContentInsets.bottom
         )
         titleLabel.text = movieViewState.title
-        backgroundImageView.kf.setImage(with: movieViewState.posterImagePath)
+        posterImageView.kf.setImage(with: movieViewState.posterImagePath)
     }
 }
