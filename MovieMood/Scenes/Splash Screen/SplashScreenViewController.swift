@@ -41,6 +41,11 @@ final class SplashScreenViewController: BaseViewController<SplashScreenPresenter
         setupAnimationView()
         presenter?.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 }
 
 extension SplashScreenViewController: SplashScreenView {

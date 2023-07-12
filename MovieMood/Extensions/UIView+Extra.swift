@@ -13,7 +13,6 @@ extension UIView {
             return layer.cornerRadius
         }
         set {
-            layer.masksToBounds = true
             layer.cornerRadius = newValue
         }
     }
@@ -23,7 +22,6 @@ extension UIView {
             return layer.borderWidth
         }
         set {
-            layer.masksToBounds = true
             layer.borderWidth = newValue
         }
     }
@@ -33,7 +31,6 @@ extension UIView {
             return layer.borderColor ?? UIColor.clear.cgColor
         }
         set {
-            layer.masksToBounds = true
             layer.borderColor = newValue
         }
     }
@@ -56,11 +53,6 @@ extension UIView {
     func roundCorners(_ corners: CACornerMask = .all,
                       radius: CGFloat) {
         layer.maskedCorners = corners
-        layer.cornerRadius = radius
-        layer.masksToBounds = true
-    }
-    
-    func cornerRadius(_ radius: CGFloat) {
         layer.cornerRadius = radius
         layer.masksToBounds = true
     }

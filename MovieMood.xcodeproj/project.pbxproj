@@ -16,7 +16,7 @@
 		B05D50232A4FFEBF00BDC9CF /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D50222A4FFEBF00BDC9CF /* BaseTableViewCell.swift */; };
 		B05D50252A4FFED300BDC9CF /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D50242A4FFED300BDC9CF /* BaseCollectionViewCell.swift */; };
 		B05D503B2A50C21700BDC9CF /* MovieListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D503A2A50C21700BDC9CF /* MovieListDataSource.swift */; };
-		B072B2E72A23B2AB003A6228 /* UIViewController+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */; };
+		B0732B322A5F0B26001B06C7 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0732B312A5F0B26001B06C7 /* UINavigationController+Extension.swift */; };
 		B07AAEC02A1B73070034D0AE /* AssemblerBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */; };
 		B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */; };
 		B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */; };
@@ -96,7 +96,7 @@
 		B05D50362A5000F900BDC9CF /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		B05D50372A5000F900BDC9CF /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
 		B05D503A2A50C21700BDC9CF /* MovieListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataSource.swift; sourceTree = "<group>"; };
-		B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extra.swift"; sourceTree = "<group>"; };
+		B0732B312A5F0B26001B06C7 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblerBuilderProtocol.swift; sourceTree = "<group>"; };
 		B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extra.swift"; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */,
-				B072B2E62A23B2AB003A6228 /* UIViewController+Extra.swift */,
+				B0732B312A5F0B26001B06C7 /* UINavigationController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -470,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0732B322A5F0B26001B06C7 /* UINavigationController+Extension.swift in Sources */,
 				B07AAEC02A1B73070034D0AE /* AssemblerBuilderProtocol.swift in Sources */,
 				B05D50252A4FFED300BDC9CF /* BaseCollectionViewCell.swift in Sources */,
 				B0EA77802A5728EC00B605D3 /* ImageManager.swift in Sources */,
@@ -496,7 +497,6 @@
 				B08842D129E4A54700D331BF /* AppDelegate.swift in Sources */,
 				B088430229E4B6BE00D331BF /* Images+Colors+Generated.swift in Sources */,
 				B05D501A2A4FFDB900BDC9CF /* MovieCardTableViewCell.swift in Sources */,
-				B072B2E72A23B2AB003A6228 /* UIViewController+Extra.swift in Sources */,
 				B0ECEF892A294728004ADAC7 /* MovieListPresenter.swift in Sources */,
 				B01C6F612A55B04D00D0840A /* MovieListViewState.swift in Sources */,
 				B07AAED12A1BF1710034D0AE /* Endpoint.swift in Sources */,
