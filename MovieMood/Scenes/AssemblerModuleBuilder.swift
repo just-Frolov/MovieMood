@@ -25,9 +25,10 @@ final class AssemblerModuleBuilder: AssemblerBuilderProtocol {
     
     func createHomeModule(movieList: [Movie], router: AppRouter) -> UIViewController {
         let presenter = MovieListPresenterImpl(router: router, movieList: movieList)
+        let interactor = MovieListInteractorImpl(presenter: presenter)
         let view = MovieListViewController.instantiate(with: presenter)
         
-        presenter.inject(view: view)
+        presenter.inject(view: view, interactor: interactor)
 
         return view
     }
