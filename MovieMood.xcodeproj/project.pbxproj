@@ -17,7 +17,9 @@
 		B05D50252A4FFED300BDC9CF /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D50242A4FFED300BDC9CF /* BaseCollectionViewCell.swift */; };
 		B05D503B2A50C21700BDC9CF /* MovieListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D503A2A50C21700BDC9CF /* MovieListDataSource.swift */; };
 		B0732B322A5F0B26001B06C7 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0732B312A5F0B26001B06C7 /* UINavigationController+Extension.swift */; };
-		B07AAEC02A1B73070034D0AE /* AssemblerBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */; };
+		B0732B342A5F5606001B06C7 /* MovieListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0732B332A5F5606001B06C7 /* MovieListInteractor.swift */; };
+		B0732B362A604642001B06C7 /* MovieListViewStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0732B352A604642001B06C7 /* MovieListViewStateFactory.swift */; };
+		B07AAEC02A1B73070034D0AE /* AssemblerModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* AssemblerModuleBuilder.swift */; };
 		B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */; };
 		B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */; };
 		B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */; };
@@ -97,7 +99,9 @@
 		B05D50372A5000F900BDC9CF /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
 		B05D503A2A50C21700BDC9CF /* MovieListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataSource.swift; sourceTree = "<group>"; };
 		B0732B312A5F0B26001B06C7 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
-		B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblerBuilderProtocol.swift; sourceTree = "<group>"; };
+		B0732B332A5F5606001B06C7 /* MovieListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListInteractor.swift; sourceTree = "<group>"; };
+		B0732B352A604642001B06C7 /* MovieListViewStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewStateFactory.swift; sourceTree = "<group>"; };
+		B07AAEBF2A1B73070034D0AE /* AssemblerModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblerModuleBuilder.swift; sourceTree = "<group>"; };
 		B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extra.swift"; sourceTree = "<group>"; };
 		B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Generated.swift"; sourceTree = "<group>"; };
@@ -261,7 +265,7 @@
 				B0ECEF852A2946A9004ADAC7 /* Movie List */,
 				B08842F129E4AC2200D331BF /* Splash Screen */,
 				B08842EC29E4AAEB00D331BF /* AppRouter.swift */,
-				B07AAEBF2A1B73070034D0AE /* AssemblerBuilderProtocol.swift */,
+				B07AAEBF2A1B73070034D0AE /* AssemblerModuleBuilder.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -349,8 +353,10 @@
 			isa = PBXGroup;
 			children = (
 				B0225DF62A4FFD8100FA9B13 /* Cells */,
+				B0732B352A604642001B06C7 /* MovieListViewStateFactory.swift */,
 				B01C6F602A55B04D00D0840A /* MovieListViewState.swift */,
 				B0ECEF8A2A294755004ADAC7 /* MovieListViewController.swift */,
+				B0732B332A5F5606001B06C7 /* MovieListInteractor.swift */,
 				B0ECEF882A294728004ADAC7 /* MovieListPresenter.swift */,
 				B05D503A2A50C21700BDC9CF /* MovieListDataSource.swift */,
 				B0ECEF862A2946F4004ADAC7 /* MovieList.storyboard */,
@@ -471,7 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0732B322A5F0B26001B06C7 /* UINavigationController+Extension.swift in Sources */,
-				B07AAEC02A1B73070034D0AE /* AssemblerBuilderProtocol.swift in Sources */,
+				B07AAEC02A1B73070034D0AE /* AssemblerModuleBuilder.swift in Sources */,
 				B05D50252A4FFED300BDC9CF /* BaseCollectionViewCell.swift in Sources */,
 				B0EA77802A5728EC00B605D3 /* ImageManager.swift in Sources */,
 				B0C4272B29FD5A4300AA00D7 /* Network.swift in Sources */,
@@ -481,12 +487,14 @@
 				B08842ED29E4AAEB00D331BF /* AppRouter.swift in Sources */,
 				B088430329E4B6BE00D331BF /* Strings+Generated.swift in Sources */,
 				B07AAED32A1BF1AF0034D0AE /* MovieListRequest.swift in Sources */,
+				B0732B342A5F5606001B06C7 /* MovieListInteractor.swift in Sources */,
 				B088430129E4B6BE00D331BF /* Fonts+Generated.swift in Sources */,
 				B088430529E4B6F700D331BF /* SplashScreenPresenter.swift in Sources */,
 				B05D501F2A4FFE8900BDC9CF /* TableCellReusable.swift in Sources */,
 				B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */,
 				B088430729E4B78400D331BF /* SplashScreenViewController.swift in Sources */,
 				B0C4273429FDC0CA00AA00D7 /* SplashScreenEntity.swift in Sources */,
+				B0732B362A604642001B06C7 /* MovieListViewStateFactory.swift in Sources */,
 				B05D501D2A4FFE6C00BDC9CF /* Reusable.swift in Sources */,
 				B0ECEF8B2A294755004ADAC7 /* MovieListViewController.swift in Sources */,
 				B0ECEF8E2A2949B0004ADAC7 /* BaseViewController.swift in Sources */,
@@ -645,8 +653,9 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -676,8 +685,9 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

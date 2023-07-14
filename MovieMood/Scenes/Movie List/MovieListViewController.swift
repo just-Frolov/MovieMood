@@ -16,8 +16,6 @@ protocol MovieListView: AnyObject {
 final class MovieListViewController: BaseViewController<MovieListPresenter> {
     
     private enum Constants {
-        static let movieCardCellAspectRatio: CGFloat = 16.0 / 9.0
-        static let movieCardCellContentInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         static let tableViewContentInsets = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
     }
     
@@ -40,12 +38,6 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
     
     //MARK: - Variables -
     private var dataSource: MovieListDataSource?
-    private var movieCardCellHeight: CGFloat {
-        let verticalInset = Constants.movieCardCellContentInsets.bottom + Constants.movieCardCellContentInsets.top
-        let horisontalInset = Constants.movieCardCellContentInsets.left + Constants.movieCardCellContentInsets.right
-        let cellWidth = tableView.bounds.width - horisontalInset
-        return (cellWidth / Constants.movieCardCellAspectRatio) + verticalInset
-    }
 
     //MARK: - Life Cycle -
     override func viewDidLoad() {
@@ -72,15 +64,12 @@ extension MovieListViewController: MovieListView {
 
 private extension MovieListViewController {
     func setupDataSource() {
-        dataSource = .init(
-            tableView: tableView,
-            cellContentInsets: Constants.movieCardCellContentInsets
-        )
+        dataSource = .init(tableView: tableView)
     }
 }
 
 extension MovieListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return movieCardCellHeight
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        presenter?.fetchMoviesIfNeeded(indexPath: indexPath)
     }
 }
