@@ -16,15 +16,18 @@ final class ClNetwork: Network {
     
     private enum Constants {
         static let baseURL = "https://api.themoviedb.org/3/"
-        static let kApiKey = "api_key="
-        static let apiKey = "a5e9b83ceecaed49515d68d344c79b72"
+        static let apiSecretKey = "api_key"
+        //TODO: Move to Secrets
+        static let apiSecretValue = "a5e9b83ceecaed49515d68d344c79b72"
+        //TODO: Move to Separate file
+        static let movieListPath = "discover/movie"
     }
     
     func request<T: Requestable>(endpoint: T) async throws -> T.Response {
-        guard let url = URL(string: endpoint.path.fullURL()) else {
+        guard let url = endpoint.path.baseURL else {
             throw ClError.invalidUrl
         }
-        
+
         let task = AF.request(
             url,
             method: endpoint.method,
@@ -54,16 +57,15 @@ extension ClNetwork {
         private var path: String {
             switch self {
             case .movieList:
-                return "discover/movie"
+                return Constants.movieListPath
             }
         }
     
-        func fullURL() -> String {
-            return String(format: "%@%@?%@%@",
-                          Constants.baseURL,
-                          self.path,
-                          Constants.kApiKey,
-                          Constants.apiKey)
+        var baseURL: URL? {
+            var baseURL = URLComponents(string: Constants.baseURL + self.path)
+            let apiKeyQueryItem = URLQueryItem(name: Constants.apiSecretKey, value: Constants.apiSecretValue)
+            baseURL?.queryItems = [apiKeyQueryItem]
+            return baseURL?.url
         }
     }
 }

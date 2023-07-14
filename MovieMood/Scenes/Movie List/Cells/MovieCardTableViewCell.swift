@@ -57,17 +57,7 @@ final class MovieCardTableViewCell: BaseTableViewCell {
         posterImageView.image = nil
     }
     
-    func render(
-        with movieViewState: MovieListViewState.MovieViewState,
-        _ cellContentInsets: UIEdgeInsets
-    ) {
-        backgroundContentView.pinEdges(
-            to: contentView,
-            topSpace: cellContentInsets.top,
-            leftSpace: cellContentInsets.left,
-            rightSpace: cellContentInsets.right,
-            bottomSpace: cellContentInsets.bottom
-        )
+    func render(with movieViewState: MovieListViewState.Item) {
         titleLabel.text = movieViewState.title
         posterImageView.kf.setImage(with: movieViewState.posterImagePath)
     }
