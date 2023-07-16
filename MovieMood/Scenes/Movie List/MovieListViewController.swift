@@ -16,7 +16,8 @@ protocol MovieListView: AnyObject {
 final class MovieListViewController: BaseViewController<MovieListPresenter> {
     
     private enum Constants {
-        static let tableViewContentInsets = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+        static let sectionInset = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+        static let interGroupSpacing: CGFloat = 16.0
     }
     
     static func instantiate(with presenter: MovieListPresenter) -> MovieListViewController {
@@ -26,13 +27,12 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
     }
     
     //MARK: - IBOutlets -
-    @IBOutlet private weak var tableView: UITableView! {
+    @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
-            MovieCardTableViewCell.xibRegister(in: tableView)
-            tableView.contentInset = Constants.tableViewContentInsets
-            tableView.backgroundColor = .clear
-            tableView.dataSource = dataSource
-            tableView.delegate = self
+            dataSource = .init(collectionView: collectionView)
+            MovieCardCollectionViewCell.xibRegister(in: collectionView)
+            collectionView.backgroundColor = .clear
+            collectionView.collectionViewLayout = makeCollectionViewLayout()
         }
     }
     
@@ -42,13 +42,7 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
     //MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDataSource()
         presenter?.viewDidLoad()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.reloadData()
     }
 }
 
@@ -63,13 +57,33 @@ extension MovieListViewController: MovieListView {
 }
 
 private extension MovieListViewController {
-    func setupDataSource() {
-        dataSource = .init(tableView: tableView)
+    func makeCollectionViewLayout() -> UICollectionViewCompositionalLayout {
+        
+        let layout = UICollectionViewCompositionalLayout { [unowned self] (setion: Int, layoutEnvironment: NSCollectionLayoutEnvironment) in
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(1.0)
+            )
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            
+            let group = NSCollectionLayoutGroup.vertical(layoutSize: itemSize, subitems: [item])
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.orthogonalScrollingBehavior = .none
+            section.contentInsets = Constants.sectionInset
+            section.interGroupSpacing = Constants.interGroupSpacing
+            
+            section.visibleItemsInvalidationHandler = { [weak self] (items, offset, env) -> Void in
+                guard let self, let indexPath = items.last?.indexPath else { return }
+                
+                self.presenter?.fetchMoviesIfNeeded(indexPath: indexPath)
+            }
+            
+            return section
+        }
+        
+        return layout
     }
 }
 
-extension MovieListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        presenter?.fetchMoviesIfNeeded(indexPath: indexPath)
-    }
-}
+

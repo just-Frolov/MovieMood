@@ -30,15 +30,10 @@ final class MovieListRequest: Endpoint<MovieList> {
 }
 
 private extension MovieListRequest {
-    private enum Constants {
-        static let kPage = "page"
-        static let kSortType = "sort_by"
-    }
-    
     static private func paramsToDictionary(page: Int, sortType: String) -> [String: Any] {
         let params: [String: Any] = [
-            Constants.kPage: page,
-            Constants.kSortType: sortType,
+            APIConstants.MovieListFields.page: page,
+            APIConstants.MovieListFields.sortType: sortType,
         ]
         return params
     }

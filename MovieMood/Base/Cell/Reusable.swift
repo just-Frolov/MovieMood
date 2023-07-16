@@ -31,7 +31,6 @@ extension CollectionCellRegistable {
 }
 
 extension CollectionCellDequeueReusable {
-    
     static func dequeueCellWithType(in collectionView: UICollectionView, indexPath: IndexPath) -> Self {
         return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                   for: indexPath) as! Self

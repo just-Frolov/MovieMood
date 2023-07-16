@@ -19,8 +19,6 @@ final class ClNetwork: Network {
         static let apiSecretKey = "api_key"
         //TODO: Move to Secrets
         static let apiSecretValue = "a5e9b83ceecaed49515d68d344c79b72"
-        //TODO: Move to Separate file
-        static let movieListPath = "discover/movie"
     }
     
     func request<T: Requestable>(endpoint: T) async throws -> T.Response {
@@ -57,7 +55,7 @@ extension ClNetwork {
         private var path: String {
             switch self {
             case .movieList:
-                return Constants.movieListPath
+                return APIConstants.MovieListFields.path
             }
         }
     

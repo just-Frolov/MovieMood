@@ -7,16 +7,16 @@
 
 import UIKit
 
-final class MovieListDataSource: UITableViewDiffableDataSource<Int, AnyHashable> {
-    init(tableView: UITableView) {
-        super.init(tableView: tableView) { tableView, indexPath, item in
-            if let movieState = item as? MovieListViewState.Item {
-                let cell = MovieCardTableViewCell
-                    .dequeueingReusableCell(in: tableView, for: indexPath)
-                cell.render(with: movieState)
+final class MovieListDataSource: UICollectionViewDiffableDataSource<Int, AnyHashable> {
+    init(collectionView: UICollectionView) {
+        super.init(collectionView: collectionView) { collectionView, indexPath, item in
+            if let movieItem = item as? MovieListViewState.Item {
+                let cell = MovieCardCollectionViewCell
+                    .dequeueCellWithType(in: collectionView, indexPath: indexPath)
+                cell.render(with: movieItem)
                 return cell
             } else {
-                return UITableViewCell()
+                return UICollectionViewCell()
             }
         }
     }
