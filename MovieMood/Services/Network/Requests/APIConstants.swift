@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct APIConstants {
-    struct MovieListFields {
+enum APIConstants { 
+    enum MovieListFields {
         static let path = "discover/movie"
         static let page = "page"
         static let sortType = "sort_by"

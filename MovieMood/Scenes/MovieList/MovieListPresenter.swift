@@ -26,7 +26,8 @@ final class MovieListPresenterImpl {
     
     private var movieList: [Movie] = []
     private var isMoviesLoading = false
-    private var currentPage: Int? = 1 //TODO: move to dataSource?
+    private var currentPage: Int = 1
+    private var canLoadNextPage: Bool = true
     
     //MARK: - Life Cycle -
     init(
@@ -39,12 +40,10 @@ final class MovieListPresenterImpl {
     
     func inject(
         view: MovieListView,
-        interactor: MovieListInteractor,
-        movieList: [Movie]
+        interactor: MovieListInteractor
     ) {
         self.view = view
         self.interactor = interactor
-        self.movieList = movieList
     }
 }
 
@@ -52,11 +51,12 @@ extension MovieListPresenterImpl: MovieListPresenter {
     func viewDidLoad() {
         Task {
             await updateView()
+            await fetchMovies()
         }
     }
     
     func fetchMoviesIfNeeded(indexPath: IndexPath) {
-        if movieList.count - Constants.cellsUntilPaginationLimit == indexPath.row, !isMoviesLoading {
+        if movieList.count - Constants.cellsUntilPaginationLimit == indexPath.row, !isMoviesLoading, canLoadNextPage {
             Task { await fetchMovies() }
         }
     }
@@ -65,8 +65,9 @@ extension MovieListPresenterImpl: MovieListPresenter {
 private extension MovieListPresenterImpl {
     @MainActor
     func updateView() async {
+        guard let view else { return }
         let viewState = viewStateFactory.makeViewState(movieList: movieList)
-        view?.render(with: viewState.navigationBar)
+        view.render(with: viewState.navigationBar)
         await updateDataSource(items: viewState.items)
     }
     
@@ -79,14 +80,12 @@ private extension MovieListPresenterImpl {
     }
     
     func fetchMovies() async {
-        guard var currentPage else { return }
         isMoviesLoading = true
         currentPage += 1
-        self.currentPage = currentPage
         
         do {
             guard
-                let additionalMovies = try await interactor?.loadMovies(from: currentPage).results
+                let additionalMovies = try await interactor?.loadMovies(from: currentPage, sortType: .popularity).results
             else {
                 handleError()
                 return
@@ -94,7 +93,7 @@ private extension MovieListPresenterImpl {
             
             isMoviesLoading = false
             self.movieList.append(contentsOf: additionalMovies)
-        
+            
             Task { await self.updateView() }
         } catch let error {
             handleError(error)
@@ -106,7 +105,7 @@ private extension MovieListPresenterImpl {
             debugPrint(error)
         }
         
-        currentPage = nil
+        canLoadNextPage = false
         isMoviesLoading = false
     }
 }

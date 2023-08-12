@@ -20,9 +20,10 @@ final class SplashScreenViewController: BaseViewController<SplashScreenPresenter
         static let animationViewSpace: CGFloat = 16
     }
     
-    static func instantiate(with presenter: SplashScreenPresenter) -> SplashScreenViewController {
+    static func instantiate(with presenter: SplashScreenPresenter, alert: UIAlertController) -> SplashScreenViewController {
         let viewController: SplashScreenViewController = Storyboard.SplashScreen.splashScreenViewController.instantiate()
         viewController.presenter = presenter
+        viewController.alert = alert
         return viewController
     }
   

@@ -8,14 +8,12 @@
 import UIKit
 
 final class MovieListViewStateFactory {
-    func makeViewState(
-        movieList: [Movie]
-    ) -> MovieListViewState {
+    func makeViewState(movieList: [Movie]) -> MovieListViewState {
         let navigationBar = MovieListViewState.NavigationBar(
             title: Localized.appTitle,
             rightButtonImage: UIImage()
         )
-    
+        
         let movieViewModelList = makeItems(movieList)
         
         return MovieListViewState(
@@ -33,7 +31,8 @@ private extension MovieListViewStateFactory {
                 posterImagePath = ImageManager
                     .shared
                     .imageURL(
-                        withPath: backdropPath
+                        withPath: backdropPath,
+                        imageSizeType: .list
                     )
             }
             

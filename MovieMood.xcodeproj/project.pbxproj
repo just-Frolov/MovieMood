@@ -11,16 +11,13 @@
 		B045CE822A620151007196D5 /* MovieCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B045CE812A620151007196D5 /* MovieCardCollectionViewCell.swift */; };
 		B045CE842A62015D007196D5 /* MovieCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B045CE832A62015D007196D5 /* MovieCardCollectionViewCell.xib */; };
 		B045CE872A63DF40007196D5 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B045CE862A63DF40007196D5 /* APIConstants.swift */; };
-		B05D50182A4FFDB100BDC9CF /* MovieCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B05D50172A4FFDB100BDC9CF /* MovieCardTableViewCell.xib */; };
-		B05D501A2A4FFDB900BDC9CF /* MovieCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D50192A4FFDB900BDC9CF /* MovieCardTableViewCell.swift */; };
 		B05D501D2A4FFE6C00BDC9CF /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D501C2A4FFE6C00BDC9CF /* Reusable.swift */; };
-		B05D501F2A4FFE8900BDC9CF /* TableCellReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D501E2A4FFE8900BDC9CF /* TableCellReusable.swift */; };
 		B05D50252A4FFED300BDC9CF /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D50242A4FFED300BDC9CF /* BaseCollectionViewCell.swift */; };
 		B05D503B2A50C21700BDC9CF /* MovieListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D503A2A50C21700BDC9CF /* MovieListDataSource.swift */; };
 		B0732B322A5F0B26001B06C7 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0732B312A5F0B26001B06C7 /* UINavigationController+Extension.swift */; };
 		B0732B342A5F5606001B06C7 /* MovieListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0732B332A5F5606001B06C7 /* MovieListInteractor.swift */; };
 		B0732B362A604642001B06C7 /* MovieListViewStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0732B352A604642001B06C7 /* MovieListViewStateFactory.swift */; };
-		B07AAEC02A1B73070034D0AE /* AssemblerModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* AssemblerModuleBuilder.swift */; };
+		B07AAEC02A1B73070034D0AE /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* Assembler.swift */; };
 		B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */; };
 		B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */; };
 		B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */; };
@@ -44,8 +41,9 @@
 		B0C4272B29FD5A4300AA00D7 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4272A29FD5A4300AA00D7 /* Network.swift */; };
 		B0C4272D29FD5AD400AA00D7 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4272C29FD5AD400AA00D7 /* Requestable.swift */; };
 		B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4272F29FD5B2F00AA00D7 /* Logger.swift */; };
-		B0C4273229FDC0B100AA00D7 /* SplashScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4273129FDC0B100AA00D7 /* SplashScreenInteractor.swift */; };
-		B0C4273429FDC0CA00AA00D7 /* SplashScreenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4273329FDC0CA00AA00D7 /* SplashScreenEntity.swift */; };
+		B0C4273429FDC0CA00AA00D7 /* MovieListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4273329FDC0CA00AA00D7 /* MovieListEntity.swift */; };
+		B0E3346C2A752D2F00F64338 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0E3346B2A752D2F00F64338 /* swiftgen.yml */; };
+		B0E3346E2A75341400F64338 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B0E3346D2A75341300F64338 /* Secrets.xcconfig */; };
 		B0EA776D2A571ACE00B605D3 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B05D502C2A5000F800BDC9CF /* Montserrat-Bold.ttf */; };
 		B0EA776E2A571ACE00B605D3 /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B05D502D2A5000F800BDC9CF /* Montserrat-Italic.ttf */; };
 		B0EA776F2A571ACE00B605D3 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B05D50272A5000F800BDC9CF /* Montserrat-Black.ttf */; };
@@ -76,10 +74,7 @@
 		B045CE812A620151007196D5 /* MovieCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		B045CE832A62015D007196D5 /* MovieCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		B045CE862A63DF40007196D5 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
-		B05D50172A4FFDB100BDC9CF /* MovieCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCardTableViewCell.xib; sourceTree = "<group>"; };
-		B05D50192A4FFDB900BDC9CF /* MovieCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardTableViewCell.swift; sourceTree = "<group>"; };
 		B05D501C2A4FFE6C00BDC9CF /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
-		B05D501E2A4FFE8900BDC9CF /* TableCellReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellReusable.swift; sourceTree = "<group>"; };
 		B05D50242A4FFED300BDC9CF /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		B05D50262A5000F800BDC9CF /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		B05D50272A5000F800BDC9CF /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
@@ -103,7 +98,7 @@
 		B0732B312A5F0B26001B06C7 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		B0732B332A5F5606001B06C7 /* MovieListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListInteractor.swift; sourceTree = "<group>"; };
 		B0732B352A604642001B06C7 /* MovieListViewStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewStateFactory.swift; sourceTree = "<group>"; };
-		B07AAEBF2A1B73070034D0AE /* AssemblerModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblerModuleBuilder.swift; sourceTree = "<group>"; };
+		B07AAEBF2A1B73070034D0AE /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extra.swift"; sourceTree = "<group>"; };
 		B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Generated.swift"; sourceTree = "<group>"; };
@@ -126,8 +121,9 @@
 		B0C4272A29FD5A4300AA00D7 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B0C4272C29FD5AD400AA00D7 /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		B0C4272F29FD5B2F00AA00D7 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		B0C4273129FDC0B100AA00D7 /* SplashScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenInteractor.swift; sourceTree = "<group>"; };
-		B0C4273329FDC0CA00AA00D7 /* SplashScreenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenEntity.swift; sourceTree = "<group>"; };
+		B0C4273329FDC0CA00AA00D7 /* MovieListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListEntity.swift; sourceTree = "<group>"; };
+		B0E3346B2A752D2F00F64338 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
+		B0E3346D2A75341300F64338 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		B0EA777F2A5728EB00B605D3 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		B0ECEF862A2946F4004ADAC7 /* MovieList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieList.storyboard; sourceTree = "<group>"; };
 		B0ECEF882A294728004ADAC7 /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
@@ -152,8 +148,6 @@
 		B0225DF62A4FFD8100FA9B13 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B05D50172A4FFDB100BDC9CF /* MovieCardTableViewCell.xib */,
-				B05D50192A4FFDB900BDC9CF /* MovieCardTableViewCell.swift */,
 				B045CE832A62015D007196D5 /* MovieCardCollectionViewCell.xib */,
 				B045CE812A620151007196D5 /* MovieCardCollectionViewCell.swift */,
 			);
@@ -172,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				B05D501C2A4FFE6C00BDC9CF /* Reusable.swift */,
-				B05D501E2A4FFE8900BDC9CF /* TableCellReusable.swift */,
 				B05D50242A4FFED300BDC9CF /* BaseCollectionViewCell.swift */,
 			);
 			path = Cell;
@@ -231,6 +224,8 @@
 		B08842C429E4A54700D331BF = {
 			isa = PBXGroup;
 			children = (
+				B0E3346B2A752D2F00F64338 /* swiftgen.yml */,
+				B0E3346D2A75341300F64338 /* Secrets.xcconfig */,
 				B08842CF29E4A54700D331BF /* MovieMood */,
 				B08842CE29E4A54700D331BF /* Products */,
 			);
@@ -272,10 +267,10 @@
 		B08842EB29E4AAC800D331BF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B0ECEF852A2946A9004ADAC7 /* MovieList */,
 				B08842F129E4AC2200D331BF /* Splash Screen */,
-				B0ECEF852A2946A9004ADAC7 /* Movie List */,
 				B08842EC29E4AAEB00D331BF /* AppRouter.swift */,
-				B07AAEBF2A1B73070034D0AE /* AssemblerModuleBuilder.swift */,
+				B07AAEBF2A1B73070034D0AE /* Assembler.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -284,9 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				B088430629E4B78400D331BF /* SplashScreenViewController.swift */,
-				B0C4273129FDC0B100AA00D7 /* SplashScreenInteractor.swift */,
 				B088430429E4B6F700D331BF /* SplashScreenPresenter.swift */,
-				B0C4273329FDC0CA00AA00D7 /* SplashScreenEntity.swift */,
 				B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */,
 			);
 			path = "Splash Screen";
@@ -296,7 +289,6 @@
 			isa = PBXGroup;
 			children = (
 				B08842F729E4B22D00D331BF /* Fonts */,
-				B08842F829E4B24400D331BF /* Media */,
 				B08842D929E4A54800D331BF /* Assets.xcassets */,
 				B08842F529E4B1DB00D331BF /* Colors.xcassets */,
 				B08842DE29E4A54800D331BF /* Info.plist */,
@@ -312,13 +304,6 @@
 				B05D50382A5001EE00BDC9CF /* Montserrat */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		B08842F829E4B24400D331BF /* Media */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Media;
 			sourceTree = "<group>";
 		};
 		B08842F929E4B3C300D331BF /* Generated */ = {
@@ -360,19 +345,36 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		B0ECEF852A2946A9004ADAC7 /* Movie List */ = {
+		B0CAFE382A878C1700C56537 /* ViewState */ = {
 			isa = PBXGroup;
 			children = (
-				B0225DF62A4FFD8100FA9B13 /* Cells */,
 				B0732B352A604642001B06C7 /* MovieListViewStateFactory.swift */,
 				B01C6F602A55B04D00D0840A /* MovieListViewState.swift */,
-				B0ECEF8A2A294755004ADAC7 /* MovieListViewController.swift */,
-				B0732B332A5F5606001B06C7 /* MovieListInteractor.swift */,
-				B0ECEF882A294728004ADAC7 /* MovieListPresenter.swift */,
-				B05D503A2A50C21700BDC9CF /* MovieListDataSource.swift */,
-				B0ECEF862A2946F4004ADAC7 /* MovieList.storyboard */,
 			);
-			path = "Movie List";
+			path = ViewState;
+			sourceTree = "<group>";
+		};
+		B0CAFE392A878C3A00C56537 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				B0C4273329FDC0CA00AA00D7 /* MovieListEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		B0ECEF852A2946A9004ADAC7 /* MovieList */ = {
+			isa = PBXGroup;
+			children = (
+				B0ECEF862A2946F4004ADAC7 /* MovieList.storyboard */,
+				B0ECEF8A2A294755004ADAC7 /* MovieListViewController.swift */,
+				B0ECEF882A294728004ADAC7 /* MovieListPresenter.swift */,
+				B0732B332A5F5606001B06C7 /* MovieListInteractor.swift */,
+				B05D503A2A50C21700BDC9CF /* MovieListDataSource.swift */,
+				B0225DF62A4FFD8100FA9B13 /* Cells */,
+				B0CAFE392A878C3A00C56537 /* Entities */,
+				B0CAFE382A878C1700C56537 /* ViewState */,
+			);
+			path = MovieList;
 			sourceTree = "<group>";
 		};
 		B0ECEF8C2A294976004ADAC7 /* Base */ = {
@@ -457,7 +459,6 @@
 				B0EA77752A571ACE00B605D3 /* Montserrat-LightItalic.ttf in Resources */,
 				B0EA77742A571ACE00B605D3 /* Montserrat-Light.ttf in Resources */,
 				B0EA77762A571ACE00B605D3 /* Montserrat-Regular.ttf in Resources */,
-				B05D50182A4FFDB100BDC9CF /* MovieCardTableViewCell.xib in Resources */,
 				B0EA776F2A571ACE00B605D3 /* Montserrat-Black.ttf in Resources */,
 				B045CE842A62015D007196D5 /* MovieCardCollectionViewCell.xib in Resources */,
 				B08842FB29E4B4C600D331BF /* Localizable.strings in Resources */,
@@ -466,12 +467,14 @@
 				B08842F629E4B1DB00D331BF /* Colors.xcassets in Resources */,
 				B08842DA29E4A54800D331BF /* Assets.xcassets in Resources */,
 				B0EA776D2A571ACE00B605D3 /* Montserrat-Bold.ttf in Resources */,
+				B0E3346C2A752D2F00F64338 /* swiftgen.yml in Resources */,
 				B0EA777B2A571ACE00B605D3 /* Montserrat-SemiBold.ttf in Resources */,
 				B0EA777D2A571ACE00B605D3 /* Montserrat-ExtraLight.ttf in Resources */,
 				B0ECEF872A2946F4004ADAC7 /* MovieList.storyboard in Resources */,
 				B0EA77722A571ACE00B605D3 /* Montserrat-ExtraBold.ttf in Resources */,
 				B0EA777C2A571ACE00B605D3 /* Montserrat-ThinItalic.ttf in Resources */,
 				B0EA776E2A571ACE00B605D3 /* Montserrat-Italic.ttf in Resources */,
+				B0E3346E2A75341400F64338 /* Secrets.xcconfig in Resources */,
 				B0EA77732A571ACE00B605D3 /* Montserrat-Medium.ttf in Resources */,
 				B0EA777A2A571ACE00B605D3 /* Montserrat-MediumItalic.ttf in Resources */,
 				B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */,
@@ -489,11 +492,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0732B322A5F0B26001B06C7 /* UINavigationController+Extension.swift in Sources */,
-				B07AAEC02A1B73070034D0AE /* AssemblerModuleBuilder.swift in Sources */,
+				B07AAEC02A1B73070034D0AE /* Assembler.swift in Sources */,
 				B05D50252A4FFED300BDC9CF /* BaseCollectionViewCell.swift in Sources */,
 				B0EA77802A5728EC00B605D3 /* ImageManager.swift in Sources */,
 				B0C4272B29FD5A4300AA00D7 /* Network.swift in Sources */,
-				B0C4273229FDC0B100AA00D7 /* SplashScreenInteractor.swift in Sources */,
 				B0C4272D29FD5AD400AA00D7 /* Requestable.swift in Sources */,
 				B08842ED29E4AAEB00D331BF /* AppRouter.swift in Sources */,
 				B088430329E4B6BE00D331BF /* Strings+Generated.swift in Sources */,
@@ -501,10 +503,9 @@
 				B0732B342A5F5606001B06C7 /* MovieListInteractor.swift in Sources */,
 				B088430129E4B6BE00D331BF /* Fonts+Generated.swift in Sources */,
 				B088430529E4B6F700D331BF /* SplashScreenPresenter.swift in Sources */,
-				B05D501F2A4FFE8900BDC9CF /* TableCellReusable.swift in Sources */,
 				B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */,
 				B088430729E4B78400D331BF /* SplashScreenViewController.swift in Sources */,
-				B0C4273429FDC0CA00AA00D7 /* SplashScreenEntity.swift in Sources */,
+				B0C4273429FDC0CA00AA00D7 /* MovieListEntity.swift in Sources */,
 				B0732B362A604642001B06C7 /* MovieListViewStateFactory.swift in Sources */,
 				B05D501D2A4FFE6C00BDC9CF /* Reusable.swift in Sources */,
 				B0ECEF8B2A294755004ADAC7 /* MovieListViewController.swift in Sources */,
@@ -515,7 +516,6 @@
 				B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */,
 				B08842D129E4A54700D331BF /* AppDelegate.swift in Sources */,
 				B088430229E4B6BE00D331BF /* Images+Colors+Generated.swift in Sources */,
-				B05D501A2A4FFDB900BDC9CF /* MovieCardTableViewCell.swift in Sources */,
 				B0ECEF892A294728004ADAC7 /* MovieListPresenter.swift in Sources */,
 				B01C6F612A55B04D00D0840A /* MovieListViewState.swift in Sources */,
 				B045CE822A620151007196D5 /* MovieCardCollectionViewCell.swift in Sources */,
@@ -540,6 +540,7 @@
 /* Begin XCBuildConfiguration section */
 		B08842DF29E4A54800D331BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0E3346D2A75341300F64338 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -600,6 +601,7 @@
 		};
 		B08842E029E4A54800D331BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0E3346D2A75341300F64338 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

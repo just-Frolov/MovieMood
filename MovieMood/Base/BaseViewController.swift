@@ -8,12 +8,13 @@
 import UIKit
 
 class BaseViewController<Presenter>: UIViewController {
-    
+ 
     var presenter: Presenter?
-   
+    var alert: UIAlertController?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupUI()
+        setupNavigationBar()
     }
 }
 
@@ -23,17 +24,20 @@ extension BaseViewController {
         message: String? = nil,
         onDismiss: (() -> Void)? = nil
     ) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        guard let alert else { return }
         let action = UIAlertAction(title: Localized.acceptAction, style: .default) { _ in
             onDismiss?()
         }
-        alertController.addAction(action)
-        present(alertController, animated: true)
+        
+        alert.title = title
+        alert.addAction(action)
+       
+        present(alert, animated: true)
     }
 }
 
 private extension BaseViewController {
-    func setupUI() {
+    func setupNavigationBar() {
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.setDarkGreyAppearance()
     }

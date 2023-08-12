@@ -16,9 +16,8 @@ final class ClNetwork: Network {
     
     private enum Constants {
         static let baseURL = "https://api.themoviedb.org/3/"
+        static let apiDictionarySecretKey = "API_KEY"
         static let apiSecretKey = "api_key"
-        //TODO: Move to Secrets
-        static let apiSecretValue = "a5e9b83ceecaed49515d68d344c79b72"
     }
     
     func request<T: Requestable>(endpoint: T) async throws -> T.Response {
@@ -43,7 +42,7 @@ final class ClNetwork: Network {
             
         case .failure(let afError):
             Logger.error("\(url.absoluteString)\n\(afError.localizedDescription)")
-            throw afError
+            throw ClError.unknown 
         }
     }
 }
@@ -61,7 +60,8 @@ extension ClNetwork {
     
         var baseURL: URL? {
             var baseURL = URLComponents(string: Constants.baseURL + self.path)
-            let apiKeyQueryItem = URLQueryItem(name: Constants.apiSecretKey, value: Constants.apiSecretValue)
+            let apiKey = Bundle.main.object(forInfoDictionaryKey: Constants.apiDictionarySecretKey) as? String
+            let apiKeyQueryItem = URLQueryItem(name: Constants.apiSecretKey, value: apiKey)
             baseURL?.queryItems = [apiKeyQueryItem]
             return baseURL?.url
         }
@@ -69,11 +69,15 @@ extension ClNetwork {
 }
 
 enum ClError: Error {
+    case unknown
     case invalidUrl
     case invalidParameters
     
     var localizedDescription: String {
         switch self {
+        case .unknown:
+            return Localized.defaultError
+            
         case .invalidUrl:
             return Localized.urlNotValid
             
