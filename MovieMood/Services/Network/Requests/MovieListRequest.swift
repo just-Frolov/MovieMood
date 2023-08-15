@@ -10,15 +10,15 @@ import Alamofire
 final class MovieListRequest: Endpoint<MovieList> {
     enum SortType: String {
         case popularity = "popularity.desc"
+        case vote = "vote_average"
     }
 
     init(
-        path: ClNetwork.EndpointPath = .movieList,
-        page: Int = 1,
-        sortType: SortType = .popularity
+        page: Int,
+        sortType: SortType
     ) {
         super.init(
-            path: path,
+            path: ClNetwork.EndpointPath.movieList,
             parameters: MovieListRequest.paramsToDictionary(
                 page: page,
                 sortType: sortType.rawValue

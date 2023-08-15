@@ -12,14 +12,14 @@ class Endpoint<T: Decodable>: Requestable {
     typealias Response = T
     
     let path: ClNetwork.EndpointPath
-    var parameters: [String: Any]
+    var parameters: [String: Any] = [:]
     let method: HTTPMethod
     let encoding: ParameterEncoding
     
     init(
         path: ClNetwork.EndpointPath,
-        parameters: [String: Any] = [:],
-        method: HTTPMethod = .get,
+        parameters: [String: Any],
+        method: HTTPMethod,
         encoding: ParameterEncoding = URLEncoding.default
     ) {
         self.path = path

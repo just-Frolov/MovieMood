@@ -21,12 +21,14 @@ protocol CollectionCellRegistable: UICollectionViewCell, Reusable { }
 
 extension CollectionCellRegistable {
     static func register(in collectionView: UICollectionView) {
-        collectionView.register(Self.self, forCellWithReuseIdentifier: String(describing: self))
+        collectionView.register(Self.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
     static func xibRegister(in collectionView: UICollectionView) {
-        collectionView.register(UINib(nibName: String(describing: self), bundle: nil),
-                                forCellWithReuseIdentifier: String(describing: self))
+        collectionView.register(
+            UINib(nibName: reuseIdentifier, bundle: nil),
+            forCellWithReuseIdentifier: reuseIdentifier
+        )
     }
 }
 

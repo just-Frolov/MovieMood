@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MovieListInteractor {
-    func loadMovies(from page: Int) async throws -> MovieList
+    func loadMovies(from page: Int, sortType: MovieListRequest.SortType) async throws -> MovieList
 }
 
 final class MovieListInteractorImpl {
@@ -18,7 +18,7 @@ final class MovieListInteractorImpl {
     //MARK: - Life Cycle -
     init(
         presenter: MovieListPresenter,
-        network: Network = ClNetwork()
+        network: Network
     ) {
         self.presenter = presenter
         self.network = network
@@ -26,8 +26,8 @@ final class MovieListInteractorImpl {
 }
 
 extension MovieListInteractorImpl: MovieListInteractor {
-    func loadMovies(from page: Int) async throws -> MovieList {
-        let request = MovieListRequest(page: page)
+    func loadMovies(from page: Int, sortType: MovieListRequest.SortType) async throws -> MovieList {
+        let request = MovieListRequest(page: page, sortType: sortType)
         do {
             let movieList = try await network.request(endpoint: request)
             return movieList

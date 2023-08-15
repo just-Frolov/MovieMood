@@ -7,44 +7,32 @@
 
 import UIKit
 
-protocol AppRouterMain {
-    var navigationController: UINavigationController? { get set }
-    var assemblyBuilder: AssemblerBuilderProtocol? { get set }
-}
-
 @MainActor
-protocol AppRouter: AppRouterMain {
-    func showHomeScreen(with movieList: [Movie])
-    func popToRoot()
+protocol AppRouter {
+    func popToRoot(animated: Bool)
+    func showMovieDetails(with id: MovideId)
 }
 
 final class AppRouterImpl: AppRouter {
-    var navigationController: UINavigationController?
-    var assemblyBuilder: AssemblerBuilderProtocol?
+    let navigationController: UINavigationController
+    let assemblyBuilder: AssemblerProtocol
     
-    init(navigationController: UINavigationController, assemblyBuilder: AssemblerBuilderProtocol) {
+    init(navigationController: UINavigationController, assemblyBuilder: AssemblerProtocol) {
         self.navigationController = navigationController
         self.assemblyBuilder = assemblyBuilder
     }
     
     func start() {
-        guard let viewController = assemblyBuilder?
-            .createLaunchScreenModule(router: self) else {
-            return
-        }
-        navigationController?.viewControllers = [viewController]
+        let homeViewController = assemblyBuilder.createMovieListModule(router: self)
+        
+        navigationController.viewControllers = [homeViewController]
+    }
+ 
+    func showMovieDetails(with id: MovideId) {
+        // TO DO
     }
     
-    func showHomeScreen(with movieList: [Movie]) {
-        guard let viewController = assemblyBuilder?
-            .createHomeModule(
-                movieList: movieList,
-                router: self
-            ) else { return }
-        navigationController?.viewControllers = [viewController]
-    }
-    
-    func popToRoot() {
-        navigationController?.popToRootViewController(animated: true)
+    func popToRoot(animated: Bool) {
+        navigationController.popToRootViewController(animated: animated)
     }
 }

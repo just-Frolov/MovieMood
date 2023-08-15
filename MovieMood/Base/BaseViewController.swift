@@ -8,32 +8,55 @@
 import UIKit
 
 class BaseViewController<Presenter>: UIViewController {
-    
+ 
     var presenter: Presenter?
-   
+    private var alert: UIAlertController?
+    private var loadingView: LoadingAnimationView?
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupUI()
+        setupNavigationBar()
     }
 }
 
 extension BaseViewController {
+    func inject(
+        presenter: Presenter,
+        alert: UIAlertController,
+        loadingView: LoadingAnimationView
+    ) {
+        self.presenter = presenter
+        self.alert = alert
+        self.loadingView = loadingView
+    }
+    
     func showAlert(
         title: String? = nil,
         message: String? = nil,
         onDismiss: (() -> Void)? = nil
     ) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        guard let alert else { return }
         let action = UIAlertAction(title: Localized.acceptAction, style: .default) { _ in
             onDismiss?()
         }
-        alertController.addAction(action)
-        present(alertController, animated: true)
+        
+        alert.title = title
+        alert.addAction(action)
+       
+        present(alert, animated: true)
+    }
+    
+    func showLoadingIndicator() async {
+        await loadingView?.show(on: self)
+    }
+    
+    func hideLoadingIndicator() {
+        loadingView?.hide()
     }
 }
 
 private extension BaseViewController {
-    func setupUI() {
+    func setupNavigationBar() {
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.setDarkGreyAppearance()
     }

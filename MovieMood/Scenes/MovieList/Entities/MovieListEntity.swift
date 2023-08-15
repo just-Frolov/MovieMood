@@ -1,5 +1,5 @@
 //
-//  SplashScreenEntity.swift
+//  MovieListEntity.swift
 //  MovieMood
 //
 //  Created by Danil Frolov on 30.04.2023.
@@ -11,10 +11,12 @@ struct MovieList: Codable {
     let results: [Movie]
 }
 
+typealias MovideId = Int
+
 struct Movie: Codable {
     let backdropPath: String?
     let genreIDS: [Int]
-    let id: Int
+    let id: MovideId
     let releaseDate: String?
     let title: String
     let voteAverage: Double

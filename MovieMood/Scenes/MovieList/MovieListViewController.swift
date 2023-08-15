@@ -20,12 +20,6 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
         static let interGroupSpacing: CGFloat = 16.0
     }
     
-    static func instantiate(with presenter: MovieListPresenter) -> MovieListViewController {
-        let viewController: MovieListViewController = Storyboard.MovieList.movieListViewController.instantiate()
-        viewController.presenter = presenter
-        return viewController
-    }
-    
     //MARK: - IBOutlets -
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
@@ -38,10 +32,14 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
     
     //MARK: - Variables -
     private var dataSource: MovieListDataSource?
-
+    
     //MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
+        Task {
+            await showLoadingIndicator()
+            hideLoadingIndicator()
+        }
         presenter?.viewDidLoad()
     }
 }
