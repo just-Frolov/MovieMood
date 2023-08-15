@@ -36,6 +36,10 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
     //MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
+        Task {
+            await showLoadingIndicator()
+            hideLoadingIndicator()
+        }
         presenter?.viewDidLoad()
     }
 }

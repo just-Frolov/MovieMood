@@ -1,5 +1,5 @@
 //
-//  SplashScreen.swift
+//  LoadingAnimationViewController.swift
 //  MovieMood
 //
 //  Created by Danil Frolov on 11.04.2023.
@@ -9,24 +9,17 @@ import UIKit
 import Lottie
 
 @MainActor
-protocol SplashScreenView: AnyObject {
-    func showLoadingAnimation() async
-    func showError(message: String)
+protocol LoadingAnimationView: AnyObject {
+    func show(on viewController: UIViewController) async
+    func hide()
 }
 
-final class SplashScreenViewController: BaseViewController<SplashScreenPresenter> {
+final class LoadingAnimationViewController: UIViewController {
     
     private enum Constants {
         static let animationViewSpace: CGFloat = 16
     }
     
-    static func instantiate(with presenter: SplashScreenPresenter, alert: UIAlertController) -> SplashScreenViewController {
-        let viewController: SplashScreenViewController = Storyboard.SplashScreen.splashScreenViewController.instantiate()
-        viewController.presenter = presenter
-        viewController.alert = alert
-        return viewController
-    }
-  
     //MARK: - UIElements -
     private lazy var loadingAnimationView: LottieAnimationView = {
         let animationView = LottieAnimationView(name: Asset.Assets.loading.name)
@@ -39,18 +32,27 @@ final class SplashScreenViewController: BaseViewController<SplashScreenPresenter
     //MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
         setupAnimationView()
-        presenter?.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 }
 
-extension SplashScreenViewController: SplashScreenView {
-    func showLoadingAnimation() async {
+extension LoadingAnimationViewController: LoadingAnimationView {
+    func show(on viewController: UIViewController) async {
+        viewController.addChild(self)
+        viewController.view.addSubview(view)
+        view.pinEdges(to: viewController.view)
+        
         await withCheckedContinuation { continuation in
             loadingAnimationView.play() { _ in
                 continuation.resume()
@@ -58,15 +60,13 @@ extension SplashScreenViewController: SplashScreenView {
         }
     }
     
-    func showError(message: String) {
-        showAlert(
-            title: Localized.errorTitle,
-            message: message
-        )
+    func hide() {
+        loadingAnimationView.stop()
+        view.removeFromSuperview()
     }
 }
 
-private extension SplashScreenViewController {
+private extension LoadingAnimationViewController {
     func setupAnimationView() {
         view.addSubview(loadingAnimationView)
         loadingAnimationView.pinEdges(

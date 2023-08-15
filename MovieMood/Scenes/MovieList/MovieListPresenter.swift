@@ -56,7 +56,7 @@ extension MovieListPresenterImpl: MovieListPresenter {
     }
     
     func fetchMoviesIfNeeded(indexPath: IndexPath) {
-        if movieList.count - Constants.cellsUntilPaginationLimit == indexPath.row, !isMoviesLoading, canLoadNextPage {
+        if movieList.count - Constants.cellsUntilPaginationLimit == indexPath.row && !isMoviesLoading && canLoadNextPage {
             Task { await fetchMovies() }
         }
     }
@@ -81,8 +81,7 @@ private extension MovieListPresenterImpl {
     
     func fetchMovies() async {
         isMoviesLoading = true
-        currentPage += 1
-        
+
         do {
             guard
                 let additionalMovies = try await interactor?.loadMovies(from: currentPage, sortType: .popularity).results
@@ -91,6 +90,7 @@ private extension MovieListPresenterImpl {
                 return
             }
             
+            currentPage += 1
             isMoviesLoading = false
             self.movieList.append(contentsOf: additionalMovies)
             

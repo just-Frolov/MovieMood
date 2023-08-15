@@ -21,9 +21,7 @@ final class Assembler: AssemblerProtocol {
         let presenter = MovieListPresenterImpl(router: router, viewStateFactory: viewStateFactory)
         let interactor = MovieListInteractorImpl(presenter: presenter, network: network)
         
-        view.presenter = presenter
-        view.alert = makeAlert()
-        
+        view.inject(presenter: presenter, alert: makeAlert(), loadingView: makeLoadingAnimation())
         presenter.inject(view: view, interactor: interactor)
 
         return view
@@ -32,16 +30,11 @@ final class Assembler: AssemblerProtocol {
 
 private extension Assembler {
     func makeAlert() -> UIAlertController {
-        return UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        UIAlertController(title: nil, message: nil, preferredStyle: .alert)
     }
     
-//    func makeLoadingAnimation() -> SplashScreenViewController {
-//        let presenter = SplashScreenPresenterImpl(router: router)
-//        let view = SplashScreenViewController.instantiate(with: presenter, alert: makeAlert())
-//
-//        presenter.inject(view: view)
-//
-//        return view
-//    }
+    func makeLoadingAnimation() -> LoadingAnimationView {
+        LoadingAnimationViewController()
+    }
 }
 

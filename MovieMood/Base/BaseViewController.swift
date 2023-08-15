@@ -10,8 +10,9 @@ import UIKit
 class BaseViewController<Presenter>: UIViewController {
  
     var presenter: Presenter?
-    var alert: UIAlertController?
-    
+    private var alert: UIAlertController?
+    private var loadingView: LoadingAnimationView?
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
@@ -19,6 +20,16 @@ class BaseViewController<Presenter>: UIViewController {
 }
 
 extension BaseViewController {
+    func inject(
+        presenter: Presenter,
+        alert: UIAlertController,
+        loadingView: LoadingAnimationView
+    ) {
+        self.presenter = presenter
+        self.alert = alert
+        self.loadingView = loadingView
+    }
+    
     func showAlert(
         title: String? = nil,
         message: String? = nil,
@@ -33,6 +44,14 @@ extension BaseViewController {
         alert.addAction(action)
        
         present(alert, animated: true)
+    }
+    
+    func showLoadingIndicator() async {
+        await loadingView?.show(on: self)
+    }
+    
+    func hideLoadingIndicator() {
+        loadingView?.hide()
     }
 }
 

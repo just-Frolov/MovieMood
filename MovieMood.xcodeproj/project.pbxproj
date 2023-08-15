@@ -18,7 +18,6 @@
 		B0732B342A5F5606001B06C7 /* MovieListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0732B332A5F5606001B06C7 /* MovieListInteractor.swift */; };
 		B0732B362A604642001B06C7 /* MovieListViewStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0732B352A604642001B06C7 /* MovieListViewStateFactory.swift */; };
 		B07AAEC02A1B73070034D0AE /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* Assembler.swift */; };
-		B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */; };
 		B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */; };
 		B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */; };
 		B07AAECC2A1B9D7B0034D0AE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B07AAECB2A1B9D7B0034D0AE /* Lottie */; };
@@ -36,8 +35,7 @@
 		B088430129E4B6BE00D331BF /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08842FD29E4B6BE00D331BF /* Fonts+Generated.swift */; };
 		B088430229E4B6BE00D331BF /* Images+Colors+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08842FE29E4B6BE00D331BF /* Images+Colors+Generated.swift */; };
 		B088430329E4B6BE00D331BF /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08842FF29E4B6BE00D331BF /* Strings+Generated.swift */; };
-		B088430529E4B6F700D331BF /* SplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088430429E4B6F700D331BF /* SplashScreenPresenter.swift */; };
-		B088430729E4B78400D331BF /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088430629E4B78400D331BF /* SplashScreenViewController.swift */; };
+		B088430729E4B78400D331BF /* LoadingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088430629E4B78400D331BF /* LoadingAnimationViewController.swift */; };
 		B0C4272B29FD5A4300AA00D7 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4272A29FD5A4300AA00D7 /* Network.swift */; };
 		B0C4272D29FD5AD400AA00D7 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4272C29FD5AD400AA00D7 /* Requestable.swift */; };
 		B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4272F29FD5B2F00AA00D7 /* Logger.swift */; };
@@ -99,7 +97,6 @@
 		B0732B332A5F5606001B06C7 /* MovieListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListInteractor.swift; sourceTree = "<group>"; };
 		B0732B352A604642001B06C7 /* MovieListViewStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewStateFactory.swift; sourceTree = "<group>"; };
 		B07AAEBF2A1B73070034D0AE /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
-		B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extra.swift"; sourceTree = "<group>"; };
 		B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Generated.swift"; sourceTree = "<group>"; };
 		B07AAED02A1BF1710034D0AE /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -116,8 +113,7 @@
 		B08842FD29E4B6BE00D331BF /* Fonts+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
 		B08842FE29E4B6BE00D331BF /* Images+Colors+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Images+Colors+Generated.swift"; sourceTree = "<group>"; };
 		B08842FF29E4B6BE00D331BF /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
-		B088430429E4B6F700D331BF /* SplashScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenPresenter.swift; sourceTree = "<group>"; };
-		B088430629E4B78400D331BF /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		B088430629E4B78400D331BF /* LoadingAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimationViewController.swift; sourceTree = "<group>"; };
 		B0C4272A29FD5A4300AA00D7 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B0C4272C29FD5AD400AA00D7 /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		B0C4272F29FD5B2F00AA00D7 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -199,6 +195,7 @@
 		B05D50392A500AAD00BDC9CF /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				B08842F129E4AC2200D331BF /* LoadingAnimation */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -268,21 +265,18 @@
 			isa = PBXGroup;
 			children = (
 				B0ECEF852A2946A9004ADAC7 /* MovieList */,
-				B08842F129E4AC2200D331BF /* Splash Screen */,
 				B08842EC29E4AAEB00D331BF /* AppRouter.swift */,
 				B07AAEBF2A1B73070034D0AE /* Assembler.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		B08842F129E4AC2200D331BF /* Splash Screen */ = {
+		B08842F129E4AC2200D331BF /* LoadingAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				B088430629E4B78400D331BF /* SplashScreenViewController.swift */,
-				B088430429E4B6F700D331BF /* SplashScreenPresenter.swift */,
-				B07AAEC12A1B789D0034D0AE /* SplashScreen.storyboard */,
+				B088430629E4B78400D331BF /* LoadingAnimationViewController.swift */,
 			);
-			path = "Splash Screen";
+			path = LoadingAnimation;
 			sourceTree = "<group>";
 		};
 		B08842F429E4AEA200D331BF /* Resources */ = {
@@ -477,7 +471,6 @@
 				B0E3346E2A75341400F64338 /* Secrets.xcconfig in Resources */,
 				B0EA77732A571ACE00B605D3 /* Montserrat-Medium.ttf in Resources */,
 				B0EA777A2A571ACE00B605D3 /* Montserrat-MediumItalic.ttf in Resources */,
-				B07AAEC22A1B789D0034D0AE /* SplashScreen.storyboard in Resources */,
 				B0EA77792A571ACE00B605D3 /* Montserrat-ExtraLightItalic.ttf in Resources */,
 				B0EA77712A571ACE00B605D3 /* Montserrat-Thin.ttf in Resources */,
 				B08842D829E4A54700D331BF /* LaunchScreen.storyboard in Resources */,
@@ -502,9 +495,8 @@
 				B07AAED32A1BF1AF0034D0AE /* MovieListRequest.swift in Sources */,
 				B0732B342A5F5606001B06C7 /* MovieListInteractor.swift in Sources */,
 				B088430129E4B6BE00D331BF /* Fonts+Generated.swift in Sources */,
-				B088430529E4B6F700D331BF /* SplashScreenPresenter.swift in Sources */,
 				B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */,
-				B088430729E4B78400D331BF /* SplashScreenViewController.swift in Sources */,
+				B088430729E4B78400D331BF /* LoadingAnimationViewController.swift in Sources */,
 				B0C4273429FDC0CA00AA00D7 /* MovieListEntity.swift in Sources */,
 				B0732B362A604642001B06C7 /* MovieListViewStateFactory.swift in Sources */,
 				B05D501D2A4FFE6C00BDC9CF /* Reusable.swift in Sources */,

@@ -26,7 +26,7 @@ extension CollectionCellRegistable {
     
     static func xibRegister(in collectionView: UICollectionView) {
         collectionView.register(
-            UINib(nibName: String(describing: self), bundle: nil),
+            UINib(nibName: reuseIdentifier, bundle: nil),
             forCellWithReuseIdentifier: reuseIdentifier
         )
     }
