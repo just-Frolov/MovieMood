@@ -1,6 +1,6 @@
 # Movie Mood
 
-'MovieMood' app helps you discover the perfect movie for your mood. With popular titles, browse genres, trends, and criteria like release date and ratings. User-friendly interface provides all the info you need, including cast, synopsis, and ratings. 
+Introducing 'MovieMood': my personal pet project crafted to explore and learn new technologies. Created as a testing ground, this project serves as a platform for experimenting with different stacks and architectures. Its sole purpose is to push the boundaries of technology while remaining a sandbox for innovation and growth.
 
 Architecture - VIPER.
 
