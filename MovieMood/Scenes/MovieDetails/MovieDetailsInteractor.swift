@@ -1,17 +1,17 @@
 //
-//  MovieListInteractor.swift
+//  MovieDetailsInteractor.swift
 //  MovieMood
 //
-//  Created by Danil Frolov on 13.07.2023.
+//  Created by Danil Frolov on 16.08.2023.
 //
 
 import Foundation
 
-protocol MovieListInteractor {
+protocol MovieDetailsInteractor {
     func loadMovies(from page: Int, sortType: MovieListRequest.SortType) async throws -> MovieList
 }
 
-final class MovieListInteractorImpl {
+final class MovieDetailsInteractorImpl {
     private let network: Network
     
     //MARK: - Life Cycle -
@@ -20,12 +20,11 @@ final class MovieListInteractorImpl {
     }
 }
 
-extension MovieListInteractorImpl: MovieListInteractor {
+extension MovieDetailsInteractorImpl: MovieDetailsInteractor {
     func loadMovies(from page: Int, sortType: MovieListRequest.SortType) async throws -> MovieList {
         let request = MovieListRequest(page: page, sortType: sortType)
         do {
-            let movieList = try await network.request(endpoint: request)
-            return movieList
+            return try await network.request(endpoint: request)
         } catch let error {
             throw error
         }

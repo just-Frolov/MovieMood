@@ -11,12 +11,12 @@ struct MovieList: Codable {
     let results: [Movie]
 }
 
-typealias MovideId = Int
+typealias MovieId = Int
 
 struct Movie: Codable {
     let backdropPath: String?
     let genreIDS: [Int]
-    let id: MovideId
+    let id: MovieId
     let releaseDate: String?
     let title: String
     let voteAverage: Double

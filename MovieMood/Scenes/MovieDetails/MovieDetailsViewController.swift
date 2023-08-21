@@ -1,21 +1,19 @@
 //
-//  HomeScreenView.swift
+//  MovieDetailsViewController.swift
 //  MovieMood
 //
-//  Created by Danil Frolov on 02.06.2023.
+//  Created by Danil Frolov on 16.08.2023.
 //
 
 import UIKit
 
 @MainActor
-protocol MovieListView: AnyObject {
-    func render(with navigationBar: MovieListViewState.NavigationBar)
+protocol MovieDetailsView: AnyObject {
+    func render(with title: String)
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<Int, AnyHashable>)
-    func showLoadingIndicator() async
-    func hideLoadingIndicator()
 }
 
-final class MovieListViewController: BaseViewController<MovieListPresenter> {
+final class MovieDetailsViewController: BaseViewController<MovieDetailsPresenter> {
     
     private enum Constants {
         static let sectionInset = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
@@ -29,7 +27,6 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
             MovieCardCollectionViewCell.xibRegister(in: collectionView)
             collectionView.backgroundColor = .clear
             collectionView.collectionViewLayout = makeCollectionViewLayout()
-            collectionView.delegate = self
         }
     }
     
@@ -43,9 +40,9 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
     }
 }
 
-extension MovieListViewController: MovieListView {
-    func render(with navigationBar: MovieListViewState.NavigationBar) {
-        title = navigationBar.title
+extension MovieDetailsViewController: MovieDetailsView {
+    func render(with title: String) {
+        self.title = title
     }
     
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<Int, AnyHashable>) {
@@ -53,15 +50,7 @@ extension MovieListViewController: MovieListView {
     }
 }
 
-extension MovieListViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let item = dataSource?.itemIdentifier(for: indexPath) as? MovieListViewState.Item {
-            presenter?.didSelect(item: item)
-        }
-    }
-}
-
-private extension MovieListViewController {
+private extension MovieDetailsViewController {
     func makeCollectionViewLayout() -> UICollectionViewCompositionalLayout {
         
         let layout = UICollectionViewCompositionalLayout { [unowned self] (setion: Int, layoutEnvironment: NSCollectionLayoutEnvironment) in
@@ -77,12 +66,6 @@ private extension MovieListViewController {
             section.orthogonalScrollingBehavior = .none
             section.contentInsets = Constants.sectionInset
             section.interGroupSpacing = Constants.interGroupSpacing
-            
-            section.visibleItemsInvalidationHandler = { [weak self] (items, offset, env) -> Void in
-                guard let self, let indexPath = items.last?.indexPath else { return }
-                
-                self.presenter?.fetchMoviesIfNeeded(indexPath: indexPath)
-            }
             
             return section
         }

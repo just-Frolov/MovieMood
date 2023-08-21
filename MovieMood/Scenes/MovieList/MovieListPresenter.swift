@@ -10,6 +10,7 @@ import UIKit
 protocol MovieListPresenter: AnyObject {
     func viewDidLoad()
     func fetchMoviesIfNeeded(indexPath: IndexPath)
+    func didSelect(item: MovieListViewState.Item)
 }
 
 final class MovieListPresenterImpl {
@@ -21,7 +22,7 @@ final class MovieListPresenterImpl {
     //MARK: - Variables -
     private weak var view: MovieListView?
     private var interactor: MovieListInteractor?
-    private var router: AppRouter?
+    private var router: AppRouter
     private var viewStateFactory: MovieListViewStateFactory
     
     private var movieList: [Movie] = []
@@ -50,15 +51,25 @@ final class MovieListPresenterImpl {
 extension MovieListPresenterImpl: MovieListPresenter {
     func viewDidLoad() {
         Task {
+            await view?.showLoadingIndicator()
+            await view?.hideLoadingIndicator()
+        }
+        
+        Task {
             await updateView()
             await fetchMovies()
         }
     }
-    
+
     func fetchMoviesIfNeeded(indexPath: IndexPath) {
         if movieList.count - Constants.cellsUntilPaginationLimit == indexPath.row && !isMoviesLoading && canLoadNextPage {
             Task { await fetchMovies() }
         }
+    }
+    
+    @MainActor
+    func didSelect(item: MovieListViewState.Item) {
+        router.showMovieDetails(with: item)
     }
 }
 
@@ -84,8 +95,7 @@ private extension MovieListPresenterImpl {
 
         do {
             guard
-                let additionalMovies = try await interactor?.loadMovies(from: currentPage, sortType: .popularity).results
-            else {
+                let additionalMovies = try await interactor?.loadMovies(from: currentPage, sortType: .popularity).results else {
                 handleError()
                 return
             }

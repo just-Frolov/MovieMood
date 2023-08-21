@@ -40,6 +40,13 @@
 		B0C4272D29FD5AD400AA00D7 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4272C29FD5AD400AA00D7 /* Requestable.swift */; };
 		B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4272F29FD5B2F00AA00D7 /* Logger.swift */; };
 		B0C4273429FDC0CA00AA00D7 /* MovieListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4273329FDC0CA00AA00D7 /* MovieListEntity.swift */; };
+		B0D785352A8E5678006E78EE /* MovieDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D785342A8E5678006E78EE /* MovieDetailsDataSource.swift */; };
+		B0D785382A8E5BDF006E78EE /* MovieDetailsViewStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D785372A8E5BDF006E78EE /* MovieDetailsViewStateFactory.swift */; };
+		B0D7853A2A8E5BF1006E78EE /* MovieDetailsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D785392A8E5BF1006E78EE /* MovieDetailsViewState.swift */; };
+		B0DD6E382A8C129800978412 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DD6E372A8C129800978412 /* MovieDetailsViewController.swift */; };
+		B0DD6E3A2A8C13EB00978412 /* MovieDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DD6E392A8C13EB00978412 /* MovieDetailsPresenter.swift */; };
+		B0DD6E3C2A8C140A00978412 /* MovieDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DD6E3B2A8C140A00978412 /* MovieDetailsInteractor.swift */; };
+		B0DD6E3E2A8C141C00978412 /* MovieDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0DD6E3D2A8C141C00978412 /* MovieDetails.storyboard */; };
 		B0E3346C2A752D2F00F64338 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0E3346B2A752D2F00F64338 /* swiftgen.yml */; };
 		B0E3346E2A75341400F64338 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B0E3346D2A75341300F64338 /* Secrets.xcconfig */; };
 		B0EA776D2A571ACE00B605D3 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B05D502C2A5000F800BDC9CF /* Montserrat-Bold.ttf */; };
@@ -118,6 +125,13 @@
 		B0C4272C29FD5AD400AA00D7 /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		B0C4272F29FD5B2F00AA00D7 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B0C4273329FDC0CA00AA00D7 /* MovieListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListEntity.swift; sourceTree = "<group>"; };
+		B0D785342A8E5678006E78EE /* MovieDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsDataSource.swift; sourceTree = "<group>"; };
+		B0D785372A8E5BDF006E78EE /* MovieDetailsViewStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewStateFactory.swift; sourceTree = "<group>"; };
+		B0D785392A8E5BF1006E78EE /* MovieDetailsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewState.swift; sourceTree = "<group>"; };
+		B0DD6E372A8C129800978412 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		B0DD6E392A8C13EB00978412 /* MovieDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresenter.swift; sourceTree = "<group>"; };
+		B0DD6E3B2A8C140A00978412 /* MovieDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsInteractor.swift; sourceTree = "<group>"; };
+		B0DD6E3D2A8C141C00978412 /* MovieDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieDetails.storyboard; sourceTree = "<group>"; };
 		B0E3346B2A752D2F00F64338 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
 		B0E3346D2A75341300F64338 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		B0EA777F2A5728EB00B605D3 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
@@ -264,6 +278,7 @@
 		B08842EB29E4AAC800D331BF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B0DD6E362A8C126000978412 /* MovieDetails */,
 				B0ECEF852A2946A9004ADAC7 /* MovieList */,
 				B08842EC29E4AAEB00D331BF /* AppRouter.swift */,
 				B07AAEBF2A1B73070034D0AE /* Assembler.swift */,
@@ -354,6 +369,28 @@
 				B0C4273329FDC0CA00AA00D7 /* MovieListEntity.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		B0D785362A8E5BB9006E78EE /* ViewState */ = {
+			isa = PBXGroup;
+			children = (
+				B0D785372A8E5BDF006E78EE /* MovieDetailsViewStateFactory.swift */,
+				B0D785392A8E5BF1006E78EE /* MovieDetailsViewState.swift */,
+			);
+			path = ViewState;
+			sourceTree = "<group>";
+		};
+		B0DD6E362A8C126000978412 /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				B0DD6E3D2A8C141C00978412 /* MovieDetails.storyboard */,
+				B0DD6E372A8C129800978412 /* MovieDetailsViewController.swift */,
+				B0DD6E392A8C13EB00978412 /* MovieDetailsPresenter.swift */,
+				B0DD6E3B2A8C140A00978412 /* MovieDetailsInteractor.swift */,
+				B0D785342A8E5678006E78EE /* MovieDetailsDataSource.swift */,
+				B0D785362A8E5BB9006E78EE /* ViewState */,
+			);
+			path = MovieDetails;
 			sourceTree = "<group>";
 		};
 		B0ECEF852A2946A9004ADAC7 /* MovieList */ = {
@@ -465,6 +502,7 @@
 				B0EA777B2A571ACE00B605D3 /* Montserrat-SemiBold.ttf in Resources */,
 				B0EA777D2A571ACE00B605D3 /* Montserrat-ExtraLight.ttf in Resources */,
 				B0ECEF872A2946F4004ADAC7 /* MovieList.storyboard in Resources */,
+				B0DD6E3E2A8C141C00978412 /* MovieDetails.storyboard in Resources */,
 				B0EA77722A571ACE00B605D3 /* Montserrat-ExtraBold.ttf in Resources */,
 				B0EA777C2A571ACE00B605D3 /* Montserrat-ThinItalic.ttf in Resources */,
 				B0EA776E2A571ACE00B605D3 /* Montserrat-Italic.ttf in Resources */,
@@ -484,11 +522,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D785352A8E5678006E78EE /* MovieDetailsDataSource.swift in Sources */,
 				B0732B322A5F0B26001B06C7 /* UINavigationController+Extension.swift in Sources */,
 				B07AAEC02A1B73070034D0AE /* Assembler.swift in Sources */,
 				B05D50252A4FFED300BDC9CF /* BaseCollectionViewCell.swift in Sources */,
 				B0EA77802A5728EC00B605D3 /* ImageManager.swift in Sources */,
 				B0C4272B29FD5A4300AA00D7 /* Network.swift in Sources */,
+				B0DD6E3A2A8C13EB00978412 /* MovieDetailsPresenter.swift in Sources */,
 				B0C4272D29FD5AD400AA00D7 /* Requestable.swift in Sources */,
 				B08842ED29E4AAEB00D331BF /* AppRouter.swift in Sources */,
 				B088430329E4B6BE00D331BF /* Strings+Generated.swift in Sources */,
@@ -502,10 +542,14 @@
 				B05D501D2A4FFE6C00BDC9CF /* Reusable.swift in Sources */,
 				B0ECEF8B2A294755004ADAC7 /* MovieListViewController.swift in Sources */,
 				B0ECEF8E2A2949B0004ADAC7 /* BaseViewController.swift in Sources */,
+				B0D7853A2A8E5BF1006E78EE /* MovieDetailsViewState.swift in Sources */,
 				B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */,
 				B05D503B2A50C21700BDC9CF /* MovieListDataSource.swift in Sources */,
+				B0DD6E382A8C129800978412 /* MovieDetailsViewController.swift in Sources */,
 				B045CE872A63DF40007196D5 /* APIConstants.swift in Sources */,
 				B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */,
+				B0D785382A8E5BDF006E78EE /* MovieDetailsViewStateFactory.swift in Sources */,
+				B0DD6E3C2A8C140A00978412 /* MovieDetailsInteractor.swift in Sources */,
 				B08842D129E4A54700D331BF /* AppDelegate.swift in Sources */,
 				B088430229E4B6BE00D331BF /* Images+Colors+Generated.swift in Sources */,
 				B0ECEF892A294728004ADAC7 /* MovieListPresenter.swift in Sources */,
