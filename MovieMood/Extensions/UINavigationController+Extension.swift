@@ -20,6 +20,9 @@ extension UINavigationController {
         appearance.titleTextAttributes = textAttributes
         appearance.largeTitleTextAttributes = [
             .foregroundColor: UIColor.white]
+        appearance.buttonAppearance.normal.titleTextAttributes = [
+            .foregroundColor: UIColor.clear
+        ]
         
         navigationBar.tintColor = .white
         navigationBar.standardAppearance = appearance

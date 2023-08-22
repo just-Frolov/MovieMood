@@ -11,6 +11,8 @@ import UIKit
 protocol MovieListView: AnyObject {
     func render(with navigationBar: MovieListViewState.NavigationBar)
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<Int, AnyHashable>)
+    func showLoadingIndicator() async
+    func hideLoadingIndicator()
 }
 
 final class MovieListViewController: BaseViewController<MovieListPresenter> {
@@ -27,6 +29,7 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
             MovieCardCollectionViewCell.xibRegister(in: collectionView)
             collectionView.backgroundColor = .clear
             collectionView.collectionViewLayout = makeCollectionViewLayout()
+            collectionView.delegate = self
         }
     }
     
@@ -36,21 +39,25 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
     //MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task {
-            await showLoadingIndicator()
-            hideLoadingIndicator()
-        }
         presenter?.viewDidLoad()
     }
 }
 
 extension MovieListViewController: MovieListView {
     func render(with navigationBar: MovieListViewState.NavigationBar) {
-        self.title = navigationBar.title
+        title = navigationBar.title
     }
     
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<Int, AnyHashable>) {
         dataSource?.apply(snapshot, animatingDifferences: true)
+    }
+}
+
+extension MovieListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let item = dataSource?.itemIdentifier(for: indexPath) as? MovieListViewState.Item {
+            presenter?.didSelect(item: item)
+        }
     }
 }
 

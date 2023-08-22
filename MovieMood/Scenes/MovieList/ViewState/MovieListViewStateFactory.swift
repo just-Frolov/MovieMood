@@ -14,11 +14,11 @@ final class MovieListViewStateFactory {
             rightButtonImage: UIImage()
         )
         
-        let movieViewModelList = makeItems(movieList)
+        let movieListItems = makeItems(movieList)
         
         return MovieListViewState(
             navigationBar: navigationBar,
-            items: movieViewModelList
+            items: movieListItems
         )
     }
 }

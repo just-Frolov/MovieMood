@@ -12,15 +12,10 @@ protocol MovieListInteractor {
 }
 
 final class MovieListInteractorImpl {
-    private weak var presenter: MovieListPresenter?
     private let network: Network
     
     //MARK: - Life Cycle -
-    init(
-        presenter: MovieListPresenter,
-        network: Network
-    ) {
-        self.presenter = presenter
+    init(network: Network) {
         self.network = network
     }
 }

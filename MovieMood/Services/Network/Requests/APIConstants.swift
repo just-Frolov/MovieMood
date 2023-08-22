@@ -13,4 +13,16 @@ enum APIConstants {
         static let page = "page"
         static let sortType = "sort_by"
     }
+    
+    enum MovieDetailsFields {
+        static func path(by id: MovieId) -> String {
+            return "movie/" + String(id)
+        }
+    }
+    
+    enum MovieVideoListFields {
+        static func path(by id: MovieId) -> String {
+            return "movie/\(id)/videos"
+        }
+    }
 }

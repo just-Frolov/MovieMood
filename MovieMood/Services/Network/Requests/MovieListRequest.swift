@@ -18,7 +18,7 @@ final class MovieListRequest: Endpoint<MovieList> {
         sortType: SortType
     ) {
         super.init(
-            path: ClNetwork.EndpointPath.movieList,
+            path: .movieList,
             parameters: MovieListRequest.paramsToDictionary(
                 page: page,
                 sortType: sortType.rawValue
@@ -30,7 +30,8 @@ final class MovieListRequest: Endpoint<MovieList> {
 }
 
 private extension MovieListRequest {
-    static private func paramsToDictionary(page: Int, sortType: String) -> [String: Any] {
+    //RETHINK
+    static func paramsToDictionary(page: Int, sortType: String) -> [String: Any] {
         let params: [String: Any] = [
             APIConstants.MovieListFields.page: page,
             APIConstants.MovieListFields.sortType: sortType,

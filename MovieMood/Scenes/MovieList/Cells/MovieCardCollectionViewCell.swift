@@ -16,6 +16,7 @@ final class MovieCardCollectionViewCell: BaseCollectionViewCell {
         static let gradientClearColor = UIColor(white: 0, alpha: 0).cgColor
     }
 
+    //MARK: - IBOutlets -
     @IBOutlet private weak var posterImageView: UIImageView! {
         didSet {
             posterImageView.cornerRadius = Constants.cornerRadius
