@@ -8,7 +8,8 @@
 import Foundation
 
 protocol MovieDetailsInteractor {
-    func loadMovies(from page: Int, sortType: MovieListRequest.SortType) async throws -> MovieList
+    func loadMovieDetails(by id: MovieId) async throws -> MovieDetails
+    func loadMovieVideoList(by id: MovieId) async throws -> [MovieVideo]
 }
 
 final class MovieDetailsInteractorImpl {
@@ -21,10 +22,21 @@ final class MovieDetailsInteractorImpl {
 }
 
 extension MovieDetailsInteractorImpl: MovieDetailsInteractor {
-    func loadMovies(from page: Int, sortType: MovieListRequest.SortType) async throws -> MovieList {
-        let request = MovieListRequest(page: page, sortType: sortType)
+    func loadMovieDetails(by id: MovieId) async throws -> MovieDetails {
+        let path: ClNetwork.EndpointPath = .movieDetails(id)
+        let request = MovieDetailsRequest(path: path)
         do {
             return try await network.request(endpoint: request)
+        } catch let error {
+            throw error
+        }
+    }
+    
+    func loadMovieVideoList(by id: MovieId) async throws -> [MovieVideo] {
+        let path: ClNetwork.EndpointPath = .movieVideoList(id)
+        let request = MovieVideoListRequest(path: path)
+        do {
+            return try await network.request(endpoint: request).results
         } catch let error {
             throw error
         }

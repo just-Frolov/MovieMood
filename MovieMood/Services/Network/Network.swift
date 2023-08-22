@@ -50,11 +50,17 @@ final class ClNetwork: Network {
 extension ClNetwork {
     enum EndpointPath {
         case movieList
+        case movieDetails(_ id: MovieId)
+        case movieVideoList(_ id: MovieId)
         
         private var path: String {
             switch self {
             case .movieList:
                 return APIConstants.MovieListFields.path
+            case .movieDetails(let id):
+                return APIConstants.MovieDetailsFields.path(by: id)
+            case .movieVideoList(let id):
+                return APIConstants.MovieVideoListFields.path(by: id)
             }
         }
     

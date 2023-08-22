@@ -8,28 +8,81 @@
 import UIKit
 
 struct MovieDetailsViewState {
-    struct NavigationBar {
-        let title: String
+    struct MediaItem {
+        let shouldShowPlayVideoButton: Bool
+        let posterImagePath: URL
     }
     
-    enum DescriptionType {
+    enum AttributeItem {
+        case originalTitle(String)
+        case description(String)
+        case rating(String)
+        case releaseDate(String)
+        case productionCountries(String)
+        case budget(String)
+        case revenue(String)
         
+        var displayTitle: String {
+            switch self {
+            case .originalTitle:
+                return Localized.originalTitle
+            case .description:
+                return Localized.description
+            case .rating:
+                return Localized.rating
+            case .releaseDate:
+                return Localized.releaseDate
+            case .productionCountries:
+                return Localized.productionCountries
+            case .budget:
+                return Localized.budget
+            case .revenue:
+                return Localized.revenue
+            }
+        }
+        
+        var valueText: String {
+            switch self {
+            case .originalTitle(let title):
+                return title
+            case .description(let description):
+                return description
+            case .rating(let rating):
+                return rating
+            case .releaseDate(let releaseDate):
+                return releaseDate
+            case .productionCountries(let countries):
+                return countries
+            case .budget(let budget):
+                return budget
+            case .revenue(let revenue):
+                return revenue
+            }
+        }
     }
-    
-    let navigationBar: NavigationBar
-    let videoURL: URL?
-    let placeholderImage: UIImage
+        
     let title: String
-    let description: String
+    let mediaItems: [MediaItem]?
+    let attributeItems: [AttributeItem]?
 }
-//
-//extension MovieDetailsViewState.Item: Hashable {
-//    func hash(into hasher: inout Hasher) {
-//        hasher.combine(title)
-//    }
-//
-//    static func == (lhs: MovieListViewState.Item, rhs: MovieListViewState.Item) -> Bool {
-//        return lhs.id == rhs.id
-//    }
-//}
+
+extension MovieDetailsViewState.MediaItem: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(posterImagePath)
+    }
+
+    static func == (lhs: MovieDetailsViewState.MediaItem, rhs: MovieDetailsViewState.MediaItem) -> Bool {
+        return lhs.posterImagePath == rhs.posterImagePath
+    }
+}
+
+extension MovieDetailsViewState.AttributeItem: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(displayTitle)
+    }
+
+    static func == (lhs: MovieDetailsViewState.AttributeItem, rhs: MovieDetailsViewState.AttributeItem) -> Bool {
+        return lhs.displayTitle == rhs.displayTitle
+    }
+}
 

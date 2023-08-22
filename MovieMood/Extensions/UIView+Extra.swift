@@ -34,29 +34,7 @@ extension UIView {
             layer.borderColor = newValue
         }
     }
-    
-    func addDropShadow(offset: CGSize,
-                       color: UIColor,
-                       radius: CGFloat = 0,
-                       opacity: Float) {
-        layer.masksToBounds = false
-        layer.shadowOffset = offset
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = radius
-        layer.shadowOpacity = opacity
-        
-        let backgroundCGColor = backgroundColor?.cgColor
-        backgroundColor = nil
-        layer.backgroundColor =  backgroundCGColor
-    }
-    
-    func roundCorners(_ corners: CACornerMask = .all,
-                      radius: CGFloat) {
-        layer.maskedCorners = corners
-        layer.cornerRadius = radius
-        layer.masksToBounds = true
-    }
-    
+
     func border(width: CGFloat, color: UIColor) {
         layer.borderColor = color.cgColor
         layer.borderWidth = width
@@ -122,12 +100,29 @@ extension UIView {
     }
 }
 
-extension CACornerMask {
-    static let all: CACornerMask = [
-        .layerMaxXMaxYCorner,
-        .layerMinXMinYCorner,
-        .layerMinXMaxYCorner,
-        .layerMaxXMinYCorner
-    ]
+protocol NibLoadable {
+    static var nibName: String { get }
 }
+
+extension NibLoadable where Self: UIView {
+    static var nibName: String {
+        return String(describing: Self.self)
+    }
+
+    static var nib: UINib {
+        let bundle = Bundle(for: Self.self)
+        return UINib(nibName: Self.nibName, bundle: bundle)
+    }
+
+    func setupFromNib() {
+        guard let view = Self.nib.instantiate(withOwner: self, options: nil).first as? UIView else { fatalError("Error loading \(self) from nib") }
+        addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        view.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        view.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+    }
+}
+
 

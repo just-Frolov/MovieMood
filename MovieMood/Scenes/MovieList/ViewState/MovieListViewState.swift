@@ -14,7 +14,7 @@ struct MovieListViewState {
     }
     
     struct Item {
-        let id: Int
+        let id: MovieId
         let title: String
         let posterImagePath: URL?
     }

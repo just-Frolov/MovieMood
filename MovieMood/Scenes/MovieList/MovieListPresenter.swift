@@ -21,7 +21,7 @@ final class MovieListPresenterImpl {
     
     //MARK: - Variables -
     private weak var view: MovieListView?
-    private var interactor: MovieListInteractor?
+    private var interactor: MovieListInteractor
     private var router: AppRouter
     private var viewStateFactory: MovieListViewStateFactory
     
@@ -33,18 +33,16 @@ final class MovieListPresenterImpl {
     //MARK: - Life Cycle -
     init(
         router: AppRouter,
+        interactor: MovieListInteractor,
         viewStateFactory: MovieListViewStateFactory
     ) {
         self.router = router
+        self.interactor = interactor
         self.viewStateFactory = viewStateFactory
     }
     
-    func inject(
-        view: MovieListView,
-        interactor: MovieListInteractor
-    ) {
+    func inject(view: MovieListView) {
         self.view = view
-        self.interactor = interactor
     }
 }
 
@@ -69,7 +67,8 @@ extension MovieListPresenterImpl: MovieListPresenter {
     
     @MainActor
     func didSelect(item: MovieListViewState.Item) {
-        router.showMovieDetails(with: item)
+        let movieDetailsConfiguration = MovieDetailsConfiguration(id: item.id, title: item.title)
+        router.showMovieDetails(with: movieDetailsConfiguration)
     }
 }
 
@@ -94,11 +93,10 @@ private extension MovieListPresenterImpl {
         isMoviesLoading = true
 
         do {
-            guard
-                let additionalMovies = try await interactor?.loadMovies(from: currentPage, sortType: .popularity).results else {
-                handleError()
-                return
-            }
+            let additionalMovies = try await interactor.loadMovies(
+                from: currentPage,
+                sortType: .popularity
+            ).results
             
             currentPage += 1
             isMoviesLoading = false
@@ -106,17 +104,11 @@ private extension MovieListPresenterImpl {
             
             Task { await self.updateView() }
         } catch let error {
-            handleError(error)
-        }
-    }
-    
-    func handleError(_ error: Error? = nil) {
-        if let error {
             debugPrint(error)
+            
+            canLoadNextPage = false
+            isMoviesLoading = false
         }
-        
-        canLoadNextPage = false
-        isMoviesLoading = false
     }
 }
 

@@ -7,83 +7,104 @@
 
 import UIKit
 
+struct MovieDetailsConfiguration {
+    let id: MovieId
+    let title: String
+}
+
 protocol MovieDetailsPresenter: AnyObject {
     func viewDidLoad()
 }
 
 final class MovieDetailsPresenterImpl {
 
-    private enum Constants {
-        static let cellsUntilPaginationLimit = 5
-    }
-    
     //MARK: - Variables -
     private weak var view: MovieDetailsView?
-    private var interactor: MovieDetailsInteractor?
+    private var interactor: MovieDetailsInteractor
     private var router: AppRouter
     private var viewStateFactory: MovieDetailsViewStateFactory
     
-    private var movieItem: MovieListViewState.Item
+    private var configuration: MovieDetailsConfiguration
+    private var movieDetails: MovieDetails?
+    private var videoList: [MovieVideo]?
     
     //MARK: - Life Cycle -
     init(
         router: AppRouter,
+        interactor: MovieDetailsInteractor,
         viewStateFactory: MovieDetailsViewStateFactory,
-        movieItem: MovieListViewState.Item
+        configuration: MovieDetailsConfiguration
     ) {
         self.router = router
+        self.interactor = interactor
         self.viewStateFactory = viewStateFactory
-        self.movieItem = movieItem
+        self.configuration = configuration
     }
     
-    func inject(
-        view: MovieDetailsView,
-        interactor: MovieDetailsInteractor
-    ) {
+    func inject(view: MovieDetailsView) {
         self.view = view
-        self.interactor = interactor
-    }    
+    }
 }
 
 extension MovieDetailsPresenterImpl: MovieDetailsPresenter {
     func viewDidLoad() {
-        Task { await view?.render(with: movieItem.title) }
-        Task { await fetchMovieDetails() }
+        Task {
+            let viewState = viewStateFactory.makeViewState(configuration: configuration)
+            await updateDataSource(viewState: viewState)
+        }
+       
+        Task {
+            await fetchMovieData()
+        }
     }
 }
 
 private extension MovieDetailsPresenterImpl {
     @MainActor
     func updateView() async {
-        guard let view else { return }
-        //let viewState = viewStateFactory.makeViewState(movieList: movieList)
-        //await updateDataSource(items: viewState.items)
+        guard let movieDetails else { return }
+        let viewState = viewStateFactory.makeViewState(movieDetails: movieDetails, videoList: videoList)
+        view?.render(with: viewState.title)
+        await updateDataSource(viewState: viewState)
     }
     
-    func updateDataSource(items: [MovieListViewState.Item]) async {
-        var snapshot = NSDiffableDataSourceSnapshot<Int, AnyHashable>()
-        snapshot.appendSections([0])
-        snapshot.appendItems(items, toSection: 0)
-
+    func updateDataSource(viewState: MovieDetailsViewState) async {
+        var snapshot = NSDiffableDataSourceSnapshot<MovieDetailsDataSource.Section, AnyHashable>()
+        
+        if let mediaItems = viewState.mediaItems {
+            snapshot.appendSections([.media])
+            snapshot.appendItems(mediaItems, toSection: .media)
+        }
+        
+        if let attributeItems = viewState.attributeItems {
+            snapshot.appendSections([.attributes])
+            snapshot.appendItems(attributeItems, toSection: .attributes)
+        }
+       
         await view?.setDataSource(snapshot: snapshot)
     }
     
-    func fetchMovieDetails() async {
-
-//        do {
-//            guard
-//                let additionalMovies = try await interactor?.loadMovies(from: currentPage, sortType: .popularity).results
-//            else {
-//                handleError()
-//                return
-//            }
-//
-//            self.movieList.append(contentsOf: additionalMovies)
-//
-//            Task { await self.updateView() }
-//        } catch let error {
-//            handleError(error)
-//        }
+    func fetchMovieData() async {
+        async let movieDetailsTask = interactor.loadMovieDetails(by: configuration.id)
+        async let videoListTask = interactor.loadMovieVideoList(by: configuration.id)
+        
+        do {
+            movieDetails = try await movieDetailsTask
+            videoList = try await videoListTask
+        } catch let error {
+            debugPrint(error)
+            
+            await view?.showAlert(
+                title: Localized.errorTitle,
+                message: Localized.defaultError
+            ) {
+                Task {
+                    await self.router.popToRoot(animated: true)
+                }
+            }
+        }
+        
+        await updateView()
     }
 }
 

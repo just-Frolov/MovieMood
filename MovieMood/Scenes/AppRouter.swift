@@ -10,7 +10,7 @@ import UIKit
 @MainActor
 protocol AppRouter {
     func popToRoot(animated: Bool)
-    func showMovieDetails(with movieItem: MovieListViewState.Item)
+    func showMovieDetails(with configuration: MovieDetailsConfiguration)
 }
 
 final class AppRouterImpl: AppRouter {
@@ -28,8 +28,8 @@ final class AppRouterImpl: AppRouter {
         navigationController.viewControllers = [homeViewController]
     }
  
-    func showMovieDetails(with movieItem: MovieListViewState.Item) {
-        let movieDetailsViewController = assemblyBuilder.createMovieDetailsModule(router: self, movieItem: movieItem)
+    func showMovieDetails(with configuration: MovieDetailsConfiguration) {
+        let movieDetailsViewController = assemblyBuilder.createMovieDetailsModule(router: self, configuration: configuration)
         
         navigationController.pushViewController(movieDetailsViewController, animated: true)
     }

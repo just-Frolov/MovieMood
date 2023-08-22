@@ -20,3 +20,12 @@
 "movies_load_failed" = "Failed to load movies";
 "invalid_request_params" = "Invalid data. Please try again later";
 
+// MARK: - Description attributes
+
+"original_title" = "Original Title";
+"description" = "Description";
+"rating" = "Rating";
+"releaseDate" = "Release Date";
+"productionCountries" = "Production Countries";
+"budget" = "Budget";
+"revenue" = "Revenue";

@@ -31,9 +31,9 @@ extension BaseViewController {
     }
     
     func showAlert(
-        title: String? = nil,
-        message: String? = nil,
-        onDismiss: (() -> Void)? = nil
+        title: String?,
+        message: String?,
+        onDismiss: (() -> Void)?
     ) {
         guard let alert else { return }
         let action = UIAlertAction(title: Localized.acceptAction, style: .default) { _ in
