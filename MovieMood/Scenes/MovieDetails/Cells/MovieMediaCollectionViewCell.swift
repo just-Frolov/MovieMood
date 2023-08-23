@@ -11,7 +11,7 @@ import Kingfisher
 
 final class MovieMediaCollectionViewCell: BaseCollectionViewCell {
     
-    //MARK: - IBOutlets -
+    // MARK: - IBOutlets -
     @IBOutlet private weak var posterImageView: UIImageView! {
         didSet {
             posterImageView.kf.indicatorType = .activity
@@ -23,14 +23,14 @@ final class MovieMediaCollectionViewCell: BaseCollectionViewCell {
         }
     }
 
-    //MARK: - Life Cycle -
+    // MARK: - Life Cycle -
     override func prepareForReuse() {
         super.prepareForReuse()
         posterImageView.kf.cancelDownloadTask()
         posterImageView.image = nil
     }
     
-    //MARK: - Internal -
+    // MARK: - Internal -
     func render(with mediaViewState: MovieDetailsViewState.MediaItem) {
         posterImageView.kf.setImage(with: mediaViewState.posterImagePath)
         playbackButton.isHidden = !mediaViewState.shouldShowPlayVideoButton

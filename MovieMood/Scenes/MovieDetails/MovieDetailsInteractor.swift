@@ -15,7 +15,7 @@ protocol MovieDetailsInteractor {
 final class MovieDetailsInteractorImpl {
     private let network: Network
     
-    //MARK: - Life Cycle -
+    // MARK: - Life Cycle -
     init(network: Network) {
         self.network = network
     }

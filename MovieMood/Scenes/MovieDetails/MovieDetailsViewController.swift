@@ -21,7 +21,7 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsPresenter
         static let interGroupSpacing: CGFloat = 16.0
     }
     
-    //MARK: - IBOutlets -
+    // MARK: - IBOutlets -
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             dataSource = .init(collectionView: collectionView)
@@ -32,10 +32,10 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsPresenter
         }
     }
     
-    //MARK: - Variables -
+    // MARK: - Variables -
     private var dataSource: MovieDetailsDataSource?
     
-    //MARK: - Life Cycle -
+    // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()

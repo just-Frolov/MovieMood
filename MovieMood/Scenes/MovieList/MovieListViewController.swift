@@ -22,7 +22,7 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
         static let interGroupSpacing: CGFloat = 16.0
     }
     
-    //MARK: - IBOutlets -
+    // MARK: - IBOutlets -
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             dataSource = .init(collectionView: collectionView)

@@ -19,7 +19,7 @@ final class MovieListPresenterImpl {
         static let cellsUntilPaginationLimit = 5
     }
     
-    //MARK: - Variables -
+    // MARK: - Variables -
     private weak var view: MovieListView?
     private var interactor: MovieListInteractor
     private var router: AppRouter
@@ -30,7 +30,7 @@ final class MovieListPresenterImpl {
     private var currentPage: Int = 1
     private var canLoadNextPage: Bool = true
     
-    //MARK: - Life Cycle -
+    // MARK: - Life Cycle -
     init(
         router: AppRouter,
         interactor: MovieListInteractor,

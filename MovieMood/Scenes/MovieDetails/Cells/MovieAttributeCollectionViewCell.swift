@@ -9,11 +9,11 @@ import UIKit
 
 final class MovieAttributeCollectionViewCell: BaseCollectionViewCell {
 
-    //MARK: - IBOutlets -
+    // MARK: - IBOutlets -
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var valueLabel: UILabel!
 
-    //MARK: - Internal -
+    // MARK: - Internal -
     func render(with attributeViewState: MovieDetailsViewState.AttributeItem) {
         titleLabel.text = attributeViewState.displayTitle
         valueLabel.text = attributeViewState.valueText
