@@ -11,6 +11,7 @@ protocol MovieListPresenter: AnyObject {
     func viewDidLoad()
     func fetchMoviesIfNeeded(indexPath: IndexPath)
     func didSelect(item: MovieListViewState.Item)
+    func onChangeLayoutAction()
 }
 
 final class MovieListPresenterImpl {
@@ -70,13 +71,19 @@ extension MovieListPresenterImpl: MovieListPresenter {
         let movieDetailsConfiguration = MovieDetailsConfiguration(id: item.id, title: item.title)
         router.showMovieDetails(with: movieDetailsConfiguration)
     }
+    
+    func onChangeLayoutAction() {
+        Task {
+            await updateView(shouldChangeLayout: true)
+        }
+    }
 }
 
 private extension MovieListPresenterImpl {
     @MainActor
-    func updateView() async {
+    func updateView(shouldChangeLayout: Bool = false) async {
         guard let view else { return }
-        let viewState = viewStateFactory.makeViewState(movieList: movieList)
+        let viewState = viewStateFactory.makeViewState(movieList: movieList, shouldChangeLayout: shouldChangeLayout)
         view.render(with: viewState.navigationBar)
         await updateDataSource(items: viewState.items)
     }

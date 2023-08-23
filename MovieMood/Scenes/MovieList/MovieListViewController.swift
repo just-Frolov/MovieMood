@@ -33,12 +33,21 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
         }
     }
     
-    //MARK: - Variables -
+    // MARK: - UIElements -
+    private lazy var changeLayoutButton: UIBarButtonItem = {
+        return UIBarButtonItem(image: nil,
+                               style: .plain,
+                               target: self,
+                               action: #selector(changeLayoutButtonPressed))
+    }()
+    
+    // MARK: - Variables -
     private var dataSource: MovieListDataSource?
     
-    //MARK: - Life Cycle -
+    // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = changeLayoutButton
         presenter?.viewDidLoad()
     }
 }
@@ -46,10 +55,12 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
 extension MovieListViewController: MovieListView {
     func render(with navigationBar: MovieListViewState.NavigationBar) {
         title = navigationBar.title
+        changeLayoutButton.image = navigationBar.rightButtonImage
     }
     
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<Int, AnyHashable>) {
         dataSource?.apply(snapshot, animatingDifferences: true)
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 }
 
@@ -88,6 +99,12 @@ private extension MovieListViewController {
         }
         
         return layout
+    }
+}
+
+private extension MovieListViewController {
+    @objc func changeLayoutButtonPressed() {
+        presenter?.onChangeLayoutAction()
     }
 }
 

@@ -8,6 +8,11 @@
 import UIKit
 
 struct MovieListViewState {
+    enum LayoutStyle {
+        case singleColumn
+        case multiColumns
+    }
+    
     struct NavigationBar {
         let title: String
         let rightButtonImage: UIImage
@@ -19,6 +24,7 @@ struct MovieListViewState {
         let posterImagePath: URL?
     }
     
+    let layoutStyle: LayoutStyle
     let navigationBar: NavigationBar
     var items: [Item]
 }
