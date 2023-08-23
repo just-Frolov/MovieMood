@@ -16,7 +16,7 @@ final class MovieCardCollectionViewCell: BaseCollectionViewCell {
         static let gradientClearColor = UIColor(white: 0, alpha: 0).cgColor
     }
 
-    //MARK: - IBOutlets -
+    // MARK: - IBOutlets -
     @IBOutlet private weak var posterImageView: UIImageView! {
         didSet {
             posterImageView.cornerRadius = Constants.cornerRadius
@@ -29,14 +29,14 @@ final class MovieCardCollectionViewCell: BaseCollectionViewCell {
         }
     }
 
-    //MARK: - Life Cycle -
+    // MARK: - Life Cycle -
     override func prepareForReuse() {
         super.prepareForReuse()
         posterImageView.kf.cancelDownloadTask()
         posterImageView.image = nil
     }
     
-    //MARK: - Internal -
+    // MARK: - Internal -
     func render(with movieViewState: MovieListViewState.Item) {
         titleLabel.text = movieViewState.title
         posterImageView.kf.setImage(with: movieViewState.posterImagePath)

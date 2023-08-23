@@ -20,7 +20,7 @@ final class LoadingAnimationViewController: UIViewController {
         static let animationViewSpace: CGFloat = 16
     }
     
-    //MARK: - UIElements -
+    // MARK: - UIElements -
     private lazy var loadingAnimationView: LottieAnimationView = {
         let animationView = LottieAnimationView(name: Asset.Assets.loading.name)
         animationView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +29,7 @@ final class LoadingAnimationViewController: UIViewController {
         return animationView
     }()
  
-    //MARK: - Life Cycle -
+    // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black

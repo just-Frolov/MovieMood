@@ -18,7 +18,7 @@ protocol MovieDetailsPresenter: AnyObject {
 
 final class MovieDetailsPresenterImpl {
 
-    //MARK: - Variables -
+    // MARK: - Variables -
     private weak var view: MovieDetailsView?
     private var interactor: MovieDetailsInteractor
     private var router: AppRouter
@@ -28,7 +28,7 @@ final class MovieDetailsPresenterImpl {
     private var movieDetails: MovieDetails?
     private var videoList: [MovieVideo]?
     
-    //MARK: - Life Cycle -
+    // MARK: - Life Cycle -
     init(
         router: AppRouter,
         interactor: MovieDetailsInteractor,
