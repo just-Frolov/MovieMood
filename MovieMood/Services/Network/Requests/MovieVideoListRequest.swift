@@ -9,10 +9,6 @@ import Alamofire
 
 final class MovieVideoListRequest: Endpoint<MovieVideoList> {
     init(path: ClNetwork.EndpointPath) {
-        super.init(
-            path: path,
-            method: .get,
-            encoding: URLEncoding.default
-        )
+        super.init(path: path, method: .get)
     }
 }

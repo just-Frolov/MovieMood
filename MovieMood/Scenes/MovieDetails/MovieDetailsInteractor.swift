@@ -23,7 +23,7 @@ final class MovieDetailsInteractorImpl {
 
 extension MovieDetailsInteractorImpl: MovieDetailsInteractor {
     func loadMovieDetails(by id: MovieId) async throws -> MovieDetails {
-        let path: ClNetwork.EndpointPath = .movieDetails(id)
+        let path: ClNetwork.EndpointPath = .movieDetails(id: id)
         let request = MovieDetailsRequest(path: path)
         do {
             return try await network.request(endpoint: request)
@@ -33,7 +33,7 @@ extension MovieDetailsInteractorImpl: MovieDetailsInteractor {
     }
     
     func loadMovieVideoList(by id: MovieId) async throws -> [MovieVideo] {
-        let path: ClNetwork.EndpointPath = .movieVideoList(id)
+        let path: ClNetwork.EndpointPath = .movieVideoList(id: id)
         let request = MovieVideoListRequest(path: path)
         do {
             return try await network.request(endpoint: request).results

@@ -17,7 +17,7 @@ protocol MovieListView: AnyObject {
 
 final class MovieListViewController: BaseViewController<MovieListPresenter> {
     
-    private enum Constants {
+    private enum Constant {
         static let sectionInset = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
         static let interGroupSpacing: CGFloat = 16.0
     }
@@ -28,18 +28,32 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
             dataSource = .init(collectionView: collectionView)
             MovieCardCollectionViewCell.xibRegister(in: collectionView)
             collectionView.backgroundColor = .clear
+            collectionView.keyboardDismissMode = .onDrag
             collectionView.collectionViewLayout = makeCollectionViewLayout()
             collectionView.delegate = self
         }
     }
     
-    //MARK: - Variables -
+    // MARK: - UIElements -
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = Localized.searchPlaceholder
+        searchController.searchBar.delegate = self
+        return searchController
+    }()
+    
+    // MARK: - Variables -
     private var dataSource: MovieListDataSource?
     
-    //MARK: - Life Cycle -
+    // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
+        
+        presenter?.perform(
+            action: .viewDidLoad
+        )
     }
 }
 
@@ -56,8 +70,30 @@ extension MovieListViewController: MovieListView {
 extension MovieListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let item = dataSource?.itemIdentifier(for: indexPath) as? MovieListViewState.Item {
-            presenter?.didSelect(item: item)
+            presenter?.perform(
+                action: .select(item: item)
+            )
         }
+    }
+}
+
+extension MovieListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        presenter?.perform(
+            action: .search(query: searchText, forceUpdate: false)
+        )
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        presenter?.perform(
+            action: .search(query: searchBar.text, forceUpdate: true)
+        )
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        presenter?.perform(
+            action: .search(query: nil, forceUpdate: true)
+        )
     }
 }
 
@@ -75,13 +111,15 @@ private extension MovieListViewController {
             
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .none
-            section.contentInsets = Constants.sectionInset
-            section.interGroupSpacing = Constants.interGroupSpacing
+            section.contentInsets = Constant.sectionInset
+            section.interGroupSpacing = Constant.interGroupSpacing
             
             section.visibleItemsInvalidationHandler = { [weak self] (items, offset, env) -> Void in
                 guard let self, let indexPath = items.last?.indexPath else { return }
                 
-                self.presenter?.fetchMoviesIfNeeded(indexPath: indexPath)
+                self.presenter?.perform(
+                    action: .scroll(indexPath: indexPath)
+                )
             }
             
             return section

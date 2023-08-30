@@ -29,7 +29,6 @@ private extension MovieListViewStateFactory {
             var posterImagePath: URL?
             if let backdropPath = $0.backdropPath {
                 posterImagePath = ImageManager
-                    .shared
                     .imageURL(
                         withPath: backdropPath,
                         imageSizeType: .list

@@ -12,8 +12,12 @@ struct MovieDetailsConfiguration {
     let title: String
 }
 
+enum MovieDetailsAction {
+    case viewDidLoad
+}
+
 protocol MovieDetailsPresenter: AnyObject {
-    func viewDidLoad()
+    func perform(action: MovieDetailsAction)
 }
 
 final class MovieDetailsPresenterImpl {
@@ -47,15 +51,22 @@ final class MovieDetailsPresenterImpl {
 }
 
 extension MovieDetailsPresenterImpl: MovieDetailsPresenter {
-    func viewDidLoad() {
+    func perform(action: MovieDetailsAction) {
+        switch action {
+        case .viewDidLoad:
+            performViewDidLoadAction()
+        }
+    }
+}
+
+private extension MovieDetailsPresenterImpl {
+    func performViewDidLoadAction() {
         Task {
-            let viewState = viewStateFactory.makeViewState(configuration: configuration)
+            let viewState = viewStateFactory.makeInitialViewState(configuration: configuration)
             await updateDataSource(viewState: viewState)
         }
        
-        Task {
-            await fetchMovieData()
-        }
+        Task { await fetchMovieData() }
     }
 }
 

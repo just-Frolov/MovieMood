@@ -16,7 +16,7 @@ protocol MovieDetailsView: AnyObject {
 
 final class MovieDetailsViewController: BaseViewController<MovieDetailsPresenter> {
     
-    private enum Constants {
+    private enum Constant {
         static let sectionInset = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16)
         static let interGroupSpacing: CGFloat = 16.0
     }
@@ -38,7 +38,7 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsPresenter
     // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
+        presenter?.perform(action: .viewDidLoad)
     }
 }
 
@@ -66,8 +66,8 @@ private extension MovieDetailsViewController {
             
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .none
-            section.contentInsets = Constants.sectionInset
-            section.interGroupSpacing = Constants.interGroupSpacing
+            section.contentInsets = Constant.sectionInset
+            section.interGroupSpacing = Constant.interGroupSpacing
             
             return section
         }

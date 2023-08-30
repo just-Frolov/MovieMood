@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 final class MovieDetailsViewStateFactory {
-    func makeViewState(configuration: MovieDetailsConfiguration) -> MovieDetailsViewState {
+    func makeInitialViewState(configuration: MovieDetailsConfiguration) -> MovieDetailsViewState {
         return MovieDetailsViewState(
             title: configuration.title,
             mediaItems: nil,
@@ -37,7 +37,6 @@ private extension MovieDetailsViewStateFactory {
         
         if let backdropPath = movieDetails.backdropPath {
             guard let posterImagePath = ImageManager
-                .shared
                 .imageURL(
                     withPath: backdropPath,
                     imageSizeType: .details

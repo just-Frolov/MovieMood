@@ -9,7 +9,7 @@ import UIKit
 
 final class PlaybackButton: UIButton, NibLoadable {
     
-    private enum Constants {
+    private enum Constant {
         static let borderWidth: CGFloat = 2.0
         static let borderColor: UIColor = .gray
     }
@@ -27,8 +27,8 @@ final class PlaybackButton: UIButton, NibLoadable {
     override func awakeFromNib() {
         super.awakeFromNib()
         border(
-            width: Constants.borderWidth,
-            color: Constants.borderColor
+            width: Constant.borderWidth,
+            color: Constant.borderColor
         )
         cornerRadius = height / 2
         backgroundColor = .black

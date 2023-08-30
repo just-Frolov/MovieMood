@@ -8,9 +8,8 @@
 import Foundation
 
 struct ImageManager {
-    static let shared = ImageManager()
-
-    private enum Constants {
+    
+    private enum Constant {
         static let baseURL = "https://image.tmdb.org"
         static let baseURLPrefix = "/t/p/"
     }
@@ -20,9 +19,9 @@ struct ImageManager {
         case details = "original"
     }
 
-    func imageURL(withPath path: String, imageSizeType: ImageSizeType) -> URL? {
-        var urlComponents = URLComponents(string: Constants.baseURL)
-        urlComponents?.path = Constants.baseURLPrefix + imageSizeType.rawValue + path
+    static func imageURL(withPath path: String, imageSizeType: ImageSizeType) -> URL? {
+        var urlComponents = URLComponents(string: Constant.baseURL)
+        urlComponents?.path = Constant.baseURLPrefix + imageSizeType.rawValue + path
         return urlComponents?.url
     }
 }
