@@ -8,6 +8,7 @@
 import UIKit
 
 extension UINavigationController {
+    
     /// Call this function from `viewWillAppear` in view controller.
     func setDarkGreyAppearance() {
         let appearance = UINavigationBarAppearance()
@@ -19,7 +20,8 @@ extension UINavigationController {
         ]
         appearance.titleTextAttributes = textAttributes
         appearance.largeTitleTextAttributes = [
-            .foregroundColor: UIColor.white]
+            .foregroundColor: UIColor.white
+        ]
         appearance.buttonAppearance.normal.titleTextAttributes = [
             .foregroundColor: UIColor.clear
         ]

@@ -16,7 +16,7 @@ protocol LoadingAnimationView: AnyObject {
 
 final class LoadingAnimationViewController: UIViewController {
     
-    private enum Constants {
+    private enum Constant {
         static let animationViewSpace: CGFloat = 16
     }
     
@@ -71,10 +71,10 @@ private extension LoadingAnimationViewController {
         view.addSubview(loadingAnimationView)
         loadingAnimationView.pinEdges(
             to: view,
-            topSpace: Constants.animationViewSpace,
-            leftSpace: Constants.animationViewSpace,
-            rightSpace: Constants.animationViewSpace,
-            bottomSpace: Constants.animationViewSpace
+            topSpace: Constant.animationViewSpace,
+            leftSpace: Constant.animationViewSpace,
+            rightSpace: Constant.animationViewSpace,
+            bottomSpace: Constant.animationViewSpace
         )
     }
 }

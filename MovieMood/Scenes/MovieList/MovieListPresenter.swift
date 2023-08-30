@@ -7,16 +7,29 @@
 
 import UIKit
 
+enum MovieListSortType: String {
+    case popularity = "popularity.desc"
+    case vote = "vote_average"
+}
+
+enum MovieListAction {
+    case viewDidLoad
+    case scroll(indexPath: IndexPath)
+    case select(item: MovieListViewState.Item)
+    case search(query: String?, forceUpdate: Bool)
+}
+
 protocol MovieListPresenter: AnyObject {
-    func viewDidLoad()
-    func fetchMoviesIfNeeded(indexPath: IndexPath)
-    func didSelect(item: MovieListViewState.Item)
+    func perform(action: MovieListAction)
 }
 
 final class MovieListPresenterImpl {
 
-    private enum Constants {
+    private enum Constant {
+        static let initialFetchPage = 1
         static let cellsUntilPaginationLimit = 5
+        static let searchDelay = 500
+        static let itemsPerPage = 20
     }
     
     // MARK: - Variables -
@@ -26,9 +39,20 @@ final class MovieListPresenterImpl {
     private var viewStateFactory: MovieListViewStateFactory
     
     private var movieList: [Movie] = []
+    private var currentPage: Int {
+        get {
+            movieList.count / Constant.itemsPerPage + Constant.initialFetchPage
+        }
+    }
     private var isMoviesLoading = false
-    private var currentPage: Int = 1
-    private var canLoadNextPage: Bool = true
+    private var canLoadNextPage: Bool {
+        get {
+            movieList.count % Constant.itemsPerPage == .zero
+        }
+    }
+    
+    private var searchText: String?
+    private var searchWorkItem: DispatchWorkItem?
     
     // MARK: - Life Cycle -
     init(
@@ -47,7 +71,22 @@ final class MovieListPresenterImpl {
 }
 
 extension MovieListPresenterImpl: MovieListPresenter {
-    func viewDidLoad() {
+    func perform(action: MovieListAction) {
+        switch action {
+        case .viewDidLoad:
+            performViewDidLoadAction()
+        case .scroll(let indexPath):
+            performScrollAction(with: indexPath)
+        case .select(let item):
+            performSelectAction(for: item)
+        case .search(let query, let forceUpdate):
+            performSearchAction(with: query, forceUpdate: forceUpdate)
+        }
+    }
+}
+
+private extension MovieListPresenterImpl {
+    func performViewDidLoadAction() {
         Task {
             await view?.showLoadingIndicator()
             await view?.hideLoadingIndicator()
@@ -59,16 +98,52 @@ extension MovieListPresenterImpl: MovieListPresenter {
         }
     }
 
-    func fetchMoviesIfNeeded(indexPath: IndexPath) {
-        if movieList.count - Constants.cellsUntilPaginationLimit == indexPath.row && !isMoviesLoading && canLoadNextPage {
+    func performScrollAction(with indexPath: IndexPath) {
+        guard movieList.count - Constant.cellsUntilPaginationLimit == indexPath.row && !isMoviesLoading && canLoadNextPage else {
+            return
+        }
+        
+        if let searchText {
+            Task { await searchMovies(query: searchText, isNewSearch: false) }
+        } else {
             Task { await fetchMovies() }
         }
     }
     
-    @MainActor
-    func didSelect(item: MovieListViewState.Item) {
-        let movieDetailsConfiguration = MovieDetailsConfiguration(id: item.id, title: item.title)
-        router.showMovieDetails(with: movieDetailsConfiguration)
+    func performSelectAction(for item: MovieListViewState.Item) {
+        Task {
+            let movieDetailsConfiguration = MovieDetailsConfiguration(id: item.id, title: item.title)
+            await router.showMovieDetails(with: movieDetailsConfiguration)
+        }
+    }
+    
+    func performSearchAction(with query: String?, forceUpdate: Bool) {
+        searchWorkItem?.cancel()
+        
+        guard let query, !query.isEmpty else {
+            if searchText != nil {
+                searchText = nil
+                movieList = []
+                Task { await fetchMovies() }
+            }
+            return
+        }
+        
+        guard !forceUpdate else {
+            Task { await searchMovies(query: query, isNewSearch: true) }
+            return
+        }
+        
+        let delay = query.isEmpty ? .zero : Constant.searchDelay
+        let newWorkItem = DispatchWorkItem { [unowned self] in
+            Task { await searchMovies(query: query, isNewSearch: true) }
+        }
+        
+        searchWorkItem = newWorkItem
+        DispatchQueue.global().asyncAfter(
+            deadline: .now() + .milliseconds(delay),
+            execute: newWorkItem
+        )
     }
 }
 
@@ -83,8 +158,8 @@ private extension MovieListPresenterImpl {
     
     func updateDataSource(items: [MovieListViewState.Item]) async {
         var snapshot = NSDiffableDataSourceSnapshot<Int, AnyHashable>()
-        snapshot.appendSections([0])
-        snapshot.appendItems(items, toSection: 0)
+        snapshot.appendSections([.zero])
+        snapshot.appendItems(items, toSection: .zero)
 
         await view?.setDataSource(snapshot: snapshot)
     }
@@ -94,19 +169,41 @@ private extension MovieListPresenterImpl {
 
         do {
             let additionalMovies = try await interactor.loadMovies(
-                from: currentPage,
-                sortType: .popularity
+                sortType: .popularity,
+                from: currentPage
             ).results
             
-            currentPage += 1
             isMoviesLoading = false
-            self.movieList.append(contentsOf: additionalMovies)
+            movieList.append(contentsOf: additionalMovies)
             
             Task { await self.updateView() }
         } catch let error {
             debugPrint(error)
             
-            canLoadNextPage = false
+            isMoviesLoading = false
+        }
+    }
+    
+    func searchMovies(query: String, isNewSearch: Bool) async {
+        isMoviesLoading = true
+        
+        if isNewSearch {
+            movieList = []
+            searchText = query
+        }
+        
+        do {
+            let additionalMovies = try await interactor.searchMovies(
+                query: query,
+                from: currentPage
+            ).results
+            isMoviesLoading = false
+            movieList.append(contentsOf: additionalMovies)
+                        
+            Task { await self.updateView() }
+        } catch let error {
+            debugPrint(error)
+            
             isMoviesLoading = false
         }
     }

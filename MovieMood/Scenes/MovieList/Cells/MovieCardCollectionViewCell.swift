@@ -10,7 +10,7 @@ import Kingfisher
 
 final class MovieCardCollectionViewCell: BaseCollectionViewCell {
     
-    private enum Constants {
+    private enum Constant {
         static let cornerRadius: CGFloat = 8
         static let gradientColor = UIColor(white: 0, alpha: 0.4).cgColor
         static let gradientClearColor = UIColor(white: 0, alpha: 0).cgColor
@@ -19,7 +19,7 @@ final class MovieCardCollectionViewCell: BaseCollectionViewCell {
     // MARK: - IBOutlets -
     @IBOutlet private weak var posterImageView: UIImageView! {
         didSet {
-            posterImageView.cornerRadius = Constants.cornerRadius
+            posterImageView.cornerRadius = Constant.cornerRadius
         }
     }
     @IBOutlet private weak var titleLabel: UILabel! {
