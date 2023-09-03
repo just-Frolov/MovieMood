@@ -55,10 +55,6 @@ Thumbs.db
 
 SwiftGen.zip
 
-# Generated
-
-MovieMood/Generated/*.swift
-
 # UserData
 
 *.xcbkptlist
