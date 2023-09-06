@@ -4,4 +4,4 @@ Introducing 'MovieMood': my personal pet project crafted to explore and learn ne
 
 Architecture - VIPER.
 
-Libraries - Swiftgen, Alamofire, Lottie.
+Libraries - Swiftgen, Alamofire, Lottie, Kingfisher.
