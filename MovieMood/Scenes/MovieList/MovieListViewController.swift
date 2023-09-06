@@ -20,6 +20,7 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
     private enum Constant {
         static let sectionInset = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
         static let interGroupSpacing: CGFloat = 16.0
+        static let movieImageRatio: CGFloat = 1.78
     }
     
     // MARK: - IBOutlets -
@@ -44,6 +45,7 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
     
     // MARK: - Variables -
     private var dataSource: MovieListDataSource?
+    private var imageHeight: CGFloat = 0
     
     // MARK: - Life Cycle -
     override func viewDidLoad() {
@@ -54,6 +56,11 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
         presenter?.perform(
             action: .viewDidLoad
         )
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        imageHeight = collectionView.width / Constant.movieImageRatio
     }
 }
 
@@ -103,7 +110,7 @@ private extension MovieListViewController {
         let layout = UICollectionViewCompositionalLayout { [unowned self] (setion: Int, layoutEnvironment: NSCollectionLayoutEnvironment) in
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(1.0)
+                heightDimension: .absolute(self.imageHeight)
             )
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
