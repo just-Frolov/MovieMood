@@ -7,15 +7,10 @@
 
 import UIKit
 
-@objc
-protocol Dismissable where Self: UIView {
-    var dismissAction: (() -> Void)? { get set }
-}
-
 final class BottomSheetViewController: UIViewController {
     
     private enum Constant {
-        static let contentCornerRadius: CGFloat = 16
+        static let containerCornerRadius: CGFloat = 16
         static let maxDimmedAlpha: CGFloat = 0.6
         static let defaultHeight: CGFloat = UIScreen.main.bounds.height / 2
         static let dismissibleHeight: CGFloat = 200
@@ -25,27 +20,30 @@ final class BottomSheetViewController: UIViewController {
     // MARK: - Variables -
     private var currentContainerHeight: CGFloat = Constant.defaultHeight
     
+    // MARK: - UIElements -
+    private var childViewController: UIViewController?
+    
     // MARK: - IBOutlets -
     @IBOutlet private weak var dimmedView: UIView! {
         didSet {
             dimmedView.alpha = Constant.maxDimmedAlpha
         }
     }
-    @IBOutlet private weak var contentView: Dismissable! {
+    @IBOutlet private weak var containerView: UIView! {
         didSet {
-            contentView.cornerRadius = Constant.contentCornerRadius
+            containerView.cornerRadius = Constant.containerCornerRadius
         }
     }
     
-    // Dynamic content constraint
-    @IBOutlet private var contentViewHeightConstraint: NSLayoutConstraint! {
+    // Dynamic container constraints
+    @IBOutlet private var containerViewHeightConstraint: NSLayoutConstraint! {
         didSet {
-            contentViewHeightConstraint.constant = Constant.defaultHeight
+            containerViewHeightConstraint.constant = Constant.defaultHeight
         }
     }
-    @IBOutlet private var contentViewBottomConstraint: NSLayoutConstraint! {
+    @IBOutlet private var containerViewBottomConstraint: NSLayoutConstraint! {
         didSet {
-            contentViewBottomConstraint.constant = -Constant.defaultHeight
+            containerViewBottomConstraint.constant = -Constant.defaultHeight
         }
     }
     
@@ -57,19 +55,32 @@ final class BottomSheetViewController: UIViewController {
         dimmedView.addGestureRecognizer(tapGesture)
         
         setupPanGesture()
+        addContentController()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animatePresentDimmedView()
-        animatePresentContentView()
+        animatePresentContainerView()
+    }
+    
+    // MARK: - Internal -
+    func render(with childViewController: UIViewController) {
+        self.childViewController = childViewController
     }
 }
 
 private extension BottomSheetViewController {
-    func animatePresentContentView() {
+    func addContentController() {
+        guard let childViewController else { return }
+        
+        addChildViewController(childViewController, toContainerView: containerView)
+        childViewController.view.pinEdges(to: containerView)
+    }
+    
+    func animatePresentContainerView() {
         UIView.animate(withDuration: 0.3) {
-            self.contentViewBottomConstraint?.constant = 0
+            self.containerViewBottomConstraint?.constant = 0
             self.view.layoutIfNeeded()
         }
     }
@@ -90,14 +101,14 @@ private extension BottomSheetViewController {
         }
        
         UIView.animate(withDuration: 0.3) {
-            self.contentViewBottomConstraint?.constant = -Constant.defaultHeight
+            self.containerViewBottomConstraint?.constant = -Constant.defaultHeight
             self.view.layoutIfNeeded()
         }
     }
     
     func animateContainerHeight(_ height: CGFloat) {
         UIView.animate(withDuration: 0.4) {
-            self.contentViewHeightConstraint?.constant = height
+            self.containerViewHeightConstraint?.constant = height
             self.view.layoutIfNeeded()
         }
         currentContainerHeight = height
@@ -122,7 +133,7 @@ private extension BottomSheetViewController {
         case .changed:
             // This state will occur when user is dragging
             if newHeight < Constant.maximumContainerHeight {
-                contentViewHeightConstraint?.constant = newHeight
+                containerViewHeightConstraint?.constant = newHeight
                 view.layoutIfNeeded()
             }
         case .ended:

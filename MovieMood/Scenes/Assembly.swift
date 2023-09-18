@@ -1,5 +1,5 @@
 //
-//  AssemblyModuleBuilder.swift
+//  Assembly.swift
 //  MovieMood
 //
 //  Created by Danil Frolov on 22.05.2023.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol AssemblyProtocol: AnyObject {
+protocol Assembly: AnyObject {
     func createMovieListModule() -> MovieListViewController
     func createMovieDetailsModule(configuration: MovieDetailsConfiguration) -> MovieDetailsViewController
-    func createVideoPickerSheetModule(movieVideoList: [MovieVideo]) -> VideoPickerViewController
+    func createVideoPickerSheetModule(movieVideoList: [MovieVideo]) -> BottomSheetViewController
 }
 
-final class Assembly: AssemblyProtocol {
+final class AssemblyImpl: Assembly {
     private let network: Network = ClNetwork()
     private let router: AppRouter
     
@@ -45,7 +45,7 @@ final class Assembly: AssemblyProtocol {
         return view
     }
     
-    func createVideoPickerSheetModule(movieVideoList: [MovieVideo]) -> VideoPickerViewController {
+    func createVideoPickerSheetModule(movieVideoList: [MovieVideo]) -> BottomSheetViewController {
         let view = Storyboard.VideoPicker.videoPickerViewController.instantiate()
         let viewStateFactory = VideoPickerViewStateFactory()
         let presenter = VideoPickerPresenterImpl(
@@ -57,13 +57,13 @@ final class Assembly: AssemblyProtocol {
         presenter.inject(view: view)
 
         let sheetView = Storyboard.BottomSheet.bottomSheetViewController.instantiate()
-        //sheetView.configure(with: view)
+        sheetView.render(with: view)
         
-        return view
+        return sheetView
     }
 }
 
-private extension Assembly {
+private extension AssemblyImpl {
     func makeAlert() -> AlertPresentable {
         AlertController()
     }

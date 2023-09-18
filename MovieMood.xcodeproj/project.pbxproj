@@ -98,6 +98,7 @@
 		B0ECEF892A294728004ADAC7 /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECEF882A294728004ADAC7 /* MovieListPresenter.swift */; };
 		B0ECEF8B2A294755004ADAC7 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECEF8A2A294755004ADAC7 /* MovieListViewController.swift */; };
 		B0ECEF8E2A2949B0004ADAC7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECEF8D2A2949B0004ADAC7 /* BaseViewController.swift */; };
+		B0EF0AF92AB8FA7E00FC3406 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EF0AF82AB8FA7E00FC3406 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -191,6 +192,7 @@
 		B0ECEF882A294728004ADAC7 /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
 		B0ECEF8A2A294755004ADAC7 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		B0ECEF8D2A2949B0004ADAC7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B0EF0AF82AB8FA7E00FC3406 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */,
+				B0EF0AF82AB8FA7E00FC3406 /* UIViewController+Extension.swift */,
 				B0732B312A5F0B26001B06C7 /* UINavigationController+Extension.swift */,
 				B0D8D9A62A93AAE400013123 /* Optional+Extension.swift */,
 			);
@@ -696,6 +699,7 @@
 				B03008762AB8AE410056B56B /* BottomSheetViewController.swift in Sources */,
 				B0732B362A604642001B06C7 /* MovieListViewStateFactory.swift in Sources */,
 				B027D3E02A9F811500B130FC /* MovieSearchRequest.swift in Sources */,
+				B0EF0AF92AB8FA7E00FC3406 /* UIViewController+Extension.swift in Sources */,
 				B05D501D2A4FFE6C00BDC9CF /* Reusable.swift in Sources */,
 				B03008642AB87CE40056B56B /* VideoPickerDataSource.swift in Sources */,
 				B0ECEF8B2A294755004ADAC7 /* MovieListViewController.swift in Sources */,

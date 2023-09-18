@@ -14,17 +14,7 @@ protocol VideoPickerView: AnyObject {
 
 final class VideoPickerViewController: BaseViewController<VideoPickerPresenter> {
 
-    private enum Constant {
-        static let maxDimmedAlpha: CGFloat = 0.6
-        static let defaultHeight: CGFloat = UIScreen.main.bounds.height / 2
-    }
-    
     // MARK: - IBOutlets -
-    @IBOutlet private weak var dimmedView: UIView! {
-        didSet {
-            dimmedView.alpha = Constant.maxDimmedAlpha
-        }
-    }
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             dataSource = .init(tableView: tableView)
@@ -41,7 +31,6 @@ final class VideoPickerViewController: BaseViewController<VideoPickerPresenter> 
     // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViewTapRecognizer()
         presenter?.perform(action: .viewDidLoad)
     }
 }
@@ -59,12 +48,5 @@ extension VideoPickerViewController: UITableViewDelegate {
 }
 
 private extension VideoPickerViewController {
-    func setupViewTapRecognizer() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
-        view.addGestureRecognizer(gesture)
-    }
-    
-    @objc func viewDidTap(_ gesture: UITapGestureRecognizer) {
-        presenter?.perform(action: .itemDidTap(index: nil))
-    }
+
 }

@@ -9,7 +9,7 @@ import UIKit
 
 @MainActor
 protocol AppRouter {
-    func inject(assemblyBuilder: AssemblyProtocol)
+    func inject(assembly: Assembly)
     func start()
     
     func popToRoot(animated: Bool)
@@ -19,7 +19,7 @@ protocol AppRouter {
 
 final class AppRouterImpl {
     private let navigationController: UINavigationController
-    private weak var assemblyBuilder: AssemblyProtocol!
+    private weak var assembly: Assembly!
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -28,28 +28,28 @@ final class AppRouterImpl {
 
 extension AppRouterImpl: AppRouter {
     
-    func inject(assemblyBuilder: AssemblyProtocol) {
-        self.assemblyBuilder = assemblyBuilder
+    func inject(assembly: Assembly) {
+        self.assembly = assembly
     }
 
     func start() {
-        let homeViewController = assemblyBuilder.createMovieListModule()
+        let homeViewController = assembly.createMovieListModule()
         
         navigationController.viewControllers = [homeViewController]
     }
  
     func showMovieDetails(with configuration: MovieDetailsConfiguration) {
-        let movieDetailsViewController = assemblyBuilder.createMovieDetailsModule(configuration: configuration)
+        let movieDetailsViewController = assembly.createMovieDetailsModule(configuration: configuration)
         
         navigationController.pushViewController(movieDetailsViewController, animated: true)
     }
     
     func showVideoPickerSheet(with videoList: [MovieVideo]) {
-        let videoPickerViewController = assemblyBuilder.createVideoPickerSheetModule(movieVideoList: videoList)
+        let videoPickerViewController = assembly.createVideoPickerSheetModule(movieVideoList: videoList)
         videoPickerViewController.modalPresentationStyle = .overFullScreen
-        videoPickerViewController.modalTransitionStyle = .crossDissolve
-        
-        navigationController.present(videoPickerViewController, animated: true)
+        // keep false
+        // modal animation will be handled in VC itself
+        navigationController.present(videoPickerViewController, animated: false)
     }
     
     func popToRoot(animated: Bool) {

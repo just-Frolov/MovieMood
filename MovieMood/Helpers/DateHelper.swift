@@ -17,7 +17,7 @@ final class DateHelper {
     }
     
     static func toDateWithoutTime(from date: Date) -> String? {
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "dd.MM.yy"
         return formatter.string(from: date)
     }
 }
