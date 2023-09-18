@@ -7,6 +7,9 @@
 
 import UIKit
 
+typealias MediaItem = MovieDetailsViewState.MediaItem
+typealias AttributeItem = MovieDetailsViewState.AttributeItem
+
 struct MovieDetailsViewState {
     struct MediaItem {
         let shouldShowPlayVideoButton: Bool
@@ -66,22 +69,22 @@ struct MovieDetailsViewState {
     let attributeItems: [AttributeItem]?
 }
 
-extension MovieDetailsViewState.MediaItem: Hashable {
+extension MediaItem: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(posterImagePath)
     }
 
-    static func == (lhs: MovieDetailsViewState.MediaItem, rhs: MovieDetailsViewState.MediaItem) -> Bool {
+    static func == (lhs: MediaItem, rhs: MediaItem) -> Bool {
         return lhs.posterImagePath == rhs.posterImagePath
     }
 }
 
-extension MovieDetailsViewState.AttributeItem: Hashable {
+extension AttributeItem: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(displayTitle)
     }
 
-    static func == (lhs: MovieDetailsViewState.AttributeItem, rhs: MovieDetailsViewState.AttributeItem) -> Bool {
+    static func == (lhs: AttributeItem, rhs: AttributeItem) -> Bool {
         return lhs.displayTitle == rhs.displayTitle
     }
 }

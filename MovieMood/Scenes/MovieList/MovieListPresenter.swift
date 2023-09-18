@@ -15,7 +15,7 @@ enum MovieListSortType: String {
 enum MovieListAction {
     case viewDidLoad
     case scroll(indexPath: IndexPath)
-    case select(item: MovieListViewState.Item)
+    case select(item: MovieListItem)
     case search(query: String?, forceUpdate: Bool)
 }
 
@@ -110,7 +110,7 @@ private extension MovieListPresenterImpl {
         }
     }
     
-    func performSelectAction(for item: MovieListViewState.Item) {
+    func performSelectAction(for item: MovieListItem) {
         Task {
             let movieDetailsConfiguration = MovieDetailsConfiguration(id: item.id, title: item.title)
             await router.showMovieDetails(with: movieDetailsConfiguration)
@@ -156,7 +156,7 @@ private extension MovieListPresenterImpl {
         await updateDataSource(items: viewState.items)
     }
     
-    func updateDataSource(items: [MovieListViewState.Item]) async {
+    func updateDataSource(items: [MovieListItem]) async {
         var snapshot = NSDiffableDataSourceSnapshot<Int, AnyHashable>()
         snapshot.appendSections([.zero])
         snapshot.appendItems(items, toSection: .zero)

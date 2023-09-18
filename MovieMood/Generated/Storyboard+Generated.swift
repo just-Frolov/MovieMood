@@ -12,6 +12,11 @@ import UIKit
 
 // swiftlint:disable explicit_type_interface identifier_name line_length type_body_length type_name
 internal enum Storyboard {
+  internal enum BottomSheet: StoryboardType {
+    internal static let storyboardName = "BottomSheet"
+
+    internal static let bottomSheetViewController = SceneType<BottomSheetViewController>(storyboard: BottomSheet.self, identifier: "BottomSheetViewController")
+  }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
 
@@ -26,6 +31,11 @@ internal enum Storyboard {
     internal static let storyboardName = "MovieList"
 
     internal static let movieListViewController = SceneType<MovieListViewController>(storyboard: MovieList.self, identifier: "MovieListViewController")
+  }
+  internal enum VideoPicker: StoryboardType {
+    internal static let storyboardName = "VideoPicker"
+
+    internal static let videoPickerViewController = SceneType<VideoPickerViewController>(storyboard: VideoPicker.self, identifier: "VideoPickerViewController")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

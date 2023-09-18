@@ -22,8 +22,8 @@ class BaseViewController<Presenter>: UIViewController {
 extension BaseViewController {
     func inject(
         presenter: Presenter,
-        alert: UIAlertController,
-        loadingView: LoadingAnimationView
+        alert: UIAlertController? = nil,
+        loadingView: LoadingAnimationView? = nil
     ) {
         self.presenter = presenter
         self.alert = alert

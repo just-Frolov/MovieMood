@@ -24,7 +24,7 @@ final class MovieListViewStateFactory {
 }
 
 private extension MovieListViewStateFactory {
-    func makeItems(_ movieList: [Movie]) -> [MovieListViewState.Item] {
+    func makeItems(_ movieList: [Movie]) -> [MovieListItem] {
         return movieList.map {
             var posterImagePath: URL?
             if let backdropPath = $0.backdropPath {
@@ -35,7 +35,7 @@ private extension MovieListViewStateFactory {
                     )
             }
             
-            return MovieListViewState.Item(
+            return MovieListItem(
                 id: $0.id,
                 title: $0.title,
                 posterImagePath: posterImagePath

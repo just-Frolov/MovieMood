@@ -7,6 +7,8 @@
 
 import UIKit
 
+typealias MovieListItem = MovieListViewState.Item
+
 struct MovieListViewState {
     struct NavigationBar {
         let title: String
@@ -23,12 +25,12 @@ struct MovieListViewState {
     var items: [Item]
 }
 
-extension MovieListViewState.Item: Hashable {
+extension MovieListItem: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
     
-    static func == (lhs: MovieListViewState.Item, rhs: MovieListViewState.Item) -> Bool {
+    static func == (lhs: MovieListItem, rhs: MovieListItem) -> Bool {
         return lhs.id == rhs.id
     }
 }

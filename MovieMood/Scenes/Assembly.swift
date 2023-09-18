@@ -1,5 +1,5 @@
 //
-//  AssemblerModuleBuilder.swift
+//  AssemblyModuleBuilder.swift
 //  MovieMood
 //
 //  Created by Danil Frolov on 22.05.2023.
@@ -7,16 +7,21 @@
 
 import UIKit
 
-protocol AssemblerProtocol {
+protocol AssemblyProtocol: AnyObject {
     func createMovieListModule(router: AppRouter) -> MovieListViewController
     func createMovieDetailsModule(router: AppRouter, configuration: MovieDetailsConfiguration) -> MovieDetailsViewController
+    func createVideoPickerSheetModule(movieVideoList: [MovieVideo]) -> VideoPickerViewController
 }
 
-//TODO: for tests I will use dependencyInjection to be able to change entities to fakes
-final class Assembler: AssemblerProtocol {
-    let network: Network = ClNetwork()
+final class Assembly: AssemblyProtocol {
+    private let network: Network = ClNetwork()
+    private let router: AppRouter
     
-    func createMovieListModule(router: AppRouter) -> MovieListViewController {
+    init(router: AppRouter) {
+        self.router = router
+    }
+    
+    func createMovieListModule() -> MovieListViewController {
         let view = Storyboard.MovieList.movieListViewController.instantiate()
         let viewStateFactory = MovieListViewStateFactory()
         let interactor = MovieListInteractorImpl(network: network)
@@ -28,10 +33,7 @@ final class Assembler: AssemblerProtocol {
         return view
     }
     
-    func createMovieDetailsModule(
-        router: AppRouter,
-        configuration: MovieDetailsConfiguration
-    ) -> MovieDetailsViewController {
+    func createMovieDetailsModule(configuration: MovieDetailsConfiguration) -> MovieDetailsViewController {
         let view = Storyboard.MovieDetails.movieDetailsViewController.instantiate()
         let viewStateFactory = MovieDetailsViewStateFactory()
         let interactor = MovieDetailsInteractorImpl(network: network)
@@ -42,9 +44,26 @@ final class Assembler: AssemblerProtocol {
 
         return view
     }
+    
+    func createVideoPickerSheetModule(movieVideoList: [MovieVideo]) -> VideoPickerViewController {
+        let view = Storyboard.VideoPicker.videoPickerViewController.instantiate()
+        let viewStateFactory = VideoPickerViewStateFactory()
+        let presenter = VideoPickerPresenterImpl(
+            viewStateFactory: viewStateFactory,
+            movieVideoList: movieVideoList
+        )
+        
+        view.inject(presenter: presenter)
+        presenter.inject(view: view)
+
+        let sheetView = Storyboard.BottomSheet.bottomSheetViewController.instantiate()
+        //sheetView.configure(with: view)
+        
+        return view
+    }
 }
 
-private extension Assembler {
+private extension Assembly {
     func makeAlert() -> UIAlertController {
         UIAlertController(title: nil, message: nil, preferredStyle: .alert)
     }

@@ -24,7 +24,12 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsPresenter
     // MARK: - IBOutlets -
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
-            dataSource = .init(collectionView: collectionView)
+            dataSource = .init(
+                collectionView: collectionView,
+                playbackAction: { [weak self] in
+                    self?.presenter?.perform(action: .playback)
+                }
+            )
             MovieMediaCollectionViewCell.xibRegister(in: collectionView)
             MovieAttributeCollectionViewCell.xibRegister(in: collectionView)
             collectionView.backgroundColor = .clear
