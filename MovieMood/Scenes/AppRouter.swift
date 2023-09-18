@@ -11,10 +11,10 @@ import UIKit
 protocol AppRouter {
     func inject(assemblyBuilder: AssemblyProtocol)
     func start()
+    
     func popToRoot(animated: Bool)
     func showMovieDetails(with configuration: MovieDetailsConfiguration)
-    func showVideoPicker(with videoList: [MovieVideo])
-    func showBottomSheet()
+    func showVideoPickerSheet(with videoList: [MovieVideo])
 }
 
 final class AppRouterImpl {
@@ -33,31 +33,23 @@ extension AppRouterImpl: AppRouter {
     }
 
     func start() {
-        let homeViewController = assemblyBuilder.createMovieListModule(router: self)
+        let homeViewController = assemblyBuilder.createMovieListModule()
         
         navigationController.viewControllers = [homeViewController]
     }
  
     func showMovieDetails(with configuration: MovieDetailsConfiguration) {
-        let movieDetailsViewController = assemblyBuilder.createMovieDetailsModule(router: self, configuration: configuration)
+        let movieDetailsViewController = assemblyBuilder.createMovieDetailsModule(configuration: configuration)
         
         navigationController.pushViewController(movieDetailsViewController, animated: true)
     }
     
-    func showVideoPicker(with videoList: [MovieVideo]) {
-        let videoPickerViewController = assemblyBuilder.createVideoPickerModule(movieVideoList: videoList)
+    func showVideoPickerSheet(with videoList: [MovieVideo]) {
+        let videoPickerViewController = assemblyBuilder.createVideoPickerSheetModule(movieVideoList: videoList)
         videoPickerViewController.modalPresentationStyle = .overFullScreen
         videoPickerViewController.modalTransitionStyle = .crossDissolve
         
         navigationController.present(videoPickerViewController, animated: true)
-    }
-    
-    func showBottomSheet() {
-//        let bottomSheet = assemblyBuilder.createVideoPickerModule(movieVideoList: <#T##[MovieVideo]#>)
-//        bottomSheet.modalPresentationStyle = .overFullScreen
-        // keep false
-        // modal animation will be handled in VC itself
-        //navigationController.present(bottomSheet, animated: false)
     }
     
     func popToRoot(animated: Bool) {

@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var assemblyBuilder: Assembly?
+    var assembly: Assembly?
     
     func scene(
         _ scene: UIScene,
@@ -31,9 +31,10 @@ private extension SceneDelegate {
         
         let navigationController = UINavigationController()
         let router: AppRouter = AppRouterImpl(navigationController: navigationController)
-        let assemblyBuilder = Assembly(router: router)
+        let assembly = Assembly(router: router)
+        self.assembly = assembly
 
-        router.inject(assemblyBuilder: assemblyBuilder)
+        router.inject(assemblyBuilder: assembly)
         router.start()
 
         window.rootViewController = navigationController

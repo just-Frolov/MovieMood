@@ -74,7 +74,7 @@ private extension MovieDetailsPresenterImpl {
     
     func performPlaybackAction() {
         guard let videoList else { return }
-        Task { await router.showBottomSheet() }
+        Task { await router.showVideoPickerSheet(with: videoList) }
     }
 }
 

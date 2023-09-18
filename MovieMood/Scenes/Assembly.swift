@@ -8,8 +8,8 @@
 import UIKit
 
 protocol AssemblyProtocol: AnyObject {
-    func createMovieListModule(router: AppRouter) -> MovieListViewController
-    func createMovieDetailsModule(router: AppRouter, configuration: MovieDetailsConfiguration) -> MovieDetailsViewController
+    func createMovieListModule() -> MovieListViewController
+    func createMovieDetailsModule(configuration: MovieDetailsConfiguration) -> MovieDetailsViewController
     func createVideoPickerSheetModule(movieVideoList: [MovieVideo]) -> VideoPickerViewController
 }
 
@@ -64,8 +64,8 @@ final class Assembly: AssemblyProtocol {
 }
 
 private extension Assembly {
-    func makeAlert() -> UIAlertController {
-        UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+    func makeAlert() -> AlertPresentable {
+        AlertController()
     }
     
     func makeLoadingAnimation() -> LoadingAnimationView {

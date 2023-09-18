@@ -10,7 +10,7 @@ import UIKit
 class BaseViewController<Presenter>: UIViewController {
  
     var presenter: Presenter?
-    private var alert: UIAlertController?
+    private var alert: AlertPresentable?
     private var loadingView: LoadingAnimationView?
 
     override func viewWillAppear(_ animated: Bool) {
@@ -22,7 +22,7 @@ class BaseViewController<Presenter>: UIViewController {
 extension BaseViewController {
     func inject(
         presenter: Presenter,
-        alert: UIAlertController? = nil,
+        alert: AlertPresentable? = nil,
         loadingView: LoadingAnimationView? = nil
     ) {
         self.presenter = presenter
@@ -33,15 +33,17 @@ extension BaseViewController {
     func showAlert(
         title: String?,
         message: String?,
-        onDismiss: (() -> Void)?
+        onDismiss: @escaping (() -> Void)
     ) {
         guard let alert else { return }
-        let action = UIAlertAction(title: Localized.acceptAction, style: .default) { _ in
-            onDismiss?()
-        }
+        let action = AlertViewState.Action(title: Localized.acceptAction, event: onDismiss)
         
-        alert.title = title
-        alert.addAction(action)
+        let viewState = AlertViewState(
+            title: title,
+            message: message,
+            actions: [action]
+        )
+        alert.configure(with: viewState)
        
         present(alert, animated: true)
     }

@@ -11,7 +11,7 @@ import UIKit
 protocol MovieDetailsView: AnyObject {
     func render(with title: String)
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<MovieDetailsDataSource.Section, AnyHashable>)
-    func showAlert(title: String?, message: String?, onDismiss: (() -> Void)?)
+    func showAlert(title: String?, message: String?, onDismiss: @escaping (() -> Void))
 }
 
 final class MovieDetailsViewController: BaseViewController<MovieDetailsPresenter> {
