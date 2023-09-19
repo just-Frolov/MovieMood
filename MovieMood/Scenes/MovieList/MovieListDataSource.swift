@@ -10,7 +10,7 @@ import UIKit
 final class MovieListDataSource: UICollectionViewDiffableDataSource<Int, AnyHashable> {
     init(collectionView: UICollectionView) {
         super.init(collectionView: collectionView) { collectionView, indexPath, item in
-            if let movieItem = item as? MovieListViewState.Item {
+            if let movieItem = item as? MovieListItem {
                 let cell = MovieCardCollectionViewCell
                     .dequeueCellWithType(in: collectionView, indexPath: indexPath)
                 cell.render(with: movieItem)

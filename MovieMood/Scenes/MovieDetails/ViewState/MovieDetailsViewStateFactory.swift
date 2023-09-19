@@ -32,7 +32,7 @@ final class MovieDetailsViewStateFactory {
 }
 
 private extension MovieDetailsViewStateFactory {
-    func makeMediaItems(by movieDetails: MovieDetails, videoList: [MovieVideo]?) -> [MovieDetailsViewState.MediaItem]? {
+    func makeMediaItems(by movieDetails: MovieDetails, videoList: [MovieVideo]?) -> [MediaItem]? {
         let shouldShowPlayVideoButton = !videoList.isNilOrEmpty
         
         if let backdropPath = movieDetails.backdropPath {
@@ -42,7 +42,7 @@ private extension MovieDetailsViewStateFactory {
                     imageSizeType: .details
                 ) else { return nil }
             
-            return [MovieDetailsViewState.MediaItem(
+            return [MediaItem(
                 shouldShowPlayVideoButton: shouldShowPlayVideoButton,
                 posterImagePath: posterImagePath
             )]
@@ -51,8 +51,8 @@ private extension MovieDetailsViewStateFactory {
         return nil
     }
     
-    func makeAttributeItems(by movieDetails: MovieDetails) -> [MovieDetailsViewState.AttributeItem] {
-        var items: [MovieDetailsViewState.AttributeItem] = []
+    func makeAttributeItems(by movieDetails: MovieDetails) -> [AttributeItem] {
+        var items: [AttributeItem] = []
         
         items.append(.originalTitle(movieDetails.originalTitle))
         items.append(.description(movieDetails.overview))

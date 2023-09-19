@@ -7,7 +7,7 @@
 
 import Alamofire
 
-final class MovieListRequest: Endpoint<MovieList> {
+final class MovieListRequest: Endpoint<MoviesResponse> {
     init(path: ClNetwork.EndpointPath) {
         super.init(
             path: path,

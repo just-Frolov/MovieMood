@@ -13,14 +13,20 @@ final class MovieDetailsDataSource: UICollectionViewDiffableDataSource<MovieDeta
         case attributes
     }
     
-    init(collectionView: UICollectionView) {
+    init(
+        collectionView: UICollectionView,
+        playbackAction: @escaping (() -> Void)
+    ) {
         super.init(collectionView: collectionView) { collectionView, indexPath, item in
-            if let mediaItem = item as? MovieDetailsViewState.MediaItem {
+            if let mediaItem = item as? MediaItem {
                 let cell = MovieMediaCollectionViewCell
                     .dequeueCellWithType(in: collectionView, indexPath: indexPath)
                 cell.render(with: mediaItem)
+                cell.playbackPressed = {
+                    playbackAction()
+                }
                 return cell
-            } else if let attributeItem = item as? MovieDetailsViewState.AttributeItem {
+            } else if let attributeItem = item as? AttributeItem {
                 let cell = MovieAttributeCollectionViewCell
                     .dequeueCellWithType(in: collectionView, indexPath: indexPath)
                 cell.render(with: attributeItem)

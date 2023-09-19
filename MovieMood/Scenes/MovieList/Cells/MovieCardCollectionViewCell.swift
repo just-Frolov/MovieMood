@@ -16,10 +16,24 @@ final class MovieCardCollectionViewCell: BaseCollectionViewCell {
         static let gradientClearColor = UIColor(white: 0, alpha: 0).cgColor
     }
 
+    // MARK: - UIElements -
+    private lazy var gradientLayer: CAGradientLayer = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [Constant.gradientClearColor, Constant.gradientColor]
+        gradientLayer.locations = [0.5, 1.0]
+        return gradientLayer
+    }()
+    
     // MARK: - IBOutlets -
     @IBOutlet private weak var posterImageView: UIImageView! {
         didSet {
             posterImageView.cornerRadius = Constant.cornerRadius
+        }
+    }
+    @IBOutlet private weak var gradientView: UIView! {
+        didSet {
+            gradientView.layer.addSublayer(gradientLayer)
+            gradientView.backgroundColor = .clear
         }
     }
     @IBOutlet private weak var titleLabel: UILabel! {
@@ -36,8 +50,13 @@ final class MovieCardCollectionViewCell: BaseCollectionViewCell {
         posterImageView.image = nil
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer.frame = gradientView.frame
+    }
+    
     // MARK: - Internal -
-    func render(with movieViewState: MovieListViewState.Item) {
+    func render(with movieViewState: MovieListItem) {
         titleLabel.text = movieViewState.title
         posterImageView.kf.setImage(with: movieViewState.posterImagePath)
     }

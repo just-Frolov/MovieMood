@@ -9,8 +9,21 @@
 /* Begin PBXBuildFile section */
 		B01C6F612A55B04D00D0840A /* MovieListViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01C6F602A55B04D00D0840A /* MovieListViewState.swift */; };
 		B027D3E02A9F811500B130FC /* MovieSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B027D3DF2A9F811500B130FC /* MovieSearchRequest.swift */; };
-		B03ED7052A95551C0039EBCC /* PlaybackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03ED7042A95551C0039EBCC /* PlaybackButton.swift */; };
-		B03ED7072A95552C0039EBCC /* PlaybackButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03ED7062A95552C0039EBCC /* PlaybackButton.xib */; };
+		B03008642AB87CE40056B56B /* VideoPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03008632AB87CE40056B56B /* VideoPickerDataSource.swift */; };
+		B03008672AB87D760056B56B /* VideoPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03008662AB87D760056B56B /* VideoPickerTableViewCell.swift */; };
+		B030086B2AB87DAB0056B56B /* VideoPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B030086A2AB87DAB0056B56B /* VideoPickerTableViewCell.xib */; };
+		B030086D2AB883CC0056B56B /* CollectionCellReusable+Registable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030086C2AB883CC0056B56B /* CollectionCellReusable+Registable.swift */; };
+		B030086F2AB884020056B56B /* TableCellReusable+Registable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030086E2AB884020056B56B /* TableCellReusable+Registable.swift */; };
+		B03008712AB885030056B56B /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03008702AB885030056B56B /* BaseTableViewCell.swift */; };
+		B03008732AB890A70056B56B /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03008722AB890A70056B56B /* DateHelper.swift */; };
+		B03008762AB8AE410056B56B /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03008752AB8AE410056B56B /* BottomSheetViewController.swift */; };
+		B030087C2AB8B1080056B56B /* BottomSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B030087B2AB8B1080056B56B /* BottomSheet.storyboard */; };
+		B030087E2AB8D50D0056B56B /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030087D2AB8D50D0056B56B /* AlertPresentable.swift */; };
+		B03DDBE92AB75CAB00F53A8A /* VideoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03DDBE82AB75CAB00F53A8A /* VideoPickerViewController.swift */; };
+		B03DDBEB2AB75CEA00F53A8A /* VideoPickerViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03DDBEA2AB75CEA00F53A8A /* VideoPickerViewState.swift */; };
+		B03DDBEE2AB75D1000F53A8A /* VideoPickerViewStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03DDBED2AB75D1000F53A8A /* VideoPickerViewStateFactory.swift */; };
+		B03DDBF02AB75D2400F53A8A /* VideoPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03DDBEF2AB75D2400F53A8A /* VideoPickerPresenter.swift */; };
+		B03DDBF42AB75F5800F53A8A /* VideoPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03DDBF32AB75F5800F53A8A /* VideoPicker.storyboard */; };
 		B03ED70A2A95610F0039EBCC /* PriceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03ED7092A95610F0039EBCC /* PriceFormatter.swift */; };
 		B045CE822A620151007196D5 /* MovieCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B045CE812A620151007196D5 /* MovieCardCollectionViewCell.swift */; };
 		B045CE842A62015D007196D5 /* MovieCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B045CE832A62015D007196D5 /* MovieCardCollectionViewCell.xib */; };
@@ -21,7 +34,7 @@
 		B0732B322A5F0B26001B06C7 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0732B312A5F0B26001B06C7 /* UINavigationController+Extension.swift */; };
 		B0732B342A5F5606001B06C7 /* MovieListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0732B332A5F5606001B06C7 /* MovieListInteractor.swift */; };
 		B0732B362A604642001B06C7 /* MovieListViewStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0732B352A604642001B06C7 /* MovieListViewStateFactory.swift */; };
-		B07AAEC02A1B73070034D0AE /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* Assembler.swift */; };
+		B07AAEC02A1B73070034D0AE /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEBF2A1B73070034D0AE /* Assembly.swift */; };
 		B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */; };
 		B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */; };
 		B07AAECC2A1B9D7B0034D0AE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B07AAECB2A1B9D7B0034D0AE /* Lottie */; };
@@ -90,8 +103,21 @@
 /* Begin PBXFileReference section */
 		B01C6F602A55B04D00D0840A /* MovieListViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewState.swift; sourceTree = "<group>"; };
 		B027D3DF2A9F811500B130FC /* MovieSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchRequest.swift; sourceTree = "<group>"; };
-		B03ED7042A95551C0039EBCC /* PlaybackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackButton.swift; sourceTree = "<group>"; };
-		B03ED7062A95552C0039EBCC /* PlaybackButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaybackButton.xib; sourceTree = "<group>"; };
+		B03008632AB87CE40056B56B /* VideoPickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerDataSource.swift; sourceTree = "<group>"; };
+		B03008662AB87D760056B56B /* VideoPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerTableViewCell.swift; sourceTree = "<group>"; };
+		B030086A2AB87DAB0056B56B /* VideoPickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPickerTableViewCell.xib; sourceTree = "<group>"; };
+		B030086C2AB883CC0056B56B /* CollectionCellReusable+Registable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionCellReusable+Registable.swift"; sourceTree = "<group>"; };
+		B030086E2AB884020056B56B /* TableCellReusable+Registable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableCellReusable+Registable.swift"; sourceTree = "<group>"; };
+		B03008702AB885030056B56B /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		B03008722AB890A70056B56B /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		B03008752AB8AE410056B56B /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		B030087B2AB8B1080056B56B /* BottomSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BottomSheet.storyboard; sourceTree = "<group>"; };
+		B030087D2AB8D50D0056B56B /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
+		B03DDBE82AB75CAB00F53A8A /* VideoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerViewController.swift; sourceTree = "<group>"; };
+		B03DDBEA2AB75CEA00F53A8A /* VideoPickerViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerViewState.swift; sourceTree = "<group>"; };
+		B03DDBED2AB75D1000F53A8A /* VideoPickerViewStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerViewStateFactory.swift; sourceTree = "<group>"; };
+		B03DDBEF2AB75D2400F53A8A /* VideoPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerPresenter.swift; sourceTree = "<group>"; };
+		B03DDBF32AB75F5800F53A8A /* VideoPicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoPicker.storyboard; sourceTree = "<group>"; };
 		B03ED7092A95610F0039EBCC /* PriceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormatter.swift; sourceTree = "<group>"; };
 		B045CE812A620151007196D5 /* MovieCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		B045CE832A62015D007196D5 /* MovieCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCardCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -120,7 +146,7 @@
 		B0732B312A5F0B26001B06C7 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		B0732B332A5F5606001B06C7 /* MovieListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListInteractor.swift; sourceTree = "<group>"; };
 		B0732B352A604642001B06C7 /* MovieListViewStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewStateFactory.swift; sourceTree = "<group>"; };
-		B07AAEBF2A1B73070034D0AE /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
+		B07AAEBF2A1B73070034D0AE /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		B07AAEC42A1B7A3A0034D0AE /* UIView+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extra.swift"; sourceTree = "<group>"; };
 		B07AAEC82A1B9ABB0034D0AE /* Storyboard+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Generated.swift"; sourceTree = "<group>"; };
 		B07AAED02A1BF1710034D0AE /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -190,19 +216,59 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		B03ED7012A9554EA0039EBCC /* PlaybackButton */ = {
+		B03008652AB87D4E0056B56B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B03ED7042A95551C0039EBCC /* PlaybackButton.swift */,
-				B03ED7062A95552C0039EBCC /* PlaybackButton.xib */,
+				B030086A2AB87DAB0056B56B /* VideoPickerTableViewCell.xib */,
+				B03008662AB87D760056B56B /* VideoPickerTableViewCell.swift */,
 			);
-			path = PlaybackButton;
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B03008742AB8AE1D0056B56B /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				B030087B2AB8B1080056B56B /* BottomSheet.storyboard */,
+				B03008752AB8AE410056B56B /* BottomSheetViewController.swift */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		B030087F2AB8D5150056B56B /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				B030087D2AB8D50D0056B56B /* AlertPresentable.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		B03DDBE72AB75C7D00F53A8A /* VideoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				B03DDBF32AB75F5800F53A8A /* VideoPicker.storyboard */,
+				B03DDBE82AB75CAB00F53A8A /* VideoPickerViewController.swift */,
+				B03DDBEF2AB75D2400F53A8A /* VideoPickerPresenter.swift */,
+				B03008632AB87CE40056B56B /* VideoPickerDataSource.swift */,
+				B03008652AB87D4E0056B56B /* Cells */,
+				B03DDBEC2AB75CFA00F53A8A /* ViewState */,
+			);
+			path = VideoPicker;
+			sourceTree = "<group>";
+		};
+		B03DDBEC2AB75CFA00F53A8A /* ViewState */ = {
+			isa = PBXGroup;
+			children = (
+				B03DDBEA2AB75CEA00F53A8A /* VideoPickerViewState.swift */,
+				B03DDBED2AB75D1000F53A8A /* VideoPickerViewStateFactory.swift */,
+			);
+			path = ViewState;
 			sourceTree = "<group>";
 		};
 		B03ED7082A9560BE0039EBCC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				B03ED7092A95610F0039EBCC /* PriceFormatter.swift */,
+				B03008722AB890A70056B56B /* DateHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -219,7 +285,10 @@
 			isa = PBXGroup;
 			children = (
 				B05D501C2A4FFE6C00BDC9CF /* Reusable.swift */,
+				B030086C2AB883CC0056B56B /* CollectionCellReusable+Registable.swift */,
+				B030086E2AB884020056B56B /* TableCellReusable+Registable.swift */,
 				B05D50242A4FFED300BDC9CF /* BaseCollectionViewCell.swift */,
+				B03008702AB885030056B56B /* BaseTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -252,7 +321,7 @@
 		B05D50392A500AAD00BDC9CF /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				B03ED7012A9554EA0039EBCC /* PlaybackButton */,
+				B03008742AB8AE1D0056B56B /* BottomSheet */,
 				B08842F129E4AC2200D331BF /* LoadingAnimation */,
 			);
 			path = Custom;
@@ -329,8 +398,9 @@
 			children = (
 				B0DD6E362A8C126000978412 /* MovieDetails */,
 				B0ECEF852A2946A9004ADAC7 /* MovieList */,
+				B03DDBE72AB75C7D00F53A8A /* VideoPicker */,
 				B08842EC29E4AAEB00D331BF /* AppRouter.swift */,
-				B07AAEBF2A1B73070034D0AE /* Assembler.swift */,
+				B07AAEBF2A1B73070034D0AE /* Assembly.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -406,8 +476,8 @@
 		B0CAFE382A878C1700C56537 /* ViewState */ = {
 			isa = PBXGroup;
 			children = (
-				B0732B352A604642001B06C7 /* MovieListViewStateFactory.swift */,
 				B01C6F602A55B04D00D0840A /* MovieListViewState.swift */,
+				B0732B352A604642001B06C7 /* MovieListViewStateFactory.swift */,
 			);
 			path = ViewState;
 			sourceTree = "<group>";
@@ -423,8 +493,8 @@
 		B0D785362A8E5BB9006E78EE /* ViewState */ = {
 			isa = PBXGroup;
 			children = (
-				B0D785372A8E5BDF006E78EE /* MovieDetailsViewStateFactory.swift */,
 				B0D785392A8E5BF1006E78EE /* MovieDetailsViewState.swift */,
+				B0D785372A8E5BDF006E78EE /* MovieDetailsViewStateFactory.swift */,
 			);
 			path = ViewState;
 			sourceTree = "<group>";
@@ -482,6 +552,7 @@
 		B0ECEF8C2A294976004ADAC7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				B030087F2AB8D5150056B56B /* Alert */,
 				B05D501B2A4FFE5A00BDC9CF /* Cell */,
 				B0ECEF8D2A2949B0004ADAC7 /* BaseViewController.swift */,
 			);
@@ -564,6 +635,7 @@
 				B0EA776F2A571ACE00B605D3 /* Montserrat-Black.ttf in Resources */,
 				B045CE842A62015D007196D5 /* MovieCardCollectionViewCell.xib in Resources */,
 				B08842FB29E4B4C600D331BF /* Localizable.strings in Resources */,
+				B030087C2AB8B1080056B56B /* BottomSheet.storyboard in Resources */,
 				B0EA777E2A571ACE00B605D3 /* Montserrat-BoldItalic.ttf in Resources */,
 				B0EA77702A571ACE00B605D3 /* Montserrat-BlackItalic.ttf in Resources */,
 				B08842F629E4B1DB00D331BF /* Colors.xcassets in Resources */,
@@ -576,10 +648,11 @@
 				B0D8D99D2A937E9100013123 /* MovieAttributeCollectionViewCell.xib in Resources */,
 				B0ECEF872A2946F4004ADAC7 /* MovieList.storyboard in Resources */,
 				B0DD6E3E2A8C141C00978412 /* MovieDetails.storyboard in Resources */,
-				B03ED7072A95552C0039EBCC /* PlaybackButton.xib in Resources */,
+				B03DDBF42AB75F5800F53A8A /* VideoPicker.storyboard in Resources */,
 				B0EA77722A571ACE00B605D3 /* Montserrat-ExtraBold.ttf in Resources */,
 				B0EA777C2A571ACE00B605D3 /* Montserrat-ThinItalic.ttf in Resources */,
 				B0EA776E2A571ACE00B605D3 /* Montserrat-Italic.ttf in Resources */,
+				B030086B2AB87DAB0056B56B /* VideoPickerTableViewCell.xib in Resources */,
 				B0E3346E2A75341400F64338 /* Secrets.xcconfig in Resources */,
 				B0EA77732A571ACE00B605D3 /* Montserrat-Medium.ttf in Resources */,
 				B0EA777A2A571ACE00B605D3 /* Montserrat-MediumItalic.ttf in Resources */,
@@ -596,43 +669,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03008732AB890A70056B56B /* DateHelper.swift in Sources */,
 				B0D785352A8E5678006E78EE /* MovieDetailsDataSource.swift in Sources */,
 				B0732B322A5F0B26001B06C7 /* UINavigationController+Extension.swift in Sources */,
-				B07AAEC02A1B73070034D0AE /* Assembler.swift in Sources */,
+				B07AAEC02A1B73070034D0AE /* Assembly.swift in Sources */,
 				B05D50252A4FFED300BDC9CF /* BaseCollectionViewCell.swift in Sources */,
 				B0EA77802A5728EC00B605D3 /* ImageManager.swift in Sources */,
 				B0C4272B29FD5A4300AA00D7 /* Network.swift in Sources */,
 				B0DD6E3A2A8C13EB00978412 /* MovieDetailsPresenter.swift in Sources */,
 				B0C4272D29FD5AD400AA00D7 /* Requestable.swift in Sources */,
 				B08842ED29E4AAEB00D331BF /* AppRouter.swift in Sources */,
+				B03008672AB87D760056B56B /* VideoPickerTableViewCell.swift in Sources */,
 				B088430329E4B6BE00D331BF /* Strings+Generated.swift in Sources */,
 				B0D8D9A52A93A5DB00013123 /* MovieVideoListEntity.swift in Sources */,
 				B0D8D99B2A937E7B00013123 /* MovieAttributeCollectionViewCell.swift in Sources */,
+				B030087E2AB8D50D0056B56B /* AlertPresentable.swift in Sources */,
 				B07AAED32A1BF1AF0034D0AE /* MovieListRequest.swift in Sources */,
 				B0732B342A5F5606001B06C7 /* MovieListInteractor.swift in Sources */,
 				B088430129E4B6BE00D331BF /* Fonts+Generated.swift in Sources */,
+				B03DDBF02AB75D2400F53A8A /* VideoPickerPresenter.swift in Sources */,
+				B03DDBEE2AB75D1000F53A8A /* VideoPickerViewStateFactory.swift in Sources */,
 				B07AAEC92A1B9ABB0034D0AE /* Storyboard+Generated.swift in Sources */,
 				B088430729E4B78400D331BF /* LoadingAnimationViewController.swift in Sources */,
+				B03008712AB885030056B56B /* BaseTableViewCell.swift in Sources */,
 				B0C4273429FDC0CA00AA00D7 /* MovieListEntity.swift in Sources */,
+				B03008762AB8AE410056B56B /* BottomSheetViewController.swift in Sources */,
 				B0732B362A604642001B06C7 /* MovieListViewStateFactory.swift in Sources */,
 				B027D3E02A9F811500B130FC /* MovieSearchRequest.swift in Sources */,
 				B05D501D2A4FFE6C00BDC9CF /* Reusable.swift in Sources */,
+				B03008642AB87CE40056B56B /* VideoPickerDataSource.swift in Sources */,
 				B0ECEF8B2A294755004ADAC7 /* MovieListViewController.swift in Sources */,
 				B0ECEF8E2A2949B0004ADAC7 /* BaseViewController.swift in Sources */,
 				B0D7853A2A8E5BF1006E78EE /* MovieDetailsViewState.swift in Sources */,
 				B07AAEC52A1B7A3A0034D0AE /* UIView+Extra.swift in Sources */,
+				B030086F2AB884020056B56B /* TableCellReusable+Registable.swift in Sources */,
 				B05D503B2A50C21700BDC9CF /* MovieListDataSource.swift in Sources */,
 				B0D8D9A72A93AAE400013123 /* Optional+Extension.swift in Sources */,
 				B0D8D9A32A93A49200013123 /* MovieVideoListRequest.swift in Sources */,
+				B03DDBEB2AB75CEA00F53A8A /* VideoPickerViewState.swift in Sources */,
 				B0D8D9952A932A5600013123 /* MovieDetailsRequest.swift in Sources */,
 				B0DD6E382A8C129800978412 /* MovieDetailsViewController.swift in Sources */,
+				B03DDBE92AB75CAB00F53A8A /* VideoPickerViewController.swift in Sources */,
 				B0D8D9982A93320C00013123 /* MovieDetailsEntity.swift in Sources */,
 				B045CE872A63DF40007196D5 /* APIConstant.swift in Sources */,
+				B030086D2AB883CC0056B56B /* CollectionCellReusable+Registable.swift in Sources */,
 				B0D8D99F2A937EA100013123 /* MovieMediaCollectionViewCell.swift in Sources */,
 				B0C4273029FD5B2F00AA00D7 /* Logger.swift in Sources */,
 				B0D785382A8E5BDF006E78EE /* MovieDetailsViewStateFactory.swift in Sources */,
 				B0DD6E3C2A8C140A00978412 /* MovieDetailsInteractor.swift in Sources */,
-				B03ED7052A95551C0039EBCC /* PlaybackButton.swift in Sources */,
 				B03ED70A2A95610F0039EBCC /* PriceFormatter.swift in Sources */,
 				B08842D129E4A54700D331BF /* AppDelegate.swift in Sources */,
 				B088430229E4B6BE00D331BF /* Images+Colors+Generated.swift in Sources */,

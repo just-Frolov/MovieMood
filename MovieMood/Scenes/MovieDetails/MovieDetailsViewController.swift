@@ -11,7 +11,7 @@ import UIKit
 protocol MovieDetailsView: AnyObject {
     func render(with title: String)
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<MovieDetailsDataSource.Section, AnyHashable>)
-    func showAlert(title: String?, message: String?, onDismiss: (() -> Void)?)
+    func showAlert(title: String?, message: String?, onDismiss: @escaping (() -> Void))
 }
 
 final class MovieDetailsViewController: BaseViewController<MovieDetailsPresenter> {
@@ -24,7 +24,12 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsPresenter
     // MARK: - IBOutlets -
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
-            dataSource = .init(collectionView: collectionView)
+            dataSource = .init(
+                collectionView: collectionView,
+                playbackAction: { [weak self] in
+                    self?.presenter?.perform(action: .playback)
+                }
+            )
             MovieMediaCollectionViewCell.xibRegister(in: collectionView)
             MovieAttributeCollectionViewCell.xibRegister(in: collectionView)
             collectionView.backgroundColor = .clear

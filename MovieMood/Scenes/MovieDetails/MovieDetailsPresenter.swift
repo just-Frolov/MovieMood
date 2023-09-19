@@ -14,6 +14,7 @@ struct MovieDetailsConfiguration {
 
 enum MovieDetailsAction {
     case viewDidLoad
+    case playback
 }
 
 protocol MovieDetailsPresenter: AnyObject {
@@ -55,6 +56,8 @@ extension MovieDetailsPresenterImpl: MovieDetailsPresenter {
         switch action {
         case .viewDidLoad:
             performViewDidLoadAction()
+        case .playback:
+            performPlaybackAction()
         }
     }
 }
@@ -67,6 +70,11 @@ private extension MovieDetailsPresenterImpl {
         }
        
         Task { await fetchMovieData() }
+    }
+    
+    func performPlaybackAction() {
+        guard let videoList else { return }
+        Task { await router.showVideoPickerSheet(with: videoList) }
     }
 }
 
