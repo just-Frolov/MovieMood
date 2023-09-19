@@ -24,14 +24,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 private extension SceneDelegate {
-    
     func createWindowScene(_ windowScene: UIWindowScene) {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
         let navigationController = UINavigationController()
-        let router: AppRouter = AppRouterImpl(navigationController: navigationController)
-        let assembly: Assembly = AssemblyImpl(router: router)
+        let router = AppRouterImpl(navigationController: navigationController)
+        let assembly = AssemblyImpl(router: router)
         self.assembly = assembly
 
         router.inject(assembly: assembly)

@@ -46,7 +46,3 @@ extension VideoPickerViewController: UITableViewDelegate {
         presenter?.perform(action: .itemDidTap(index: indexPath.row))
     }
 }
-
-private extension VideoPickerViewController {
-
-}

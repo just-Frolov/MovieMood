@@ -9,9 +9,6 @@ import UIKit
 
 @MainActor
 protocol AppRouter {
-    func inject(assembly: Assembly)
-    func start()
-    
     func popToRoot(animated: Bool)
     func showMovieDetails(with configuration: MovieDetailsConfiguration)
     func showVideoPickerSheet(with videoList: [MovieVideo])
@@ -21,23 +18,23 @@ final class AppRouterImpl {
     private let navigationController: UINavigationController
     private weak var assembly: Assembly!
     
+    // MARK: - Init -
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-}
-
-extension AppRouterImpl: AppRouter {
     
+    // MARK: - Internal -
     func inject(assembly: Assembly) {
         self.assembly = assembly
     }
 
     func start() {
         let homeViewController = assembly.createMovieListModule()
-        
         navigationController.viewControllers = [homeViewController]
     }
- 
+}
+
+extension AppRouterImpl: AppRouter {
     func showMovieDetails(with configuration: MovieDetailsConfiguration) {
         let movieDetailsViewController = assembly.createMovieDetailsModule(configuration: configuration)
         

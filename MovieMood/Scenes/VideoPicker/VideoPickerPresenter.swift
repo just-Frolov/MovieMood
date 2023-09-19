@@ -57,7 +57,7 @@ private extension VideoPickerPresenterImpl {
     }
     
     func performItemDidTapAction(with index: Int?) {
-        
+        // TODO: select delegate
     }
 }
 

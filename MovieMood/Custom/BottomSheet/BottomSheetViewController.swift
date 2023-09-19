@@ -19,10 +19,7 @@ final class BottomSheetViewController: UIViewController {
     
     // MARK: - Variables -
     private var currentContainerHeight: CGFloat = Constant.defaultHeight
-    
-    // MARK: - UIElements -
-    private var childViewController: UIViewController?
-    
+ 
     // MARK: - IBOutlets -
     @IBOutlet private weak var dimmedView: UIView! {
         didSet {
@@ -50,12 +47,10 @@ final class BottomSheetViewController: UIViewController {
     // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleCloseAction))
         dimmedView.addGestureRecognizer(tapGesture)
         
         setupPanGesture()
-        addContentController()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,18 +61,11 @@ final class BottomSheetViewController: UIViewController {
     
     // MARK: - Internal -
     func render(with childViewController: UIViewController) {
-        self.childViewController = childViewController
+        // TODO: add child vc
     }
 }
 
 private extension BottomSheetViewController {
-    func addContentController() {
-        guard let childViewController else { return }
-        
-        addChildViewController(childViewController, toContainerView: containerView)
-        childViewController.view.pinEdges(to: containerView)
-    }
-    
     func animatePresentContainerView() {
         UIView.animate(withDuration: 0.3) {
             self.containerViewBottomConstraint?.constant = 0
