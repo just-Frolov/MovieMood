@@ -11,27 +11,42 @@ import UIKit
 protocol AppRouter {
     func popToRoot(animated: Bool)
     func showMovieDetails(with configuration: MovieDetailsConfiguration)
+    func showVideoPickerSheet(with videoList: [MovieVideo])
 }
 
-final class AppRouterImpl: AppRouter {
-    let navigationController: UINavigationController
-    let assemblyBuilder: AssemblerProtocol
+final class AppRouterImpl {
+    private let navigationController: UINavigationController
+    private weak var assembly: Assembly!
     
-    init(navigationController: UINavigationController, assemblyBuilder: AssemblerProtocol) {
+    // MARK: - Init -
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.assemblyBuilder = assemblyBuilder
     }
     
+    // MARK: - Internal -
+    func inject(assembly: Assembly) {
+        self.assembly = assembly
+    }
+
     func start() {
-        let homeViewController = assemblyBuilder.createMovieListModule(router: self)
-        
+        let homeViewController = assembly.createMovieListModule()
         navigationController.viewControllers = [homeViewController]
     }
- 
+}
+
+extension AppRouterImpl: AppRouter {
     func showMovieDetails(with configuration: MovieDetailsConfiguration) {
-        let movieDetailsViewController = assemblyBuilder.createMovieDetailsModule(router: self, configuration: configuration)
+        let movieDetailsViewController = assembly.createMovieDetailsModule(configuration: configuration)
         
         navigationController.pushViewController(movieDetailsViewController, animated: true)
+    }
+    
+    func showVideoPickerSheet(with videoList: [MovieVideo]) {
+        let videoPickerViewController = assembly.createVideoPickerSheetModule(movieVideoList: videoList)
+        videoPickerViewController.modalPresentationStyle = .overFullScreen
+        // keep false
+        // modal animation will be handled in VC itself
+        navigationController.present(videoPickerViewController, animated: false)
     }
     
     func popToRoot(animated: Bool) {

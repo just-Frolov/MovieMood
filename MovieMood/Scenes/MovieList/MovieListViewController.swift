@@ -76,7 +76,7 @@ extension MovieListViewController: MovieListView {
 
 extension MovieListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let item = dataSource?.itemIdentifier(for: indexPath) as? MovieListViewState.Item {
+        if let item = dataSource?.itemIdentifier(for: indexPath) as? MovieListItem {
             presenter?.perform(
                 action: .select(item: item)
             )

@@ -14,7 +14,7 @@ final class MovieAttributeCollectionViewCell: BaseCollectionViewCell {
     @IBOutlet private weak var valueLabel: UILabel!
 
     // MARK: - Internal -
-    func render(with attributeViewState: MovieDetailsViewState.AttributeItem) {
+    func render(with attributeViewState: AttributeItem) {
         titleLabel.text = attributeViewState.displayTitle
         valueLabel.text = attributeViewState.valueText
     }

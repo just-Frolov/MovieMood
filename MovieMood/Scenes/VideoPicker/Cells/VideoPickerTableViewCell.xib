@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="71" id="bP1-0Y-4y1" customClass="VideoPickerTableViewCell" customModule="MovieMood" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="426" height="71"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bP1-0Y-4y1" id="hNZ-Z0-0PU">
+                <rect key="frame" x="0.0" y="0.0" width="426" height="71"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XKt-Il-JCA">
+                        <rect key="frame" x="0.0" y="0.0" width="426" height="70"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7oc-5h-orF">
+                                <rect key="frame" x="8" y="16" width="83.333333333333329" height="38"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceW-mP-3RM">
+                                        <rect key="frame" x="0.0" y="0.0" width="51.333333333333336" height="38"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="checkmark.seal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8fV-Jy-C21">
+                                        <rect key="frame" x="59.333333333333329" y="-0.66666666666666785" width="24" height="39.333333333333343"/>
+                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="1pK-tD-Lq9"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalCompressionResistancePriority="250" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aav-MJ-Duv">
+                                <rect key="frame" x="366.66666666666669" y="16" width="51.333333333333314" height="38"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <edgeInsets key="layoutMargins" top="16" left="8" bottom="16" right="8"/>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ynB-no-xgE">
+                        <rect key="frame" x="0.0" y="70" width="426" height="1"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="K4E-Fi-94a"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="XKt-Il-JCA" firstAttribute="leading" secondItem="hNZ-Z0-0PU" secondAttribute="leading" id="0jW-w2-750"/>
+                    <constraint firstAttribute="bottom" secondItem="ynB-no-xgE" secondAttribute="bottom" id="9Qi-YQ-3cG"/>
+                    <constraint firstItem="ynB-no-xgE" firstAttribute="leading" secondItem="hNZ-Z0-0PU" secondAttribute="leading" id="bMm-3K-yuT"/>
+                    <constraint firstItem="XKt-Il-JCA" firstAttribute="top" secondItem="hNZ-Z0-0PU" secondAttribute="top" id="bkY-D4-TLI"/>
+                    <constraint firstAttribute="bottom" secondItem="XKt-Il-JCA" secondAttribute="bottom" constant="1" id="myi-K5-PCy"/>
+                    <constraint firstAttribute="trailing" secondItem="ynB-no-xgE" secondAttribute="trailing" id="qVb-gk-xqE"/>
+                    <constraint firstAttribute="trailing" secondItem="XKt-Il-JCA" secondAttribute="trailing" id="tKO-DP-QQ2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="dateLabel" destination="Aav-MJ-Duv" id="kdu-V4-iJR"/>
+                <outlet property="officialCheckmarkImageView" destination="8fV-Jy-C21" id="nvi-ri-NHC"/>
+                <outlet property="titleLabel" destination="ceW-mP-3RM" id="cqG-l9-vXc"/>
+            </connections>
+            <point key="canvasLocation" x="638.16793893129773" y="322.88732394366201"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="checkmark.seal" catalog="system" width="128" height="124"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
