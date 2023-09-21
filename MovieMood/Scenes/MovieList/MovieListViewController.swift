@@ -8,9 +8,10 @@
 import UIKit
 
 @MainActor
-protocol MovieListView: AnyObject {
+protocol MovieListView where Self: BaseViewController<MovieListPresenter> {
     func render(with navigationBar: MovieListViewState.NavigationBar)
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<Int, AnyHashable>)
+    func scrollToTop()
     func showLoadingIndicator() async
     func hideLoadingIndicator()
 }
@@ -40,6 +41,7 @@ final class MovieListViewController: BaseViewController<MovieListPresenter> {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = Localized.searchPlaceholder
         searchController.searchBar.delegate = self
+        searchController.searchBar.spellCheckingType = .no
         return searchController
     }()
     
@@ -71,6 +73,10 @@ extension MovieListViewController: MovieListView {
     
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<Int, AnyHashable>) {
         dataSource?.apply(snapshot, animatingDifferences: true)
+    }
+    
+    func scrollToTop() {
+        collectionView.setContentOffset(.zero, animated: true)
     }
 }
 

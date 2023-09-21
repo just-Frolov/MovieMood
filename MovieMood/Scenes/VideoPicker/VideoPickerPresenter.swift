@@ -13,6 +13,7 @@ enum VideoPickerAction {
 }
 
 protocol VideoPickerPresenter: AnyObject {
+    func inject(view: VideoPickerView)
     func perform(action: VideoPickerAction)
 }
 
@@ -31,13 +32,13 @@ final class VideoPickerPresenterImpl {
         self.viewStateFactory = viewStateFactory
         self.movieVideoList = movieVideoList
     }
-    
-    func inject(view: VideoPickerView) {
-        self.view = view
-    }
 }
 
 extension VideoPickerPresenterImpl: VideoPickerPresenter {
+    func inject(view: VideoPickerView) {
+        self.view = view
+    }
+    
     func perform(action: VideoPickerAction) {
         switch action {
         case .viewDidLoad:

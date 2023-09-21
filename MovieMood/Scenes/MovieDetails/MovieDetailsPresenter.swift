@@ -18,6 +18,7 @@ enum MovieDetailsAction {
 }
 
 protocol MovieDetailsPresenter: AnyObject {
+    func inject(view: MovieDetailsView)
     func perform(action: MovieDetailsAction)
 }
 
@@ -45,13 +46,13 @@ final class MovieDetailsPresenterImpl {
         self.viewStateFactory = viewStateFactory
         self.configuration = configuration
     }
-    
-    func inject(view: MovieDetailsView) {
-        self.view = view
-    }
 }
 
 extension MovieDetailsPresenterImpl: MovieDetailsPresenter {
+    func inject(view: MovieDetailsView) {
+        self.view = view
+    }
+    
     func perform(action: MovieDetailsAction) {
         switch action {
         case .viewDidLoad:

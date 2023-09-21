@@ -8,7 +8,7 @@
 import UIKit
 
 @MainActor
-protocol VideoPickerView: AnyObject {
+protocol VideoPickerView where Self: BaseViewController<VideoPickerPresenter> {
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<Int, AnyHashable>)
 }
 

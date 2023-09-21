@@ -20,6 +20,7 @@ enum MovieListAction {
 }
 
 protocol MovieListPresenter: AnyObject {
+    func inject(view: MovieListView)
     func perform(action: MovieListAction)
 }
 
@@ -64,13 +65,13 @@ final class MovieListPresenterImpl {
         self.interactor = interactor
         self.viewStateFactory = viewStateFactory
     }
-    
-    func inject(view: MovieListView) {
-        self.view = view
-    }
 }
 
 extension MovieListPresenterImpl: MovieListPresenter {
+    func inject(view: MovieListView) {
+        self.view = view
+    }
+    
     func perform(action: MovieListAction) {
         switch action {
         case .viewDidLoad:
@@ -124,19 +125,28 @@ private extension MovieListPresenterImpl {
             if searchText != nil {
                 searchText = nil
                 movieList = []
-                Task { await fetchMovies() }
+                Task {
+                    await fetchMovies()
+                    await view?.scrollToTop()
+                }
             }
             return
         }
         
         guard !forceUpdate else {
-            Task { await searchMovies(query: query, isNewSearch: true) }
+            Task {
+                await searchMovies(query: query, isNewSearch: true)
+                await view?.scrollToTop()
+            }
             return
         }
         
         let delay = query.isEmpty ? .zero : Constant.searchDelay
         let newWorkItem = DispatchWorkItem { [unowned self] in
-            Task { await searchMovies(query: query, isNewSearch: true) }
+            Task {
+                await searchMovies(query: query, isNewSearch: true)
+                await view?.scrollToTop()
+            }
         }
         
         searchWorkItem = newWorkItem

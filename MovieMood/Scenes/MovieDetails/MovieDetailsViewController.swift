@@ -8,7 +8,7 @@
 import UIKit
 
 @MainActor
-protocol MovieDetailsView: AnyObject {
+protocol MovieDetailsView where Self: BaseViewController<MovieDetailsPresenter> {
     func render(with title: String)
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<MovieDetailsDataSource.Section, AnyHashable>)
     func showAlert(title: String?, message: String?, onDismiss: @escaping (() -> Void))

@@ -8,9 +8,9 @@
 import UIKit
 
 protocol Assembly: AnyObject {
-    func createMovieListModule() -> MovieListViewController
-    func createMovieDetailsModule(configuration: MovieDetailsConfiguration) -> MovieDetailsViewController
-    func createVideoPickerSheetModule(movieVideoList: [MovieVideo]) -> BottomSheetViewController
+    func createMovieListModule() -> MovieListView
+    func createMovieDetailsModule(configuration: MovieDetailsConfiguration) -> MovieDetailsView
+    func createVideoPickerSheetModule(movieVideoList: [MovieVideo]) -> BottomSheetView
 }
 
 final class AssemblyImpl: Assembly {
@@ -21,34 +21,51 @@ final class AssemblyImpl: Assembly {
         self.router = router
     }
     
-    func createMovieListModule() -> MovieListViewController {
-        let view = Storyboard.MovieList.movieListViewController.instantiate()
+    func createMovieListModule() -> MovieListView {
+        let view: MovieListView = Storyboard.MovieList.movieListViewController.instantiate()
         let viewStateFactory = MovieListViewStateFactory()
         let interactor = MovieListInteractorImpl(network: network)
-        let presenter = MovieListPresenterImpl(router: router, interactor: interactor, viewStateFactory: viewStateFactory)
+        let presenter: MovieListPresenter = MovieListPresenterImpl(
+            router: router,
+            interactor: interactor,
+            viewStateFactory: viewStateFactory
+        )
         
-        view.inject(presenter: presenter, alert: makeAlert(), loadingView: makeLoadingAnimation())
+        view.inject(
+            presenter: presenter,
+            alert: makeAlert(),
+            loadingView: makeLoadingAnimation()
+        )
         presenter.inject(view: view)
 
         return view
     }
     
-    func createMovieDetailsModule(configuration: MovieDetailsConfiguration) -> MovieDetailsViewController {
-        let view = Storyboard.MovieDetails.movieDetailsViewController.instantiate()
+    func createMovieDetailsModule(configuration: MovieDetailsConfiguration) -> MovieDetailsView {
+        let view: MovieDetailsView = Storyboard.MovieDetails.movieDetailsViewController.instantiate()
         let viewStateFactory = MovieDetailsViewStateFactory()
         let interactor = MovieDetailsInteractorImpl(network: network)
-        let presenter = MovieDetailsPresenterImpl(router: router, interactor: interactor, viewStateFactory: viewStateFactory, configuration: configuration)
+        let presenter: MovieDetailsPresenter = MovieDetailsPresenterImpl(
+            router: router,
+            interactor: interactor,
+            viewStateFactory: viewStateFactory,
+            configuration: configuration
+        )
         
-        view.inject(presenter: presenter, alert: makeAlert(), loadingView: makeLoadingAnimation())
+        view.inject(
+            presenter: presenter,
+            alert: makeAlert(),
+            loadingView: makeLoadingAnimation()
+        )
         presenter.inject(view: view)
 
         return view
     }
     
-    func createVideoPickerSheetModule(movieVideoList: [MovieVideo]) -> BottomSheetViewController {
-        let view = Storyboard.VideoPicker.videoPickerViewController.instantiate()
+    func createVideoPickerSheetModule(movieVideoList: [MovieVideo]) -> BottomSheetView {
+        let view: VideoPickerView = Storyboard.VideoPicker.videoPickerViewController.instantiate()
         let viewStateFactory = VideoPickerViewStateFactory()
-        let presenter = VideoPickerPresenterImpl(
+        let presenter: VideoPickerPresenter = VideoPickerPresenterImpl(
             viewStateFactory: viewStateFactory,
             movieVideoList: movieVideoList
         )
@@ -56,7 +73,7 @@ final class AssemblyImpl: Assembly {
         view.inject(presenter: presenter)
         presenter.inject(view: view)
 
-        let sheetView = Storyboard.BottomSheet.bottomSheetViewController.instantiate()
+        let sheetView: BottomSheetView = Storyboard.BottomSheet.bottomSheetViewController.instantiate()
         sheetView.render(with: view)
         
         return sheetView
