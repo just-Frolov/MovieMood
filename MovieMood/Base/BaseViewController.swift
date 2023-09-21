@@ -9,7 +9,7 @@ import UIKit
 
 class BaseViewController<Presenter>: UIViewController {
  
-    var presenter: Presenter?
+    private(set) var presenter: Presenter?
     private var alert: AlertPresentable?
     private var loadingView: LoadingAnimationView?
 

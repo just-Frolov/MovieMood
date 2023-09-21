@@ -9,9 +9,11 @@ import UIKit
 
 @MainActor
 protocol AppRouter {
-    func popToRoot(animated: Bool)
+    func inject(assembly: Assembly)
+    func start()
     func showMovieDetails(with configuration: MovieDetailsConfiguration)
     func showVideoPickerSheet(with videoList: [MovieVideo])
+    func popToRoot(animated: Bool)
 }
 
 final class AppRouterImpl {

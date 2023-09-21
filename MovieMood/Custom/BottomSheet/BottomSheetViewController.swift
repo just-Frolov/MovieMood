@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol BottomSheetView where Self: UIViewController {
+    func render(with childViewController: UIViewController)
+}
+
 final class BottomSheetViewController: UIViewController {
     
     private enum Constant {
@@ -15,6 +19,7 @@ final class BottomSheetViewController: UIViewController {
         static let defaultHeight: CGFloat = UIScreen.main.bounds.height / 2
         static let dismissibleHeight: CGFloat = 200
         static let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height / 2
+        static let animateDuration: CGFloat = 0.3
     }
     
     // MARK: - Variables -
@@ -58,8 +63,9 @@ final class BottomSheetViewController: UIViewController {
         animatePresentDimmedView()
         animatePresentContainerView()
     }
-    
-    // MARK: - Internal -
+}
+
+extension BottomSheetViewController: BottomSheetView {
     func render(with childViewController: UIViewController) {
         // TODO: add child vc
     }
@@ -67,35 +73,35 @@ final class BottomSheetViewController: UIViewController {
 
 private extension BottomSheetViewController {
     func animatePresentContainerView() {
-        UIView.animate(withDuration: 0.3) {
-            self.containerViewBottomConstraint?.constant = 0
+        UIView.animate(withDuration: Constant.animateDuration) {
+            self.containerViewBottomConstraint?.constant = .zero
             self.view.layoutIfNeeded()
         }
     }
     
     func animatePresentDimmedView() {
-        dimmedView.alpha = 0
-        UIView.animate(withDuration: 0.4) {
+        dimmedView.alpha = .zero
+        UIView.animate(withDuration: Constant.animateDuration) {
             self.dimmedView.alpha = Constant.maxDimmedAlpha
         }
     }
     
     func animateDismissView() {
         dimmedView.alpha = Constant.maxDimmedAlpha
-        UIView.animate(withDuration: 0.4) {
-            self.dimmedView.alpha = 0
+        UIView.animate(withDuration: Constant.animateDuration) {
+            self.dimmedView.alpha = .zero
         } completion: { _ in
             self.dismiss(animated: false)
         }
        
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: Constant.animateDuration) {
             self.containerViewBottomConstraint?.constant = -Constant.defaultHeight
             self.view.layoutIfNeeded()
         }
     }
     
     func animateContainerHeight(_ height: CGFloat) {
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: Constant.animateDuration) {
             self.containerViewHeightConstraint?.constant = height
             self.view.layoutIfNeeded()
         }
@@ -113,7 +119,7 @@ private extension BottomSheetViewController {
     @objc func handlePanGesture(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: view)
         
-        let isDraggingDown = translation.y > 0
+        let isDraggingDown = translation.y > .zero
         
         let newHeight = currentContainerHeight - translation.y
         
