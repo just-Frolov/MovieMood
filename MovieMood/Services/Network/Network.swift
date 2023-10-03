@@ -42,7 +42,7 @@ final class ClNetwork: Network {
             
         case .failure(let afError):
             Logger.error("\(url.absoluteString)\n\(afError.localizedDescription)")
-            throw ClError.unknown 
+            throw afError
         }
     }
 }

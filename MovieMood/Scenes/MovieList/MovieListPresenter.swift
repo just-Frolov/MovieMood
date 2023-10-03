@@ -125,28 +125,19 @@ private extension MovieListPresenterImpl {
             if searchText != nil {
                 searchText = nil
                 movieList = []
-                Task {
-                    await fetchMovies()
-                    await view?.scrollToTop()
-                }
+                Task { await fetchMovies() }
             }
             return
         }
         
         guard !forceUpdate else {
-            Task {
-                await searchMovies(query: query, isNewSearch: true)
-                await view?.scrollToTop()
-            }
+            Task { await searchMovies(query: query, isNewSearch: true) }
             return
         }
         
         let delay = query.isEmpty ? .zero : Constant.searchDelay
         let newWorkItem = DispatchWorkItem { [unowned self] in
-            Task {
-                await searchMovies(query: query, isNewSearch: true)
-                await view?.scrollToTop()
-            }
+            Task { await searchMovies(query: query, isNewSearch: true) }
         }
         
         searchWorkItem = newWorkItem
@@ -167,6 +158,11 @@ private extension MovieListPresenterImpl {
     }
     
     func updateDataSource(items: [MovieListItem]) async {
+        guard items.count <= Constant.itemsPerPage else {
+            await view?.append(items: items)
+            return
+        }
+        
         var snapshot = NSDiffableDataSourceSnapshot<Int, AnyHashable>()
         snapshot.appendSections([.zero])
         snapshot.appendItems(items, toSection: .zero)
@@ -184,8 +180,8 @@ private extension MovieListPresenterImpl {
             ).results
             
             isMoviesLoading = false
+           
             movieList.append(contentsOf: additionalMovies)
-            
             Task { await self.updateView() }
         } catch let error {
             debugPrint(error)

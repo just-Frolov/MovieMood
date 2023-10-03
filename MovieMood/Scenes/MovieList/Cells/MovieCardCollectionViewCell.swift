@@ -21,6 +21,7 @@ final class MovieCardCollectionViewCell: BaseCollectionViewCell {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [Constant.gradientClearColor, Constant.gradientColor]
         gradientLayer.locations = [0.5, 1.0]
+        gradientLayer.frame = contentView.frame
         return gradientLayer
     }()
     
@@ -48,11 +49,6 @@ final class MovieCardCollectionViewCell: BaseCollectionViewCell {
         super.prepareForReuse()
         posterImageView.kf.cancelDownloadTask()
         posterImageView.image = nil
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        gradientLayer.frame = gradientView.frame
     }
     
     // MARK: - Internal -

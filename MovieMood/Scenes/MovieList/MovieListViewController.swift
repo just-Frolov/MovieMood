@@ -11,7 +11,7 @@ import UIKit
 protocol MovieListView where Self: BaseViewController<MovieListPresenter> {
     func render(with navigationBar: MovieListViewState.NavigationBar)
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<Int, AnyHashable>)
-    func scrollToTop()
+    func append(items: [MovieListItem])
     func showLoadingIndicator() async
     func hideLoadingIndicator()
 }
@@ -73,10 +73,13 @@ extension MovieListViewController: MovieListView {
     
     func setDataSource(snapshot: NSDiffableDataSourceSnapshot<Int, AnyHashable>) {
         dataSource?.apply(snapshot, animatingDifferences: true)
+        scrollToTop()
     }
     
-    func scrollToTop() {
-        collectionView.setContentOffset(.zero, animated: true)
+    func append(items: [MovieListItem]) {
+        guard var snapshot = dataSource?.snapshot() else { return }
+        snapshot.appendItems(items)
+        dataSource?.apply(snapshot, animatingDifferences: true)
     }
 }
 
@@ -139,6 +142,10 @@ private extension MovieListViewController {
         }
         
         return layout
+    }
+    
+    func scrollToTop() {
+        collectionView.setContentOffset(.zero, animated: true)
     }
 }
 
