@@ -184,7 +184,11 @@ private extension MovieListPresenterImpl {
             movieList.append(contentsOf: additionalMovies)
             Task { await self.updateView() }
         } catch let error {
-            debugPrint(error)
+            await view?.showAlert(
+                title: Localized.errorTitle,
+                message: error.localizedDescription,
+                onDismiss: {}
+            ) 
             
             isMoviesLoading = false
         }
@@ -208,7 +212,11 @@ private extension MovieListPresenterImpl {
                         
             Task { await self.updateView() }
         } catch let error {
-            debugPrint(error)
+            await view?.showAlert(
+                title: Localized.errorTitle,
+                message: error.localizedDescription,
+                onDismiss: {}
+            ) 
             
             isMoviesLoading = false
         }

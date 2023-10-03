@@ -112,11 +112,9 @@ private extension MovieDetailsPresenterImpl {
             movieDetails = try await movieDetailsTask
             videoList = try await videoListTask
         } catch let error {
-            debugPrint(error)
-            
             await view?.showAlert(
                 title: Localized.errorTitle,
-                message: Localized.defaultError
+                message: error.localizedDescription
             ) {
                 Task {
                     await self.router.popToRoot(animated: true)

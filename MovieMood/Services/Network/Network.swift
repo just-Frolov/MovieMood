@@ -42,7 +42,7 @@ final class ClNetwork: Network {
             
         case .failure(let afError):
             Logger.error("\(url.absoluteString)\n\(afError.localizedDescription)")
-            throw afError
+            throw ClError.unknown(description: url.absoluteString)
         }
     }
 }
@@ -112,14 +112,14 @@ extension ClNetwork {
 }
 
 enum ClError: Error {
-    case unknown
+    case unknown(description: String)
     case invalidUrl
     case invalidParameters
     
     var localizedDescription: String {
         switch self {
-        case .unknown:
-            return Localized.defaultError
+        case .unknown(let description):
+            return "\(Localized.defaultError)\n\(description)"
             
         case .invalidUrl:
             return Localized.urlNotValid

@@ -14,6 +14,7 @@ protocol MovieListView where Self: BaseViewController<MovieListPresenter> {
     func append(items: [MovieListItem])
     func showLoadingIndicator() async
     func hideLoadingIndicator()
+    func showAlert(title: String?, message: String?, onDismiss: @escaping (() -> Void))
 }
 
 final class MovieListViewController: BaseViewController<MovieListPresenter> {
