@@ -1,5 +1,5 @@
 //
-//  MovieListEntity.swift
+//  Movie.swift
 //  MovieMood
 //
 //  Created by Danil Frolov on 30.04.2023.

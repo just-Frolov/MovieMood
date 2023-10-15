@@ -1,5 +1,5 @@
 //
-//  MovieDetailsEntity.swift
+//  MovieDetails.swift
 //  MovieMood
 //
 //  Created by Danil Frolov on 21.08.2023.

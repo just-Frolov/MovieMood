@@ -36,7 +36,7 @@ final class MovieListPresenterImpl {
     // MARK: - Variables -
     private weak var view: MovieListView?
     private var interactor: MovieListInteractor
-    private var router: AppRouter
+    private var router: MovieListRouter
     private var viewStateFactory: MovieListViewStateFactory
     
     private var movieList: [Movie] = []
@@ -57,7 +57,7 @@ final class MovieListPresenterImpl {
     
     // MARK: - Life Cycle -
     init(
-        router: AppRouter,
+        router: MovieListRouter,
         interactor: MovieListInteractor,
         viewStateFactory: MovieListViewStateFactory
     ) {
@@ -112,10 +112,8 @@ private extension MovieListPresenterImpl {
     }
     
     func performSelectAction(for item: MovieListItem) {
-        Task {
-            let movieDetailsConfiguration = MovieDetailsConfiguration(id: item.id, title: item.title)
-            await router.showMovieDetails(with: movieDetailsConfiguration)
-        }
+        let movieDetailsConfiguration = MovieDetailsConfiguration(id: item.id, title: item.title)
+        router.showMovieDetails(with: movieDetailsConfiguration)
     }
     
     func performSearchAction(with query: String?, forceUpdate: Bool) {

@@ -27,7 +27,7 @@ final class MovieDetailsPresenterImpl {
     // MARK: - Variables -
     private weak var view: MovieDetailsView?
     private var interactor: MovieDetailsInteractor
-    private var router: AppRouter
+    private var router: MovieDetailsRouter
     private var viewStateFactory: MovieDetailsViewStateFactory
     
     private var configuration: MovieDetailsConfiguration
@@ -36,7 +36,7 @@ final class MovieDetailsPresenterImpl {
     
     // MARK: - Life Cycle -
     init(
-        router: AppRouter,
+        router: MovieDetailsRouter,
         interactor: MovieDetailsInteractor,
         viewStateFactory: MovieDetailsViewStateFactory,
         configuration: MovieDetailsConfiguration
@@ -75,7 +75,7 @@ private extension MovieDetailsPresenterImpl {
     
     func performPlaybackAction() {
         guard let videoList else { return }
-        Task { await router.showVideoPickerSheet(with: videoList) }
+        router.showVideoPickerSheet(with: videoList)
     }
 }
 
@@ -116,9 +116,7 @@ private extension MovieDetailsPresenterImpl {
                 title: Localized.errorTitle,
                 message: error.localizedDescription
             ) {
-                Task {
-                    await self.router.popToRoot(animated: true)
-                }
+                self.router.finish()
             }
         }
         

@@ -13,18 +13,16 @@ protocol Assembly: AnyObject {
     func createVideoPickerSheetModule(movieVideoList: [MovieVideo]) -> BottomSheetView
 }
 
-final class AssemblyImpl: Assembly {
+final class AssemblyImpl {
     private let network: Network = ClNetwork()
-    private let router: AppRouter
-    
-    init(router: AppRouter) {
-        self.router = router
-    }
-    
+}
+
+extension AssemblyImpl: Assembly {
     func createMovieListModule() -> MovieListView {
         let view: MovieListView = Storyboard.MovieList.movieListViewController.instantiate()
         let viewStateFactory = MovieListViewStateFactory()
         let interactor = MovieListInteractorImpl(network: network)
+        let router: MovieListRouter = MovieListRouterImpl()
         let presenter: MovieListPresenter = MovieListPresenterImpl(
             router: router,
             interactor: interactor,
@@ -37,6 +35,7 @@ final class AssemblyImpl: Assembly {
             loadingView: makeLoadingAnimation()
         )
         presenter.inject(view: view)
+        router.inject(root: view, assembly: self)
 
         return view
     }
@@ -45,6 +44,7 @@ final class AssemblyImpl: Assembly {
         let view: MovieDetailsView = Storyboard.MovieDetails.movieDetailsViewController.instantiate()
         let viewStateFactory = MovieDetailsViewStateFactory()
         let interactor = MovieDetailsInteractorImpl(network: network)
+        let router: MovieDetailsRouter = MovieDetailsRouterImpl()
         let presenter: MovieDetailsPresenter = MovieDetailsPresenterImpl(
             router: router,
             interactor: interactor,
@@ -58,6 +58,7 @@ final class AssemblyImpl: Assembly {
             loadingView: makeLoadingAnimation()
         )
         presenter.inject(view: view)
+        router.inject(root: view, assembly: self)
 
         return view
     }

@@ -28,7 +28,7 @@ final class BottomSheetViewController: UIViewController {
     // MARK: - IBOutlets -
     @IBOutlet private weak var dimmedView: UIView! {
         didSet {
-            dimmedView.alpha = Constant.maxDimmedAlpha
+            dimmedView.alpha = .zero
         }
     }
     @IBOutlet private weak var containerView: UIView! {
@@ -80,14 +80,12 @@ private extension BottomSheetViewController {
     }
     
     func animatePresentDimmedView() {
-        dimmedView.alpha = .zero
         UIView.animate(withDuration: Constant.animateDuration) {
             self.dimmedView.alpha = Constant.maxDimmedAlpha
         }
     }
     
     func animateDismissView() {
-        dimmedView.alpha = Constant.maxDimmedAlpha
         UIView.animate(withDuration: Constant.animateDuration) {
             self.dimmedView.alpha = .zero
         } completion: { _ in

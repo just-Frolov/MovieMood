@@ -30,7 +30,7 @@ private extension SceneDelegate {
         
         let navigationController = UINavigationController()
         let router = AppRouterImpl(navigationController: navigationController)
-        let assembly = AssemblyImpl(router: router)
+        let assembly = AssemblyImpl()
         self.assembly = assembly
 
         router.inject(assembly: assembly)
